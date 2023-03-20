@@ -47,68 +47,255 @@
 - 12 ~ 14 주차: 위의 페이지들 API 개발
 
 ## DB 구조
-> ### Member
-|  PK  | 아이디  | 비밀번호  |  성별  | 생년월일  |  이름  |  번호  | 가입일자 | 수정일자 |
-|:----:|:----:|:-----:|:----:|:-----:|:----:|:----:|:----:|:----:|
-|  -   |  -   |   -   |  -   |   -   |  -   |  -   |  -   |  -   |
+> ### Members
+| seq(PK) | member_id | member_password | gender |  생년월일  | name  | phone_number | creaet_at | modify_at |
+|:-------:|:---------:|:---------------:|:------:|:------:|:-----:|:------------:|:---------:|:---------:|
+|    -    |     -     |        -        |   -    |   -    |   -   |      -       |     -     |     -     |
+```mysql
+CREATE TABLE `movie_reservation_system`.`members` (
+    `seq` BIGINT NOT NULL AUTO_INCREMENT,
+    `memberId` VARCHAR(20) NULL,
+    `memberPassword` VARCHAR(45) NULL,
+    `sex` VARCHAR(1) NULL,
+    `date` DATE NULL,
+    `name` VARCHAR(20) NULL,
+    `phoneNumber` VARCHAR(45) NULL,
+    `createAtDate` DATE NULL,
+    PRIMARY KEY (`seq`),
+    UNIQUE INDEX `memberId_UNIQUE` (`memberId` ASC) VISIBLE)
+  ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8mb4
+  COMMENT = 'moive_reservateion_system.Members';
+```
 <br/>
 
-> ### Movie
-|  PK  |  제목   |  포스터   |
-|:----:|:-----:|:------:|
-|  -   |   -   |   -    |
+> ### Movies
+| seq(PK) | movie_name | poster  |
+|:-------:|:----------:|:-------:|
+|    -    |     -      |    -    |
+```mysql
+CREATE TABLE `movie_reservation_system`.`movies` (
+  `seq` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'Primary key',
+  `movie_name` VARCHAR(100) NULL COMMENT 'Movie\'s name',
+  `poster` VARCHAR(200) NULL COMMENT 'Poster\'s URI',
+  PRIMARY KEY (`seq`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+```
+<br/>
+
+> ### Theaters
+| seq(PK) | name |
+|:-------:|:----:|
+|    -    |  -   |
+```mysql
+CREATE TABLE `movie_reservation_system`.`theaters` (
+  `seq` BIGINT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(10) NULL,
+  PRIMARY KEY (`seq`))
+  DEFAULT CHARACTER SET = utf8mb4;
+```
+<br/>
+
+> ### Schedules
+| seq(PK) | theaters_seq(FK) | movies_seq(FK) |  date  | start_hour  |
+|:-------:|:----------------:|:--------------:|:------:|:-----------:|
+|    -    |        -         |       -        |   -    |      -      |
+```mysql
+CREATE TABLE `movie_reservation_system`.`schedules` (
+  `seq` BIGINT NOT NULL AUTO_INCREMENT,
+  `date` DATE NULL,
+  `startHour` VARCHAR(10) NULL DEFAULT '09:00',
+  `movies_seq` BIGINT NULL,
+  `theaters_seq` BIGINT NULL,
+  PRIMARY KEY (`seq`),
+  CONSTRAINT `movies_seq`
+    FOREIGN KEY (`movies_seq`)
+    REFERENCES `movie_reservation_system`.`movies` (`seq`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION,
+  CONSTRAINT `theaters_seq`
+    FOREIGN KEY (`theaters_seq`)
+    REFERENCES `movie_reservation_system`.`theaters` (`seq`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COMMENT = 'movie_reservation_system.schedules';
+```
+<br/>
+
+> ### Seats
+| seq(PK) | schedules_seq(FK) |  classification  |  number  |
+|:-------:|:-----------------:|:----------------:|:--------:|
+|    -    |         -         |        -         |    -     |
+```mysql
+CREATE TABLE `movie_reservation_system`.`seats` (
+  `seq` BIGINT NOT NULL AUTO_INCREMENT,
+  `schedules_seq` BIGINT NULL,
+  `classification` VARCHAR(1) NULL,
+  `number` VARCHAR(2) NULL,
+  PRIMARY KEY (`seq`),
+  CONSTRAINT `schedules_seq`
+    FOREIGN KEY (`schedules_seq`)
+    REFERENCES `movie_reservation_system`.`schedules` (`seq`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COMMENT = 'movie_reservation_system.seats';
+```
+<br/>
+
+> ### Seat_Reservations
+| seq(PK) | seats_seq(FK) | is_reserved |
+|:-------:|:-------------:|:-----------:|
+|    -    |       -       |      -      |
+```mysql
+CREATE TABLE `movie_reservation_system`.`seat_reservations` (
+  `seq` BIGINT NOT NULL,
+  `seats_seq` BIGINT NULL,
+  `seat_res_status` TINYINT NULL,
+  PRIMARY KEY (`seq`),
+  CONSTRAINT `seats_seq`
+    FOREIGN KEY (`seats_seq`)
+    REFERENCES `movie_reservation_system`.`seats` (`seq`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+COMMENT = 'movie_reservation_system.seat_reservations';
+```
+<br/>
+
+> ### Categories
+| seq(PK) |  name  |
+|:-------:|:------:|
+|    -    |   -    |
+```mysql
+CREATE TABLE `movie_reservation_system`.`categories` (
+  `seq` BIGINT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(20) NULL,
+  PRIMARY KEY (`seq`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+```
 <br/>
 
 > ### Movie_Description
-|  PK   |  Movie.FK  |  Category.FK  |  스토리   |  상영시간   |   감독   |  출연진   |  관람 등급  |
-|:-----:|:----------:|:-------------:|:------:|:-------:|:------:|:------:|:-------:|
-|   -   |     -      |       -       |   -    |    -    |   -    |   -    |    -    |
-<br/>
-
-> ### Theater
-|  PK  | name  |
-|:----:|:-----:|
-|  -   |   -   |
-<br/>
-
-> ### Schedule
-|  PK  | Theater.FK  | Movie.FK  | date  | startHour  |
-|:----:|:-----------:|:---------:|:-----:|:----------:|
-|  -   |      -      |     -     |   -   |     -      |
-<br/>
-
-> ### Seat
-|  PK  | Schedule.FK  | Classification  | Number  |
-|:----:|:------------:|:---------------:|:-------:|
-|  -   |      -       |        -        |    -    |
-<br/>
-
-> ### Seat_Reservation
-|  PK  | Seat.FK  | 예약 여부  |
-|:----:|:--------:|:------:|
-|  -   |    -     |   -    |
+| seq(PK) | movies_seq(FK) | categories_seq(FK) | story | running_time | director |  actor  | age_limit |
+|:-------:|:--------------:|:------------------:|:-----:|:------------:|:--------:|:-------:|:---------:|
+|    -    |       -        |         -          |   -   |      -       |    -     |    -    |     -     |
+```mysql
+CREATE TABLE `movie_reservation_system`.`movie_descriptions` (
+  `seq` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'Primary key',
+  `movies_seq` BIGINT NULL COMMENT 'Foreign Key',
+  `categories_seq` BIGINT NULL COMMENT 'Foreign Key',
+  `story` MEDIUMTEXT NULL COMMENT 'Content',
+  `running_time` INT NULL COMMENT 'Running TIme',
+  `director` VARCHAR(30) NULL COMMENT 'Director',
+  `actor` VARCHAR(45) NULL COMMENT 'Actor list. ex){a, b, c, d}',
+  `age_limit` INT NULL COMMENT '0 12 15 19',
+  PRIMARY KEY (`seq`),
+  INDEX `movies_seq_idx` (`movies_seq` ASC) VISIBLE,
+  INDEX `categories_seq_idx` (`categories_seq` ASC) VISIBLE,
+  CONSTRAINT `md_movies_seq`
+    FOREIGN KEY (`movies_seq`)
+    REFERENCES `movie_reservation_system`.`movies` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `categories_seq`
+    FOREIGN KEY (`categories_seq`)
+    REFERENCES `movie_reservation_system`.`categories` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+```
 <br/>
 
 > ### Comment
-|  PK   | Member.FK | Movie.FK | content  | createAt | modifyAt |
-|:-----:|:---------:|:--------:|:--------:|:--------:|:--------:|
-|   -   |     -     |    -     |    -     |    -     |    -     |
-<br/>
-
-> ### Category
-|  PK   | name  |
-|:-----:|:-----:|
-|   -   |   -   |
-<br/>
-
-> ### Enrollment_Seat
-| PK  | Payment.FK | Seat.FK |
-|:---:|:----------:|:-------:|
-|  -  |     -      |    -    |
+| seq(PK) | members_seq(FK) | movies_seq(FK) |  content  | create_at | modify_at |
+|:-------:|:---------------:|:--------------:|:---------:|:---------:|:---------:|
+|    -    |        -        |       -        |     -     |     -     |     -     |
+```mysql
+CREATE TABLE `movie_reservation_system`.`comments` (
+  `seq` BIGINT NOT NULL AUTO_INCREMENT,
+  `members_seq` BIGINT NULL,
+  `movies_seq` BIGINT NULL,
+  `content` MEDIUMTEXT NULL,
+  `create_at` DATETIME(6) NULL,
+  `modify_at` DATETIME(6) NULL,
+  PRIMARY KEY (`seq`),
+  INDEX `members_seq_idx` (`members_seq` ASC) VISIBLE,
+  INDEX `movies_seq_idx` (`movies_seq` ASC) VISIBLE,
+  CONSTRAINT `members_seq`
+    FOREIGN KEY (`members_seq`)
+    REFERENCES `movie_reservation_system`.`members` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `comment_movies_seq`
+    FOREIGN KEY (`movies_seq`)
+    REFERENCES `movie_reservation_system`.`movies` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+```
 <br/>
 
 > ### Payment
-| 주문 번호(PK)  | Movie.FK | Member.FK | 카드 번호 |    어린이     |  청소년  |  성인   | 결제 금액 | 결제 시각 |
-|:----------:|:--------:|:---------:|:-----:|:----------:|:-----:|:-----:|:-----:|:-----:|
-|     -      |    -     |     -     |   -   |     -      |   -   |   -   |   -   |   -   |
+| seq(PK) | movies_seq(FK) | members_seq(FK) | card_number | count_child | count_teenager | count_adult | pay_amount | payment_at |
+|:-------:|:--------------:|:---------------:|:-----------:|:-----------:|:--------------:|:-----------:|:----------:|:----------:|
+|    -    |       -        |        -        |      -      |      -      |       -        |      -      |     -      |     -      |
+```mysql
+CREATE TABLE `movie_reservation_system`.`payments` (
+  `seq` BIGINT NOT NULL AUTO_INCREMENT,
+  `movies_seq` BIGINT NULL,
+  `members_seq` BIGINT NULL,
+  `card_number` VARCHAR(45) NULL,
+  `count_child` INT NULL,
+  `count_teenager` INT NULL,
+  `count_adult` INT NULL,
+  `amount` INT NULL,
+  `payment_at` DATETIME NULL,
+  PRIMARY KEY (`seq`),
+  INDEX `movies_seq_idx` (`movies_seq` ASC) VISIBLE,
+  INDEX `members_seq_idx` (`members_seq` ASC) VISIBLE,
+  CONSTRAINT `pay_movies_seq`
+    FOREIGN KEY (`movies_seq`)
+    REFERENCES `movie_reservation_system`.`movies` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `pay_members_seq`
+    FOREIGN KEY (`members_seq`)
+    REFERENCES `movie_reservation_system`.`members` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+```
+<br/>
+
+> ### Enrollment_Seat
+| seq(PK) | payments_seq(FK) | seats_seq(FK) |
+|:-------:|:----------------:|:-------------:|
+|    -    |        -         |       -       |
+```mysql
+CREATE TABLE `movie_reservation_system`.`enrollment_seats` (
+  `seq` BIGINT NOT NULL AUTO_INCREMENT,
+  `payments_seq` BIGINT NULL,
+  `seats_seq` BIGINT NULL,
+  PRIMARY KEY (`seq`),
+  INDEX `enrollment_payments_seq_idx` (`payments_seq` ASC) VISIBLE,
+  INDEX `enrollment_seats_seq_idx` (`seats_seq` ASC) VISIBLE,
+  CONSTRAINT `enrollment_payments_seq`
+    FOREIGN KEY (`payments_seq`)
+    REFERENCES `movie_reservation_system`.`payments` (`seq`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION,
+  CONSTRAINT `enrollment_seats_seq`
+    FOREIGN KEY (`seats_seq`)
+    REFERENCES `movie_reservation_system`.`seats` (`seq`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION);
+```
 <br/>
