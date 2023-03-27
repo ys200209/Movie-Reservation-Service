@@ -85,7 +85,7 @@ INSERT INTO payments values(1,3,6,"1234123412341234",1,0,0,6000,NOW());
 INSERT INTO seat_reservations VALUES(1, 3, 1);
 
 -- Enrollment_Seats
-INSERT INTO enrollment_seats VALUES(1, 3);
+INSERT INTO enrollment_seats(payments_seq, seats_seq) VALUES(1, 3);
 
 -- Movie_Descriptions
 INSERT INTO movie_descriptions
