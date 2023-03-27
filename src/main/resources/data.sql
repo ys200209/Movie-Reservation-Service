@@ -33,6 +33,60 @@ INSERT INTO movies(movie_name, poster) VALUES ("어스", "src/main/resources/ima
 INSERT INTO movies(movie_name, poster) VALUES ("메이저 러너", "src/main/resources/image/the_maze_runner.png");
 INSERT INTO movies(movie_name, poster) VALUES ("유주얼 서스펙트", "src/main/resources/image/usual_suspects.png");
 
+-- Theaters
+INSERT INTO theaters VALUES(1, "1관");
+INSERT INTO theaters VALUES(2, "2관");
+INSERT INTO theaters VALUES(3, "3관");
+
+-- Schedules
+INSERT INTO schedules VALUES(1, "2023/03/15", "09:00",1,1);
+INSERT INTO schedules VALUES(2, "2023/03/15", "12:00",3,1);
+INSERT INTO schedules VALUES(3, "2023/03/15", "15:00",7,1);
+INSERT INTO schedules VALUES(4, "2023/03/15", "18:00",9,1);
+INSERT INTO schedules VALUES(5, "2023/03/15", "21:00",10,1);
+
+-- Seats
+INSERT INTO seats(schedules_seq, classification, number) VALUES(1, "A", 1);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(1, "A", 2);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(1, "A", 3);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(1, "A", 4);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(1, "B", 1);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(1, "B", 2);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(1, "B", 3);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(1, "B", 4);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(1, "C", 1);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(1, "C", 2);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(1, "C", 3);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(1, "C", 4);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(2, "A", 1);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(2, "A", 2);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(2, "A", 3);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(2, "A", 4);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(2, "B", 1);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(2, "B", 2);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(2, "B", 3);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(2, "B", 4);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(2, "C", 1);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(2, "C", 2);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(2, "C", 3);
+INSERT INTO seats(schedules_seq, classification, number) VALUES(2, "C", 4);
+
+-- Comment
+INSERT INTO comments VALUES(1, 1, 1, "정말 재밌어요. 강추합니다!", NOW(), NOW());
+INSERT INTO comments VALUES(2, 2, 1, "정말 강추해요. 재밌습니다!", NOW(), NOW());
+INSERT INTO comments VALUES(3, 3, 1, "강추 정말입니다. 재밌어요!", NOW(), NOW());
+INSERT INTO comments VALUES(4, 4, 2, "재미 강추입니다. 정말로요!", NOW(), NOW());
+INSERT INTO comments VALUES(5, 5, 3, "재미 정말입니다. 강추에요!", NOW(), NOW());
+
+-- Payments
+INSERT INTO payments values(1,3,6,"1234123412341234",1,0,0,6000,NOW());
+
+-- Seat_reservations
+INSERT INTO seat_reservations VALUES(1, 3, 1);
+
+-- Enrollment_Seats
+INSERT INTO enrollment_seats VALUES(1, 3);
+
 -- Movie_Descriptions
 INSERT INTO movie_descriptions
 (movies_seq, categories_seq, story, running_time, director, actor, age_limit)
