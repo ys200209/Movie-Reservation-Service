@@ -20,18 +20,18 @@ INSERT INTO categories(name) VALUES ("코미디");
 INSERT INTO categories(name) VALUES ("범죄");
 
 -- Movies
-INSERT INTO movies(movie_name, poster) VALUES ("내부자들", "src/main/resources/images/insiders.png");
-INSERT INTO movies(movie_name, poster) VALUES ("육사오", "src/main/resources/images/sixfourifve.png");
-INSERT INTO movies(movie_name, poster) VALUES ("범죄도시2", "src/main/resources/images/crimecity2.png");
-INSERT INTO movies(movie_name, poster) VALUES ("극한직업", "src/main/resources/images/extreamjob.png");
-INSERT INTO movies(movie_name, poster) VALUES ("존윅4", "src/main/resources/images/JohnWick4.png");
-INSERT INTO movies(movie_name, poster) VALUES ("분노의 질주 홉스&쇼", "src/main/resources/images/분노의질주.png");
-INSERT INTO movies(movie_name, poster) VALUES ("겨울왕국", "src/main/resources/images/겨울왕국.png");
-INSERT INTO movies(movie_name, poster) VALUES ("코코", "src/main/resources/images/코코.png");
-INSERT INTO movies(movie_name, poster) VALUES ("컨저링", "src/main/resources/images/the_conjuring.png");
-INSERT INTO movies(movie_name, poster) VALUES ("어스", "src/main/resources/images/us.png");
-INSERT INTO movies(movie_name, poster) VALUES ("메이저 러너", "src/main/resources/images/the_maze_runner.png");
-INSERT INTO movies(movie_name, poster) VALUES ("유주얼 서스펙트", "src/main/resources/images/usual_suspects.png");
+INSERT INTO movies(movie_name, poster) VALUES ("내부자들", "/resources/image/insiders.png");
+INSERT INTO movies(movie_name, poster) VALUES ("육사오", "/resources/image/sixfourifve.png");
+INSERT INTO movies(movie_name, poster) VALUES ("범죄도시2", "/resources/image/crimecity2.png");
+INSERT INTO movies(movie_name, poster) VALUES ("극한직업", "/resources/image/extreamjob.png");
+INSERT INTO movies(movie_name, poster) VALUES ("존윅4", "src/main/resources/image/JohnWick4.png");
+INSERT INTO movies(movie_name, poster) VALUES ("분노의 질주 홉스&쇼", "src/main/resources/image/분노의질주.png");
+INSERT INTO movies(movie_name, poster) VALUES ("겨울왕국", "src/main/resources/image/겨울왕국.png");
+INSERT INTO movies(movie_name, poster) VALUES ("코코", "src/main/resources/image/코코.png");
+INSERT INTO movies(movie_name, poster) VALUES ("컨저링", "src/main/resources/image/the_conjuring.png");
+INSERT INTO movies(movie_name, poster) VALUES ("어스", "src/main/resources/image/us.png");
+INSERT INTO movies(movie_name, poster) VALUES ("메이저 러너", "src/main/resources/image/the_maze_runner.png");
+INSERT INTO movies(movie_name, poster) VALUES ("유주얼 서스펙트", "src/main/resources/image/usual_suspects.png");
 
 -- Theaters
 INSERT INTO theaters VALUES(1, "1관");
