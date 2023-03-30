@@ -15,17 +15,15 @@
 </head>
 
 <body class="text-center">
-  <form class="form-signin" th:action="@{/account/login}" method="post">
+  <form class="form-signin" th:action="@{/member/login}" method="post">
     <a th:href="@{/}"><img class="mb-4" src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"
                            height="72"></a>
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="username" class="sr-only">Email address</label>
-    <input type="text" id="username" name="username"class="form-control" placeholder="Username" required autofocus>
+    <label for="id" class="sr-only">ID</label>
+    <input type="text" id="id" name="member_id"class="form-control" placeholder="Username" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-    <div th:if="${param.error}" class="alert alert-danger" role="alert">
-      Invalid username and password.
-    </div>
+    <input type="password" id="inputPassword" name="member_password" class="form-control" placeholder="Password" required>
+    <p>Invalid username and password.</p>
     <div th:if="${param.logout}" class="alert alert-primary" role="alert">
       You have been logged out.
     </div>
