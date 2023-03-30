@@ -1,6 +1,6 @@
 package com.moviereservation.config;
 
-/*import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -8,23 +8,23 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;*/
+import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
 
-//일단 폐기
 
-//@Configuration
+@Configuration
+@EnableWebSecurity
 public class WebSecurityConfig {
 
-    /*@Autowired
+    @Autowired
     private DataSource dataSource;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers( "/member/login").authenticated()
+                        .requestMatchers( "/member/check").authenticated()
                         .anyRequest().permitAll()
                 )
                 .formLogin((form) -> form
@@ -41,20 +41,20 @@ public class WebSecurityConfig {
             throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                .passwordEncoder(passwordEncoder())
-                .usersByUsernameQuery("select username,password,enabled "
-                        + "from user "
-                        + "where username = ?")
-                .authoritiesByUsernameQuery("select u.username, r.name "
-                        + "from user_role ur inner join user u on ur.user_id = u.id "
-                        + "inner join role r on ur.role_id = r.id "
-                        + "where u.username = ?");
+                //.passwordEncoder(passwordEncoder())
+                .usersByUsernameQuery("select member_id, member_password, role_name "
+                        + "from members "
+                        + "where member_id = ?")
+                .authoritiesByUsernameQuery("select member_id, role_name "
+                        + "from members "
+                        + " "
+                        + "where member_id = ?");
     }
 
     @Bean
     public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }*/
+    }
 
 }
 

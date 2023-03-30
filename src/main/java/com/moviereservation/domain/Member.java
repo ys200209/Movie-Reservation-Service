@@ -18,4 +18,5 @@ public class Member {
     private String phone_number;
     private LocalDateTime create_at;
     private LocalDateTime modify_at;
+    private String role_name;
 }

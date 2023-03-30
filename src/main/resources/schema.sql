@@ -20,6 +20,7 @@ CREATE TABLE `movie_reservation_system`.`members` (
     `phone_number` VARCHAR(45) NULL,
     `create_at` DATETIME NULL,
     `modify_at` DATETIME NULL,
+    `role_name` VARCHAR(20) NULL,
     PRIMARY KEY (`seq`),
     UNIQUE INDEX `member_id_UNIQUE` (`member_id` ASC) VISIBLE)
 ENGINE = InnoDB

@@ -22,13 +22,4 @@ public class MemberController {
 
     }
 
-    @PostMapping("/login")
-    public String login(Login login, Model model){
-        if(memberService.checkLogin(login)){
-            model.addAttribute("check", login);
-        }else{
-
-        }
-        return "/member/check";
-    }
 }
