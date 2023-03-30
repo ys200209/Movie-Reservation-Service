@@ -1,15 +1,15 @@
 -- Members
-INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at) VALUES ("lee     ID", "leePa     ssword", "남자", "1998-01-01", "조나단", "010-1212-3434", NOW(), NOW());
-INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at) VALUES ("leeID", "leePassword", "남자", "1998-01-01", "조나단", "010-1212-3434", NOW(), NOW());
-INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at) VALUES ("patID", "patPassword", "여자", "2000-01-01", "파트리샤", "010-5656-7878", NOW(), NOW());
-INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at) VALUES ("kimID", "kimPassword", "남자", "2002-01-01", "김찬영", "010-1357-2468", NOW(), NOW());
-INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at) VALUES ("qwrfeq", "qwrfeq", "남자", "1910-10-01", "이신", "010-1010-1010", NOW(), NOW());
-INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at) VALUES ("reqw", "reqw", "남자", "1910-10-02", "마법사", "010-1012-1012", NOW(), NOW());
-INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at) VALUES ("qoddl2", "qoddl2", "여자", "1910-10-03", "김뱅", "010-1013-1013", NOW(), NOW());
-INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at) VALUES ("Qkddl3", "Qkddl3", "여자", "1950-10-01", "박빵", "010-1015-1015", NOW(), NOW());
-INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at) VALUES ("seojun04", "jun0985", "남자", "2004-06-09", "김서준", "010-5268-9853", NOW(), NOW());
-INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at) VALUES ("jiwoo98", "qwerty98", "여자", "1998-05-05", "박지우", "010-5789-5236", NOW(), NOW());
-INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at) VALUES ("ddoddo11", "zxcv89", "남자", "2001-04-28", "최도윤", "010-4562-7536", NOW(), NOW());
+INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name) VALUES ("lee     ID", "leePa     ssword", "남자", "1998-01-01", "조나단", "010-1212-3434", NOW(), NOW(), "ROLE_USER");
+INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name) VALUES ("leeID", "leePassword", "남자", "1998-01-01", "조나단", "010-1212-3434", NOW(), NOW(), "ROLE_USER");
+INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name) VALUES ("patID", "patPassword", "여자", "2000-01-01", "파트리샤", "010-5656-7878", NOW(), NOW(), "ROLE_USER");
+INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name) VALUES ("kimID", "kimPassword", "남자", "2002-01-01", "김찬영", "010-1357-2468", NOW(), NOW(), "ROLE_USER");
+INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name) VALUES ("qwrfeq", "qwrfeq", "남자", "1910-10-01", "이신", "010-1010-1010", NOW(), NOW(), "ROLE_USER");
+INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name) VALUES ("reqw", "reqw", "남자", "1910-10-02", "마법사", "010-1012-1012", NOW(), NOW(), "ROLE_USER");
+INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name) VALUES ("qoddl2", "qoddl2", "여자", "1910-10-03", "김뱅", "010-1013-1013", NOW(), NOW(), "ROLE_USER");
+INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name) VALUES ("Qkddl3", "Qkddl3", "여자", "1950-10-01", "박빵", "010-1015-1015", NOW(), NOW(), "ROLE_USER");
+INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name) VALUES ("seojun04", "jun0985", "남자", "2004-06-09", "김서준", "010-5268-9853", NOW(), NOW(), "ROLE_USER");
+INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name) VALUES ("jiwoo98", "qwerty98", "여자", "1998-05-05", "박지우", "010-5789-5236", NOW(), NOW(), "ROLE_USER");
+INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name) VALUES ("ddoddo11", "zxcv89", "남자", "2001-04-28", "최도윤", "010-4562-7536", NOW(), NOW(), "ROLE_USER");
 
 -- Categories
 INSERT INTO categories(name) VALUES ("액션");
