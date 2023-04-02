@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS movies;
 CREATE TABLE `movie_reservation_system`.`members` (
     `seq` BIGINT NOT NULL AUTO_INCREMENT,
     `member_id` VARCHAR(20) NULL,
-    `member_password` VARCHAR(45) NULL,
+    `member_password` VARCHAR(100) NULL,
     `gender` VARCHAR(5) NULL,
     `birth` DATE NULL,
     `name` VARCHAR(20) NULL,
@@ -21,6 +21,7 @@ CREATE TABLE `movie_reservation_system`.`members` (
     `create_at` DATETIME NULL,
     `modify_at` DATETIME NULL,
     `role_name` VARCHAR(20) NULL,
+    `enable` BOOLEAN NULL,
     PRIMARY KEY (`seq`),
     UNIQUE INDEX `member_id_UNIQUE` (`member_id` ASC) VISIBLE)
 ENGINE = InnoDB
