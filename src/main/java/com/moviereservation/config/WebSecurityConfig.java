@@ -28,6 +28,8 @@ public class WebSecurityConfig {
                         .anyRequest().permitAll()
                 )
                 .formLogin((form) -> form
+                        .usernameParameter("member_id")
+                        .passwordParameter("member_password")
                         .loginPage("/member/login")
                         .permitAll()
                 )
@@ -41,13 +43,12 @@ public class WebSecurityConfig {
             throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                //.passwordEncoder(passwordEncoder())
-                .usersByUsernameQuery("select member_id, member_password, role_name "
+                .passwordEncoder(passwordEncoder())
+                .usersByUsernameQuery("select member_id, member_password, enable "
                         + "from members "
                         + "where member_id = ?")
                 .authoritiesByUsernameQuery("select member_id, role_name "
                         + "from members "
-                        + " "
                         + "where member_id = ?");
     }
 

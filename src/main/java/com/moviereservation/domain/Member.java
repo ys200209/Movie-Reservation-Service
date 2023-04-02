@@ -19,4 +19,5 @@ public class Member {
     private LocalDateTime create_at;
     private LocalDateTime modify_at;
     private String role_name;
+    private boolean enable;
 }

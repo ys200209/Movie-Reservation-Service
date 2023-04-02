@@ -22,4 +22,9 @@ public class MemberController {
 
     }
 
+    @GetMapping("/check")
+    public String check(){
+        return "/member/check";
+    }
+
 }
