@@ -1,6 +1,7 @@
 package com.moviereservation.controller;
 
 import com.moviereservation.domain.Login;
+import com.moviereservation.domain.Member;
 import com.moviereservation.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,17 @@ public class MemberController {
     @GetMapping("/check")
     public String check(){
         return "/member/check";
+    }
+
+    @GetMapping("/regist")
+    public String regist(){
+        return "/member/regist";
+    }
+
+    @PostMapping("/regist")
+    public String regist(Member member){
+        memberService.regist(member);
+        return "redirect:/member/check";
     }
 
 }

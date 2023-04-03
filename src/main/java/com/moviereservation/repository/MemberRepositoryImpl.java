@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 @Repository
 public class MemberRepositoryImpl implements MemberRepository{
@@ -31,5 +32,22 @@ public class MemberRepositoryImpl implements MemberRepository{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void regist(Member member){
+        String sql = "INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name, enable) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        jdbcTemplate.update(sql,
+                member.getMember_id(),
+                member.getMember_password(),
+                member.getGender(),
+                member.getBirth(),
+                member.getName(),
+                member.getPhone_number(),
+                member.getCreate_at(),
+                member.getModify_at(),
+                member.getRole_name(),
+                member.isEnable()
+                );
     }
 }
