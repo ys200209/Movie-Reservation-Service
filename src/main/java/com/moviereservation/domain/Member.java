@@ -20,4 +20,13 @@ public class Member {
     private LocalDateTime modify_at;
     private String role_name;
     private boolean enable;
+
+    public Member(String member_id, String member_password, String gender, LocalDate birth, String name, String phone_number) {
+        this.member_id = member_id;
+        this.member_password = member_password;
+        this.gender = gender;
+        this.birth = birth;
+        this.name = name;
+        this.phone_number = phone_number;
+    }
 }

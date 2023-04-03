@@ -10,7 +10,5 @@ public class MemberServiceImpl implements MemberService{
     @Autowired
     MemberRepository memberRepository;
 
-    public boolean checkLogin(Login login){
-        return memberRepository.checkLogin(login);
-    }
+
 }
