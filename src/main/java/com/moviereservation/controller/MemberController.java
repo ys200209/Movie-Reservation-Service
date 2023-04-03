@@ -18,8 +18,8 @@ public class MemberController {
     MemberService memberService;
 
     @GetMapping("/login")
-    public void login(){
-
+    public String login(){
+        return "/member/login";
     }
 
     @GetMapping("/check")
