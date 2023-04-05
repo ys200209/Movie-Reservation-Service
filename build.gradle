@@ -81,4 +81,7 @@ dependencies {
     // Spring Rest Docs
     asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor'
     testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
+    // Gson Dependency
+    implementation 'com.google.code.gson:gson:2.8.9'
 }
