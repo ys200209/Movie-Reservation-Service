@@ -1,0 +1,130 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Checkout example · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Favicons -->
+    <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container">
+    <div class="py-4 text-center bg-white">
+        <h2>회원가입</h2>
+        <p class="lead">회원가입을 위한 정보를 입력해주세요.</p>
+    </div>
+    <div class="col-md-12 order-md-1 row">
+        <h4 class="col-md-12 mb-3 text-center bg-info">회원가입 정보</h4>
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 bg-white">
+            <form class="needs-validation" novalidate="">
+
+                <div class="col-md-6 mb-3">
+                    <label for="member_id">ID</label>
+                    <input type="text" class="form-control" id="member_id" name="member_id" placeholder="ID" required="">
+                    <div class="invalid-feedback" style="width: 100%;">
+                        아이디를 입력해주세요.
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 mb-3">
+                    <label for="member_password">비밀번호</label>
+                    <input type="password" class="form-control" id="member_password" name="member_password" placeholder="Password" required="">
+                    <div class="invalid-feedback" style="width: 100%;">
+                        비밀번호를 입력해주세요.
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="confirm_password">비밀번호 확인</label>
+                    <input type="password" class="form-control" id="confirm_password" name="comfirm_password" placeholder="Confirm" required="">
+                    <div class="invalid-feedback" style="width: 100%;">
+                        비밀번호와 일치하지 않습니다.
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <p><span>성별</span></p>
+                    <label for="male">남자</label>
+                    <input type="radio" id="male" name="gender" value="남" required="">
+                    <label for="female">여자</label>
+                    <input type="radio" id="female" name="gender" value="여" required="">
+                    <div class="invalid-feedback" style="width: 100%;">
+                        성별을 선택해주세요.
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="birth">생년월일</label>
+                    <input type="text" class="form-control" id="birth" name="birth" placeholder="1998-01-01" required="">
+                    <div class="invalid-feedback" style="width: 100%;">
+                        생일을 입력해주세요.
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 mb-3">
+                    <label for="name">이름</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="name" required="">
+                    <div class="invalid-feedback">
+                        이름을 입력해주세요.
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 mb-3">
+                    <label for="phone_number">전화번호</label>
+                    <input type="text" class="form-control" id="member_id" name="member_id" placeholder="ID" required="">
+                    <div class="invalid-feedback" style="width: 100%;">
+                        전화번호를 입력해주세요.
+                    </div>
+                </div>
+
+                <hr class="mb-4">
+                <div class="text-center row">
+                    <button class="col-md-4 btn btn-primary btn-lg btn-block" type="submit">가입하기</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+</div>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">© 2017-2020 Company Name</p>
+</footer>
+</body>
+</html>
