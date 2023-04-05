@@ -9,7 +9,7 @@
 <nav class="navbar navbar-expand nav-dark bg-dark">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="./detail_page.html">Main</a>
+            <a class="navbar-brand" href="./main.html">Main</a>
         </div>
     </div>lc
 </nav>
@@ -27,6 +27,7 @@
             </div>
             <div class="col-md-8">
 
+
                 <p></p>
                 <br>
                 <p><b>영화 제목 : </b><span class="badge badge-info" th:text="${movieDescription.movie.name}">영화제목</span>
@@ -38,6 +39,7 @@
                 <p><b>줄거리</b> : <span th:text="${movieDescription.movieDescription.story}">줄거리</span>
                     <br>
             </div>
+
         </div>
     <div class="col-md-12">
         <div class="input-group mb-3">
@@ -56,11 +58,12 @@
             </thead>
             <tbody id="tbody">
 
-            <tr th:each="comment : ${comments}">
-                <td th:text="${comment.seq}">{{seq}}</td>
-                <td th:text="${comment.name}">{{name}}</td>
-                <td th:text="${comment.content}">{{content}}</td>
-                <td th:text="${comment.createAt}">{{createAt}}</td>
+
+            <tr th:each="comment, commentStat : ${comments}">
+                <td th:text="${comment.seq}">{{id}}</td>
+                <td th:text="${comment.name}"><a href="/"/>{{title}}</td>
+                <td th:text="${comment.content}">{{author}}</td>
+                <td th:text="${comment.createAt}">{{modifiedDate}}</td>
             </tr>
             </tbody>
         </table>
@@ -70,6 +73,7 @@
             <p>&copy; MovieDetail </p>
         </footer>
     </div>
+
 </div>
 </body>
 </html>
