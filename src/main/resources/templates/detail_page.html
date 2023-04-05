@@ -11,7 +11,7 @@
 <nav class="navbar navbar-expand nav-dark bg-dark">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="./detail_page.html">Main</a>
+            <a class="navbar-brand" href="./main.html">Main</a>
         </div>
     </div>lc
 </nav>
@@ -30,20 +30,19 @@
 
             <p></p>
             <br>
-            <p><b>영화 제목 : </b><span class="badge badge-info" th:text="${movies.name}">영화제목</span>
+            <!--<p><b>영화 제목 : </b><span class="badge badge-info" th:text="${movies.name}">영화제목</span>
             <p><b>장르</b> : <span th:text="${categories.name}">장르</span>
             <p><b>감독</b> : <span th:text="${movieDescription.director}">감독</span>
             <p><b>러닝타임</b> : <span th:text="${movieDescription.runningTime}">러닝타임</span>
             <p><b>관람등급</b> : <span th:text="${movieDescription.ageLimit}">관람등급</span>
             <p><b>출연진</b> : <span th:text="${movieDescription.actor}">출연진</span>
-            <p><b>줄거리</b> : <span th:text="${movieDescription.story}">줄거리</span>
+            <p><b>줄거리</b> : <span th:text="${movieDescription.story}">줄거리</span>-->
             <br>
-                <!--            <a href="#" class="btn btn-primary">공백 &raquo;</a>-->
+                <!--<a href="#" class="btn btn-primary">공백 &raquo;</a>-->
                 <!--<a href="<c:url value="/books"/>" class="btn btn-secondary">공백공백 &raquo;</a>-->
         </div>
     </div>
     <div class="col-md-12">
-        <!--        insert comment        -->
         <div class="input-group mb-3">
             <!--<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">-->
             <input type="text" th:name="content" class="form-control border-dark" id="reply1" name="reply1" placeholder="관람평을 작성해주세요.">
