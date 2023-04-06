@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/member")
 public class MemberController {
 
-    MemberService memberService;
+    private final MemberService memberService;
 
     public MemberController(MemberService memberService){
         this.memberService = memberService;
