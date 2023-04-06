@@ -30,7 +30,7 @@ INSERT INTO movies(movie_name, poster) VALUES ("겨울왕국", "/images/겨울�
 INSERT INTO movies(movie_name, poster) VALUES ("코코", "/images/코코.png");
 INSERT INTO movies(movie_name, poster) VALUES ("컨저링", "/images/the_conjuring.png");
 INSERT INTO movies(movie_name, poster) VALUES ("어스", "/images/us.png");
-INSERT INTO movies(movie_name, poster) VALUES ("메이저 러너", "/images/the_maze_runner.png");
+INSERT INTO movies(movie_name, poster) VALUES ("메이즈 러너", "/images/the_maze_runner.png");
 INSERT INTO movies(movie_name, poster) VALUES ("유주얼 서스펙트", "/images/usual_suspects.png");
 
 -- Theaters
