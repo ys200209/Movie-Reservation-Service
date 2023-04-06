@@ -21,7 +21,7 @@ INSERT INTO categories(name) VALUES ("범죄");
 
 -- Movies
 INSERT INTO movies(movie_name, poster) VALUES ("내부자들", "/images/insiders.png");
-INSERT INTO movies(movie_name, poster) VALUES ("육사오", "/images/sixfourifve.png");
+INSERT INTO movies(movie_name, poster) VALUES ("육사오", "/images/sixfourfive.png");
 INSERT INTO movies(movie_name, poster) VALUES ("범죄도시2", "/images/crimecity2.png");
 INSERT INTO movies(movie_name, poster) VALUES ("극한직업", "/images/extreamjob.png");
 INSERT INTO movies(movie_name, poster) VALUES ("존윅4", "/images/JohnWick4.png");
