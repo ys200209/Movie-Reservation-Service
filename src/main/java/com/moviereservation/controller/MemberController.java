@@ -17,8 +17,6 @@ public class MemberController {
 
     private final MemberService memberService;
 
-
-
     @GetMapping("/login")
     public String login(){
         return "member/login";
@@ -34,5 +32,4 @@ public class MemberController {
         model.addAttribute("password", password);
         return "/member/check";
     }
-
 }

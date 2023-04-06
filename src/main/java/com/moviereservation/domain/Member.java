@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 @AllArgsConstructor
 public class Member {
-    @Id
     private final Long seq;
     private final String member_id;
     private final String member_password;
