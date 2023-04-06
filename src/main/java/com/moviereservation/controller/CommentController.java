@@ -14,10 +14,14 @@ public class CommentController {
     @Autowired
     CommentService commentService;
 
+    @Autowired
+    MovieService movieService;
+
 
     @GetMapping("/detail/{seq}")
     public String detailPage(@PathVariable Long seq, Model model){
         model.addAttribute("comments", commentService.getCommentByMoviesSeq(seq));
+        model.addAttribute("movieDescription", movieService.findById(seq));
         return "detail_page";
     }
 

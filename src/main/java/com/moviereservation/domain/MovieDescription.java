@@ -1,29 +1,19 @@
 package com.moviereservation.domain;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-@Data
-@NoArgsConstructor
+@Getter
+@RequiredArgsConstructor
 public class MovieDescription {
-    @Id
-    private Long seq;
-    private Long moviesSeq;
-    private Long categorySeq;
-    private String story;
-    private int runningTime;
-    private String director;
-    private String actor;
-    private int ageLimit;
+    private final Long moviesSeq;
+    private final Long categorySeq;
+    private final String story;
+    private final int runningTime;
+    private final String director;
+    private final String actor;
+    private final int ageLimit;
 
-    public MovieDescription(Long movies_seq, Long category_seq, String story, int running_time, String director, String actor, int age_limit) {
-        this.moviesSeq = movies_seq;
-        this.categorySeq = category_seq;
-        this.story = story;
-        this.runningTime = running_time;
-        this.director = director;
-        this.actor = actor;
-        this.ageLimit = age_limit;
-    }
+
+
 }
