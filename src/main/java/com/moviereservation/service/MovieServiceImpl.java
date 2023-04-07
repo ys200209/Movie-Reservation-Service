@@ -11,7 +11,7 @@ public class MovieServiceImpl implements MovieService{
     MovieRepository movieRepository;
 
     @Override
-    public JoinedMovieDescription findById(Long id) {
-        return movieRepository.description(id);
+    public JoinedMovieDescription findById(Long seq) {
+        return movieRepository.description(seq);
     }
 }
