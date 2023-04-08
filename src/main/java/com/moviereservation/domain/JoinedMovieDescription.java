@@ -1,12 +1,12 @@
 package com.moviereservation.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-@Data
-@AllArgsConstructor
+@Getter
+@RequiredArgsConstructor
 public class JoinedMovieDescription {
-    private MovieDescription movieDescription;
-    private Movie movie;
-    private Category category;
+    private final MovieDescription movieDescription;
+    private final Movie movie;
+    private final Category category;
 }

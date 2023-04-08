@@ -1,14 +1,13 @@
 package com.moviereservation.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import org.springframework.data.annotation.Id;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-@Data
-@AllArgsConstructor
+@Getter
+@RequiredArgsConstructor
 public class Movie {
-    @Id
-    private Long seq;
-    private String name;
-    private String poster;
+
+    private final Long seq;
+    private final String name;
+    private final String poster;
 }
