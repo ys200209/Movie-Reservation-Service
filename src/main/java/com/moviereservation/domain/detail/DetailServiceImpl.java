@@ -19,16 +19,17 @@ public class DetailServiceImpl implements DetailService {
     public DetailDto findByMovieId(Long seq) {
         MovieDescription movieDescription = movieDescriptionRepository.findByMovieId(seq);
         List<CommentMember> comments = commentMemberRepository.findByMovieId(seq);
+        Detail detail = new Detail(movieDescription, comments);
         DetailDto detailDto = new DetailDto(
-                movieDescription.getMovieName(),
-                movieDescription.getPoster(),
-                movieDescription.getCategoryName(),
-                movieDescription.getStory(),
-                movieDescription.getRunningTime(),
-                movieDescription.getDirector(),
-                movieDescription.getActor(),
-                movieDescription.getAgeLimit(),
-                comments
+                detail.getMovieDescription().getMovieName(),
+                detail.getMovieDescription().getPoster(),
+                detail.getMovieDescription().getCategoryName(),
+                detail.getMovieDescription().getStory(),
+                detail.getMovieDescription().getRunningTime(),
+                detail.getMovieDescription().getDirector(),
+                detail.getMovieDescription().getActor(),
+                detail.getMovieDescription().getAgeLimit(),
+                detail.getComments()
         );
         return detailDto;
     }
