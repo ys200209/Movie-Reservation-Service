@@ -9,7 +9,7 @@ import java.util.Date;
 @RequiredArgsConstructor
 public class CommentMember {
     private final Long commentSeq;
-    private final String movieName;
+    private final String memberName;
     private final Long moviesSeq;
     private final String content;
     private final Date createAt;

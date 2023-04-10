@@ -15,12 +15,12 @@ public class JdbcCommentMemberRepository implements CommentMemberRepository{
 
     private final JdbcTemplate jdbcTemplate;
 
-    private final String sql = "select c.seq, m.name, c.movies_seq, c.content, c.create_at, c.modify_at from comments c inner join members m on c.members_seq = m.seq " +
+    private final String SELECT_COMMENT_BY_MOVIE_ID_SQL = "select c.seq, m.name, c.movies_seq, c.content, c.create_at, c.modify_at from comments c inner join members m on c.members_seq = m.seq " +
             "where c.movies_seq = ?";
 
     @Override
-    public List<CommentMember> findByMovieId(Long seq) {
-        List<CommentMember> comments = jdbcTemplate.query(sql, new RowMapper<CommentMember>() {
+    public List<CommentMember> findByMovieId(Long id) {
+        List<CommentMember> comments = jdbcTemplate.query(SELECT_COMMENT_BY_MOVIE_ID_SQL, new RowMapper<CommentMember>() {
             @Override
             public CommentMember mapRow(ResultSet rs, int rowNum) throws SQLException {
                 CommentMember commentMember = new CommentMember(
@@ -33,7 +33,7 @@ public class JdbcCommentMemberRepository implements CommentMemberRepository{
                 );
                 return commentMember;
             }
-        }, seq);
+        }, id);
         return comments;
     }
 }

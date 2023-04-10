@@ -1,6 +1,7 @@
 package com.moviereservation.domain.detail;
 
 import com.moviereservation.domain.detail.comment.CommentMember;
+import com.moviereservation.domain.detail.comment.CommentMemberDto;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -17,5 +18,5 @@ public class DetailDto {
     private final String director;
     private final String actor;
     private final int ageLimit;
-    private final List<CommentMember> comments;
+    private final List<CommentMemberDto> comments;
 }
