@@ -1,5 +1,5 @@
 package com.moviereservation.domain.detail;
 
 public interface DetailService {
-    DetailDto findByMovie(Long seq);
+    DetailDto findByMovieId(Long seq);
 }

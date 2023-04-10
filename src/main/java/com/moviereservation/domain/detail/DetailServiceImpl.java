@@ -16,9 +16,9 @@ public class DetailServiceImpl implements DetailService {
     private final CommentMemberRepository commentMemberRepository;
 
     @Override
-    public DetailDto findByMovie(Long seq) {
-        MovieDescription movieDescription = movieDescriptionRepository.findByMovie(seq);
-        List<CommentMember> comments = commentMemberRepository.findByMovie(seq);
+    public DetailDto findByMovieId(Long seq) {
+        MovieDescription movieDescription = movieDescriptionRepository.findByMovieId(seq);
+        List<CommentMember> comments = commentMemberRepository.findByMovieId(seq);
         DetailDto detailDto = new DetailDto(
                 movieDescription.getMovieName(),
                 movieDescription.getPoster(),

@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 @Repository
 @RequiredArgsConstructor
-public class MovieDescriptionRepositoryJdbc implements MovieDescriptionRepository {
+public class JdbcMovieDescriptionRepository implements MovieDescriptionRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -19,7 +19,7 @@ public class MovieDescriptionRepositoryJdbc implements MovieDescriptionRepositor
             "where md.movies_seq = ?";
 
     @Override
-    public MovieDescription findByMovie(Long seq) {
+    public MovieDescription findByMovieId(Long seq) {
         MovieDescription movieDescription = jdbcTemplate.queryForObject(sql, new RowMapper<MovieDescription>() {
             @Override
             public MovieDescription mapRow(ResultSet rs, int rowNum) throws SQLException {

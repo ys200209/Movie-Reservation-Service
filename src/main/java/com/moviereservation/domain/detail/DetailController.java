@@ -16,7 +16,7 @@ public class DetailController {
 
     @GetMapping("/detail/{id}")
     public String detail(@PathVariable Long id, Model model){
-        DetailDto dto = detailService.findByMovie(id);
+        DetailDto dto = detailService.findByMovieId(id);
         model.addAttribute("detail", dto);
         return "movie/detail_page";
     }

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-public class CommentMemberRepositoryJdbc implements CommentMemberRepository{
+public class JdbcCommentMemberRepository implements CommentMemberRepository{
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -19,7 +19,7 @@ public class CommentMemberRepositoryJdbc implements CommentMemberRepository{
             "where c.movies_seq = ?";
 
     @Override
-    public List<CommentMember> findByMovie(Long seq) {
+    public List<CommentMember> findByMovieId(Long seq) {
         List<CommentMember> comments = jdbcTemplate.query(sql, new RowMapper<CommentMember>() {
             @Override
             public CommentMember mapRow(ResultSet rs, int rowNum) throws SQLException {
