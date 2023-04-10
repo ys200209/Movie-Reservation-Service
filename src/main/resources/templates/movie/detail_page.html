@@ -58,8 +58,8 @@
 
 
             <tr th:each="comment, commentStat : ${detail.comments}">
-                <td th:text="${comment.cSeq}">{{id}}</td>
-                <td th:text="${comment.mName}"><a href="/static"/>{{title}}</td>
+                <td th:text="${comment.commentSeq}">{{id}}</td>
+                <td th:text="${comment.movieName}"><a href="/static"/>{{title}}</td>
                 <td th:text="${comment.content}">{{author}}</td>
                 <td th:text="${comment.createAt}">{{modifiedDate}}</td>
             </tr>

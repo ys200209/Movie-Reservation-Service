@@ -8,8 +8,8 @@ import java.util.Date;
 @Getter
 @RequiredArgsConstructor
 public class CommentMember {
-    private final Long cSeq;
-    private final String mName;
+    private final Long commentSeq;
+    private final String movieName;
     private final Long moviesSeq;
     private final String content;
     private final Date createAt;
