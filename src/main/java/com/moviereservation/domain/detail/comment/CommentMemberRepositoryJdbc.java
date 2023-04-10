@@ -15,7 +15,8 @@ public class CommentMemberRepositoryJdbc implements CommentMemberRepository{
 
     private final JdbcTemplate jdbcTemplate;
 
-    private final String sql = "select c.seq, m.name, c.movies_seq, c.content, c.create_at, c.modify_at from comments c inner join members m on c.members_seq = m.seq";
+    private final String sql = "select c.seq, m.name, c.movies_seq, c.content, c.create_at, c.modify_at from comments c inner join members m on c.members_seq = m.seq " +
+            "where c.movies_seq = ?";
 
     @Override
     public List<CommentMember> findByMovie(Long seq) {
@@ -32,7 +33,7 @@ public class CommentMemberRepositoryJdbc implements CommentMemberRepository{
                 );
                 return commentMember;
             }
-        });
+        }, seq);
         return comments;
     }
 }
