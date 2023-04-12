@@ -3,6 +3,7 @@ package com.moviereservation.domain.detail.comment;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Getter
@@ -12,6 +13,6 @@ public class CommentMember {
     private final String memberName;
     private final Long moviesSeq;
     private final String content;
-    private final Date createAt;
-    private final Date modifyAt;
+    private final Timestamp createAt;
+    private final Timestamp modifyAt;
 }
