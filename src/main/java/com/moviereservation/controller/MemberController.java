@@ -1,6 +1,5 @@
 package com.moviereservation.controller;
 
-import com.moviereservation.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class MemberController {
 
-    private final MemberService memberService;
 
     @GetMapping("/login")
     public String login(){

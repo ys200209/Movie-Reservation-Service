@@ -28,8 +28,8 @@ public class WebSecurityConfig {
                         .anyRequest().permitAll()
                 )
                 .formLogin((form) -> form
-                        .usernameParameter("member_id")
-                        .passwordParameter("member_password")
+                        .usernameParameter("username")
+                        .passwordParameter("password")
                         .loginPage("/member/login")
                         .permitAll()
                 )
