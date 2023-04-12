@@ -28,8 +28,8 @@ public class JdbcCommentMemberRepository implements CommentMemberRepository{
                         rs.getString("m.name"),
                         rs.getLong("c.movies_seq"),
                         rs.getString("c.content"),
-                        rs.getDate("c.create_at"),
-                        rs.getDate("c.modify_at")
+                        rs.getTimestamp("c.create_at"),
+                        rs.getTimestamp("c.modify_at")
                 );
                 return commentMember;
             }
