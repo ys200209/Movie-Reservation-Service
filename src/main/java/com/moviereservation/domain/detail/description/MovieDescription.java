@@ -1,4 +1,4 @@
-package com.moviereservation.domain;
+package com.moviereservation.domain.detail.description;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -6,14 +6,12 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public class MovieDescription {
-    private final Long moviesSeq;
-    private final Long categorySeq;
+    private final String movieName;
+    private final String poster;
+    private final String categoryName;
     private final String story;
     private final int runningTime;
     private final String director;
     private final String actor;
     private final int ageLimit;
-
-
-
 }
