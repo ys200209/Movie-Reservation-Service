@@ -31,7 +31,7 @@ public class MovieDescriptionImpl implements MovieDescriptionRepository{
                         rs.getLong("c.seq"),
                         rs.getString("c.content"),
                         rs.getString("m.name"),
-                        rs.getDate("c.create_at")
+                        rs.getTimestamp("c,create_at").toLocalDateTime()
                 );
                 return comments;
             }

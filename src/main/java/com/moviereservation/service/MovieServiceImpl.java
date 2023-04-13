@@ -15,3 +15,4 @@ public class MovieServiceImpl implements MovieService{
         return movieRepository.description(seq);
     }
 }
+
