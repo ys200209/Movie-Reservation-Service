@@ -1,11 +1,12 @@
 package com.moviereservation;
 
-import com.moviereservation.domain.Comment;
-import com.moviereservation.domain.CommentResponseDto;
+import com.moviereservation.domain.detail.comment.CommentMember;
+import com.moviereservation.domain.detail.comment.CommentMemberDto;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Timestamp;
@@ -16,17 +17,24 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ValidationTest {
+
+    private Timestamp now;
+
+    @BeforeEach
+    void setTimestamp(){
+        this.now = Timestamp.valueOf(LocalDateTime.now());
+    }
+
     @Test
     void beanValidation() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 
-        Long seq1 = 16L;
-        CommentResponseDto crd = new CommentResponseDto(
-                seq1,"~^&()","파라", LocalDateTime.now()
-        );
+        CommentMember commentMember = new CommentMember(16L, "파라", 1L, "~^&()", now, now);
 
-        Set<ConstraintViolation<CommentResponseDto>> violations = validator.validate(crd);
+        CommentMemberDto crd = new CommentMemberDto(commentMember);
+
+        Set<ConstraintViolation<CommentMemberDto>> violations = validator.validate(crd);
         assertEquals(violations.size(),0);
     }
 
@@ -35,13 +43,16 @@ public class ValidationTest {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 
-        Long seq2 = 13L;
+        Long commentSeq = 13L;
+        Long moiveSeq = 1L;
+        String content = "<script>${category.getName()}</script>";
+        String memberName = "사라";
+        CommentMember commentMember = new CommentMember(commentSeq, memberName, moiveSeq, content, now, now);
 
-        CommentResponseDto crd1 = new CommentResponseDto(
-                seq2,"<script>${category.getName()}</script>","사라", LocalDateTime.now()
-        );
 
-        Set<ConstraintViolation<CommentResponseDto>> violations = validator.validate(crd1);
+        CommentMemberDto crd1 = new CommentMemberDto(commentMember);
+
+        Set<ConstraintViolation<CommentMemberDto>> violations = validator.validate(crd1);
         assertEquals(violations.size(), 1);
     }
 
@@ -50,14 +61,17 @@ public class ValidationTest {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 
-        Long seq2 = 13L;
+        Long commentSeq = 13L;
+        Long moiveSeq = 1L;
+        String content = "${category.getName()}</script>";
+        String memberName = "사라";
 
-        CommentResponseDto crd1 = new CommentResponseDto(
-                seq2,"${category.getName()}</script>","사라", LocalDateTime.now()
-        );
+        CommentMember commentMember = new CommentMember(commentSeq, memberName, moiveSeq, content, now, now);
 
-        Set<ConstraintViolation<CommentResponseDto>> violations = validator.validate(crd1);
-        assertEquals(violations.size(), 1);
+        CommentMemberDto crd1 = new CommentMemberDto(commentMember);
+
+        Set<ConstraintViolation<CommentMemberDto>> violations = validator.validate(crd1);
+        assertEquals(violations.size(), 0);
     }
 
 }
