@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+<head>
+    <meta charset="utf-8" />
+    <title>Movie</title>
+</head>
+<body>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!" style="font-weight:bold;">Movie Cinema</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">영화</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">예매</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">로그인</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">회원가입</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Header-->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">영화관 찾아주셔서 아주 감사감사</h1>
+            <p class="lead fw-normal text-white-50 mb-0">영화 보고 가세요오오ㅗ</p>
+        </div>
+    </div>
+</header>
+<div class="movieChartBeScreen_wrap">
+    <div class="contents">
+        <div class="swiper movieChart_list swiper-container-initialized swiper-container-horizontal" id="movieChart_list">
+            <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250px; margin-right: 90px; margin-left:10px;">
+                    <a href="https://google.com">
+                        <img src="/images/insiders.png" alt="내부자들" onerror="errorImage(this)">
+                    </a>
+                    <div class="movie_info_wrap" style="margin-top:10px;">
+                        <strong class="movieName" style="font-weight:bold;">내부자들</strong>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 90px;">
+                    <a href="">
+                        <img src="/images/us.png" alt="어스" onerror="errorImage(this)">
+                    </a>
+                    <div class="movie_info_wrap" style="margin-top:10px;">
+                        <strong class="movieName" style="font-weight:bold;">어스</strong>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 90px;">
+                    <a href="">
+                        <img src="/images/겨울왕국.png" alt="겨울왕국" onerror="errorImage(this)">
+                    </a>
+                    <div class="movie_info_wrap" style="margin-top:10px;">
+                        <strong class="movieName" style="font-weight:bold;">겨울왕국</strong>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 90px;">
+                    <a href="">
+                        <img src="/images/the_maze_runner.png" alt="메이즈러너" onerror="errorImage(this)">
+                    </a>
+                    <div class="movie_info_wrap" style="margin-top:10px;">
+                        <strong class="movieName" style="font-weight:bold;">메이즈러너</strong>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 90px;">
+                    <a href="">
+                        <img src="/images/분노의-질주.png" alt="분노의-질주" onerror="errorImage(this)">
+                    </a>
+                    <div class="movie_info_wrap" style="margin-top:10px;">
+                        <strong class="movieName" style="font-weight:bold;">분노의 질주</strong>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 80px;">
+                    <a href="">
+                        <img src="/images/코코.png" alt="코코" onerror="errorImage(this)">
+                    </a>
+                    <div class="movie_info_wrap" style="margin-top:10px;">
+                        <strong class="movieName" style="font-weight:bold;">코코</strong>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 50px;">
+                    <a href="">
+                        <img src="/images/the_conjuring.png" alt="컨저링" onerror="errorImage(this)">
+                    </a>
+                    <div class="movie_info_wrap" style="margin-top:10px;">
+                        <strong class="movieName" style="font-weight:bold;">컨저링</strong>
+                    </div>
+                </div>
+
+                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 50px;">
+                    <a href="">
+                        <img src="/images/usual_suspects.png" alt="유주얼 서스펙트" onerror="errorImage(this)">
+                    </a>
+                    <div class="movie_info_wrap" style="margin-top:10px;">
+                        <strong class="movieName" style="font-weight:bold;">유주얼 서스펙트</strong>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 50px;">
+                    <a href="">
+                        <img src="/images/crimecity2.png" alt="범죄도시2" onerror="errorImage(this)">
+                    </a>
+                    <div class="movie_info_wrap" style="margin-top:10px;">
+                        <strong class="movieName" style="font-weight:bold;">범죄도시2</strong>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 50px;">
+                    <a href="">
+                        <img src="/images/extreamjob.png" alt="극한직업" onerror="errorImage(this)">
+                    </a>
+                    <div class="movie_info_wrap" style="margin-top:10px;">
+                        <strong class="movieName" style="font-weight:bold;">극한직업</strong>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 50px;">
+                    <a href="">
+                        <img src="/images/sixfourfive.png" alt="육사오" onerror="errorImage(this)">
+                    </a>
+                    <div class="movie_info_wrap" style="margin-top:10px;">
+                        <strong class="movieName" style="font-weight:bold;">육사오</strong>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 50px;">
+                    <a href="">
+                        <img src="/images/JohnWick4.png" alt="존윅4" onerror="errorImage(this)">
+                    </a>
+                    <div class="movie_info_wrap" style="margin-top:10px;">
+                        <strong class="movieName" style="font-weight:bold;">존윅4</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+</html>
