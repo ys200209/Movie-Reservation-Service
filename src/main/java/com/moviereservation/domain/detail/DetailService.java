@@ -1,5 +1,6 @@
 package com.moviereservation.domain.detail;
 
+import com.moviereservation.domain.detail.comment.AddCommentDto;
 import com.moviereservation.domain.detail.comment.CommentMember;
 import com.moviereservation.domain.detail.comment.CommentMemberDto;
 import com.moviereservation.domain.detail.comment.CommentMemberRepository;
@@ -34,6 +35,12 @@ public class DetailService {
                 commentsDto
         );
         return detailDto;
+    }
+
+    public void addComment(AddCommentDto dto, Long moviesSeq){
+        String memberId = dto.getMemberId();
+        String content = dto.getContent();
+        commentMemberRepository.addComment(memberId, content, moviesSeq);
     }
 
     public List<CommentMemberDto> mapping(List<CommentMember> comments){
