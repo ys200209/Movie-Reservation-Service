@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <link href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
@@ -41,8 +41,14 @@
         </div>
     <div class="col-md-12">
         <div class="input-group mb-3">
-            <input type="text" th:name="content" class="form-control border-dark" id="reply1" name="reply1" placeholder="관람평을 작성해주세요.">
-            <button type='button' class='btn btn-outline-dark'>관람평 작성</button>
+            <form th:action="@{/movie/detail/1}" th:object="${requestDto}" method="post">
+                <input type="hidden" th:id="memberId" th:name="memberId" th:value="${#authentication.name}">
+                <span sec:authorize="isAuthenticated()">
+                <input type="text" th:id="content" th:name="content" class="form-control border-dark" id="reply1" name="reply1" placeholder="관람평을 작성해주세요.">
+                <input type='submit' th:value="'관람평 작성'" class='btn btn-outline-dark'>
+                </span>
+                <span sec:authorize="!isAuthenticated()"></span>
+            </form>
         </div>
 
         <table class="table table-horizontal table-bordered table-striped">
