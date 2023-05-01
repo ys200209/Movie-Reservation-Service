@@ -38,6 +38,28 @@ public class Controller {
         System.out.println("aaaaaaa");
         return "main";
     }
+    @PostMapping("/login")
+    public String login(@RequestParam String name, @RequestParam String password, Model model) {
+        // 사용자 인증 처리
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(name, password)
+        );
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        // 로그인 후 main 페이지 반환
+        model.addAttribute("name", name);
+        System.out.println("bbbbb");
+        return "main";
+    }
 
+    @PostMapping("/logout")
+    public String logout(HttpSession session) {
+        // 로그아웃 처리 로직
+
+        session.invalidate();
+
+        System.out.println("ccccccc");
+        //메인페이지로 리다이렉트
+        return "redirect:/";
+    }
 
 }
