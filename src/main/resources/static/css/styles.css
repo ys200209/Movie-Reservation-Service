@@ -901,7 +901,30 @@ strong {
     margin: 0 20px;
     border-radius: 10px;
     width: 100%;
+}
+.swiper-pagination {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+}
 
+.swiper-pagination-bullet {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #000000;
+
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    backgroud-color:#ffffff;
 }
 
 
