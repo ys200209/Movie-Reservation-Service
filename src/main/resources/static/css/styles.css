@@ -20,13 +20,13 @@
     --bs-yellow: #ffc107;
     --bs-green: #198754;
     --bs-teal: #20c997;
-    --bs-cyan: #0dcaf0;
+
     --bs-black: #000;
     --bs-white: #fff;
     --bs-gray: #6c757d;
     --bs-gray-dark: #343a40;
     --bs-gray-100: #f8f9fa;
-    --bs-gray-200: #e9ecef;
+
     --bs-gray-300: #dee2e6;
     --bs-gray-400: #ced4da;
     --bs-gray-500: #adb5bd;
@@ -37,7 +37,6 @@
     --bs-primary: #0d6efd;
     --bs-secondary: #6c757d;
     --bs-success: #198754;
-    --bs-info: #0dcaf0;
     --bs-warning: #ffc107;
     --bs-danger: #dc3545;
     --bs-light: #f8f9fa;
@@ -54,8 +53,8 @@
     --bs-black-rgb: 0, 0, 0;
     --bs-body-color-rgb: 33, 37, 41;
     --bs-body-bg-rgb: 255, 255, 255;
-    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-font-sans-serif: system-ui, -apple-system, " UI", Roboto, "Helvetica ", " Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", " UI Emoji", " UI Symbol", " Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
     --bs-body-font-family: var(--bs-font-sans-serif);
     --bs-body-font-size: 1rem;
@@ -336,31 +335,6 @@ legend + * {
     margin-left: auto;
 }
 
-@media (min-width: 576px) {
-    .container-sm, .container {
-        max-width: 540px;
-    }
-}
-@media (min-width: 768px) {
-    .container-md, .container-sm, .container {
-        max-width: 720px;
-    }
-}
-@media (min-width: 992px) {
-    .container-lg, .container-md, .container-sm, .container {
-        max-width: 960px;
-    }
-}
-@media (min-width: 1200px) {
-    .container-xl, .container-lg, .container-md, .container-sm, .container {
-        max-width: 1140px;
-    }
-}
-@media (min-width: 1400px) {
-    .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-        max-width: 1320px;
-    }
-}
 
 .btn {
     --bs-btn-padding-x: 0.75rem;
@@ -375,9 +349,7 @@ legend + * {
     --bs-btn-border-color: transparent;
     --bs-btn-border-radius: 0.375rem;
     --bs-btn-hover-border-color: transparent;
-    --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
     --bs-btn-disabled-opacity: 0.65;
-    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
     display: inline-block;
     padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
     font-family: var(--bs-btn-font-family);
@@ -395,7 +367,7 @@ legend + * {
     border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
     border-radius: var(--bs-btn-border-radius);
     background-color: var(--bs-btn-bg);
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
     .btn {
@@ -488,7 +460,6 @@ legend + * {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
     padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
 }
 .navbar > .container,
@@ -501,7 +472,6 @@ legend + * {
     display: flex;
     flex-wrap: inherit;
     align-items: center;
-    justify-content: space-between;
 }
 .navbar-brand {
     padding-top: var(--bs-navbar-brand-padding-y);
@@ -546,13 +516,12 @@ legend + * {
 @media (min-width: 992px) {
     .navbar-expand-lg {
         flex-wrap: nowrap;
-        justify-content: flex-start;
     }
     .navbar-expand-lg .navbar-nav {
         flex-direction: row;
     }
     .navbar-expand-lg .navbar-nav {
-        position: absolute;
+
     }
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: var(--bs-navbar-nav-link-padding-x);
@@ -567,7 +536,6 @@ legend + * {
 
 .navbar-expand {
     flex-wrap: nowrap;
-    justify-content: flex-start;
 }
 .navbar-expand .navbar-nav {
     flex-direction: row;
@@ -647,16 +615,22 @@ legend + * {
 @media (min-width: 992px) {
     .mb-lg-0 {
         margin-bottom: 0 !important;
+        display: flex;
+        flex-direction: row;
+        float: right;
     }
     .ms-lg-4 {
-        margin-left: 1.5rem !important;
+        margin-left: 4rem !important;
+        display: flex;
+        flex-direction: row;
+        text-align: right;
     }
     .px-lg-5 {
         padding-right: 3rem !important;
         padding-left: 3rem !important;
     }
 }
-//
+
 //movieChartBeScreen_wrap
 
   element.style {
@@ -666,30 +640,31 @@ legend + * {
     float: none;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(232, 232, 232, 0.37));
 }
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
-    font-family: 'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
+html, body, div, span, h1, h3,p, blockquote, pre, a, abbr, big, code, font, img, q, s, strong, sub, sup, var, ul, li, form, label, legend, caption{
+    font-family: ' Sans KR', '맑은 고딕', '돋움', sans-serif;
     font-size: 100%;
-    margin: 0;
+
     padding: 0;
     border: 0;
     vertical-align: baseline;
     word-break: break-all;
 }
-사용자 에이전트 스타일시트
+
 div {
     display: block;
 }
-body, input, textarea, select, button, table {
+body, input, textarea, select, button{
     font-size: 20px;
     line-height: 1.2;
     color: #666;
-    font-family: 'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
+    font-family: ' Sans KR', '맑은 고딕', '돋움', sans-serif;
     font-weight: 400;
     text-align: center;
 }
 body {
     line-height: 1;
     color: black;
+    overflow-x: hidden;
 }
 :root {
     --swiper-navigation-size: 44px;
@@ -698,10 +673,11 @@ body {
     --swiper-theme-color: #007aff;
 }
 //contents
-  #contaniner .contents {
+  .contents {
       width: 1080px;
-      height: 500px;
+      height: 80vh;
       margin: 0 auto;
+
   }
 .movieChartBeScreen_wrap .contents {
     overflow: hidden;
@@ -743,13 +719,13 @@ body {
 //swiper-wrapper
 
   element.style {
-      transform: translate3d(0px, 0px, 0px);
+      transform: translate3d(-100px, 0px, 0px);
       transition-duration: 0ms;
   }
 .movieChart_list .swiper-wrapper {
     counter-reset: movie-chart-counter;
 }
-.swiper-android .swiper-slide, .swiper-wrapper {
+.swiper-android  .swiper-wrapper {
     transform: translate3d(0px,0,0);
 }
 .swiper-wrapper {
@@ -776,21 +752,19 @@ div {
 
 }
 
-//swiper-slide swiper-slide-movie
+//swiper-slide
 
   .swiper-slide {
       flex-shrink: 0;
-      width: 100%;
       height: 100%;
       position: relative;
       transition-property: transform;
+      display: flex;
   }
 
 //img_wrap
 
-  element.style {
-  }
-.movieChart_list .swiper-wrapper .swiper-slide .img_wrap {
+.movieChart_list .swiper-wrapper  .img_wrap {
     overflow: hidden;
     position: relative;
     width: 170px;
@@ -802,7 +776,7 @@ div {
     overflow: hidden;
 }
 
-.movieChart_list .swiper-wrapper .swiper-slide .img_wrap img {
+.movieChart_list .swiper-wrapper  .img_wrap img {
     z-index: 1;
 }
 
@@ -819,7 +793,7 @@ input, select, img {
     vertical-align: middle;
 }
 
-.movieChart_list .swiper-wrapper .swiper-slide .img_wrap:before {
+.movieChart_list .swiper-wrapper  .img_wrap:before {
     content: '';
     display: block;
     position: absolute;
@@ -830,9 +804,7 @@ input, select, img {
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.85));
     z-index: 2;
 }
-.movieChart_list .swiper-wrapper .swiper-slide .img_wrap:after {
-    content: counter(movie-chart-counter);
-    counter-increment: movie-chart-counter;
+.movieChart_list .swiper-wrapper  .img_wrap:after{
     position: absolute;
     left: 9px;
     bottom: -4px;
@@ -844,8 +816,50 @@ input, select, img {
     z-index: 3;
     text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.45);
 }
+
+//img
+
+.movieChart_list .swiper-wrapper  .img_wrap img {
+    z-index: 1;
+}
+.img_wrap > img {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(0, -50%);
+}
+input, select, img {
+    vertical-align: middle;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+.swiper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+
+body {
+    line-height: 1;
+    color: black;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
 //movie_info_wrap
-  .movieChart_list .swiper-wrapper .swiper-slide .movie_info_wrap {
+  .movieChart_list .swiper-wrapper  .movie_info_wrap {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -856,10 +870,10 @@ body{
     font-weight: 400;
 }
 //movieName
-  .movieChart_list .swiper-wrapper .swiper-slide .movie_info_wrap .movieName {
+  .movieChart_list .swiper-wrapper .a .movie_info_wrap .movieName {
       display: block;
       flex-basis: 100%;
-      overflow: hidden;
+      overflow: visible;
       margin-top: 14px;
       font-size: 20px;
       color: #222;
@@ -871,3 +885,26 @@ body{
 strong {
     font-weight: 500;
 }
+
+
+.swiper-container {
+    height: auto;
+    max-width: 1200px; /* 원하는 최대 너비로 설정하세요 */
+    margin: 0 auto; /* 가운데 정렬을 위해 margin 속성을 추가해줍니다. */
+    position: relative;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    margin: 0 20px;
+    border-radius: 10px;
+    width: 100%;
+
+}
+
+
+
+
+

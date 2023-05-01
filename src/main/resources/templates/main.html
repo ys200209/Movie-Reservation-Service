@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css" th:href="@{/css/styles.css}">
     <title>Movie</title>
 </head>
 <body>
@@ -12,12 +13,11 @@
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="#!" style="font-weight:bold;">Movie Cinema</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+            <ul class="navbar-nav me-auto mb-2 ">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">영화</a></li>
                 <li class="nav-item"><a class="nav-link" href="#!">예매</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">로그인</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">회원가입</a></li>
             </ul>
+
         </div>
     </div>
 </nav>
@@ -25,116 +25,130 @@
 <header class="bg-dark py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">영화관 찾아주셔서 아주 감사감사</h1>
-            <p class="lead fw-normal text-white-50 mb-0">영화 보고 가세요오오ㅗ</p>
+            <h1 class="display-4 fw-bolder">저희 영화관을 찾아주셔서 감사합니다.</h1>
+            <p class="lead fw-normal text-white-50 mb-0">영화 보고 가세요오오</p>
         </div>
     </div>
 </header>
 <div class="movieChartBeScreen_wrap">
     <div class="contents">
-        <div class="swiper movieChart_list swiper-container-initialized swiper-container-horizontal" id="movieChart_list">
-            <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
-                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250px; margin-right: 90px; margin-left:10px;">
-                    <a href="https://google.com">
-                        <img src="/images/insiders.png" alt="내부자들" onerror="errorImage(this)">
+        <div class="movieChart_list swiper-container" id="movieChart_list">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="width: 250px;">
+                    <a th:href="">
+                        <img th:src="${movies[0].getPoster()}" alt="내부자들" onerror="errorImage(this)">
                     </a>
                     <div class="movie_info_wrap" style="margin-top:10px;">
-                        <strong class="movieName" style="font-weight:bold;">내부자들</strong>
+                        <strong class="movieName" style="font-weight:bold;" th:text="${movies[0].getMovie_name()}">
+                        </strong>
                     </div>
                 </div>
-                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 90px;">
+                <div class="swiper-slide " style="width: 250;">
                     <a href="">
-                        <img src="/images/us.png" alt="어스" onerror="errorImage(this)">
+                        <img th:src="${movies[9].getPoster()}" alt="어스" onerror="errorImage(this)">
                     </a>
                     <div class="movie_info_wrap" style="margin-top:10px;">
-                        <strong class="movieName" style="font-weight:bold;">어스</strong>
+                        <strong class="movieName" style="font-weight:bold;" th:text="${movies[9].getMovie_name()}">
+                        </strong>
                     </div>
                 </div>
-                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 90px;">
+                <div class="swiper-slide " style="width: 250; ">
                     <a href="">
-                        <img src="/images/겨울왕국.png" alt="겨울왕국" onerror="errorImage(this)">
+                        <img th:src="${movies[6].getPoster()}" alt="겨울왕국" onerror="errorImage(this)">
                     </a>
                     <div class="movie_info_wrap" style="margin-top:10px;">
-                        <strong class="movieName" style="font-weight:bold;">겨울왕국</strong>
+                        <strong class="movieName" style="font-weight:bold;" th:text="${movies[6].getMovie_name()}">
+                        </strong>
                     </div>
                 </div>
-                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 90px;">
+                <div class="swiper-slide" style="width: 250; ">
                     <a href="">
-                        <img src="/images/the_maze_runner.png" alt="메이즈러너" onerror="errorImage(this)">
+                        <img th:src="${movies[10].getPoster()}" alt="메이즈러너" onerror="errorImage(this)">
                     </a>
                     <div class="movie_info_wrap" style="margin-top:10px;">
-                        <strong class="movieName" style="font-weight:bold;">메이즈러너</strong>
+                        <strong class="movieName" style="font-weight:bold;" th:text="${movies[10].getMovie_name()}">
+                        </strong>
                     </div>
                 </div>
-                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 90px;">
+                <div class="swiper-slide" style="width: 250; ">
                     <a href="">
-                        <img src="/images/분노의-질주.png" alt="분노의-질주" onerror="errorImage(this)">
+                        <img th:src="${movies[5].getPoster()}" alt="분노의-질주" onerror="errorImage(this)">
                     </a>
                     <div class="movie_info_wrap" style="margin-top:10px;">
-                        <strong class="movieName" style="font-weight:bold;">분노의 질주</strong>
+                        <strong class="movieName" style="font-weight:bold;" th:text="${movies[5].getMovie_name()}">
+                        </strong>
                     </div>
                 </div>
-                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 80px;">
+                <div class="swiper-slide" style="width: 250; ">
                     <a href="">
-                        <img src="/images/코코.png" alt="코코" onerror="errorImage(this)">
+                        <img th:src="${movies[7].getPoster()}" alt="코코" onerror="errorImage(this)">
                     </a>
                     <div class="movie_info_wrap" style="margin-top:10px;">
-                        <strong class="movieName" style="font-weight:bold;">코코</strong>
+                        <strong class="movieName" style="font-weight:bold;" th:text="${movies[7].getMovie_name()}">
+                        </strong>
                     </div>
                 </div>
-                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 50px;">
+                <div class="swiper-slide" style="width: 250; ">
                     <a href="">
-                        <img src="/images/the_conjuring.png" alt="컨저링" onerror="errorImage(this)">
+                        <img th:src="${movies[8].getPoster()}" alt="컨저링" onerror="errorImage(this)">
                     </a>
                     <div class="movie_info_wrap" style="margin-top:10px;">
-                        <strong class="movieName" style="font-weight:bold;">컨저링</strong>
+                        <strong class="movieName" style="font-weight:bold;" th:text="${movies[8].getMovie_name()}">
+                        </strong>
                     </div>
                 </div>
 
-                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 50px;">
+                <div class="swiper-slide  " style="width: 250; ">
                     <a href="">
-                        <img src="/images/usual_suspects.png" alt="유주얼 서스펙트" onerror="errorImage(this)">
+                        <img th:src="${movies[11].getPoster()}" alt="유주얼 서스펙트" onerror="errorImage(this)">
                     </a>
                     <div class="movie_info_wrap" style="margin-top:10px;">
-                        <strong class="movieName" style="font-weight:bold;">유주얼 서스펙트</strong>
+                        <strong class="movieName" style="font-weight:bold;" th:text="${movies[11].getMovie_name()}">
+                        </strong>
                     </div>
                 </div>
-                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 50px;">
+                <div class="swiper-slide" style="width: 250; ">
                     <a href="">
-                        <img src="/images/crimecity2.png" alt="범죄도시2" onerror="errorImage(this)">
+                        <img th:src="${movies[2].getPoster()}" alt="범죄도시2" onerror="errorImage(this)">
                     </a>
                     <div class="movie_info_wrap" style="margin-top:10px;">
-                        <strong class="movieName" style="font-weight:bold;">범죄도시2</strong>
+                        <strong class="movieName" style="font-weight:bold;" th:text="${movies[2].getMovie_name()}">
+                        </strong>
                     </div>
                 </div>
-                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 50px;">
+                <div class="swiper-slide " style="width: 250; ">
                     <a href="">
-                        <img src="/images/extreamjob.png" alt="극한직업" onerror="errorImage(this)">
+                        <img th:src="${movies[3].getPoster()}" alt="극한직업" onerror="errorImage(this)">
                     </a>
                     <div class="movie_info_wrap" style="margin-top:10px;">
-                        <strong class="movieName" style="font-weight:bold;">극한직업</strong>
+                        <strong class="movieName" style="font-weight:bold;" th:text="${movies[3].getMovie_name()}">
+                        </strong>
                     </div>
                 </div>
-                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 50px;">
+                <div class="swiper-slide" style="width: 250; ">
                     <a href="">
-                        <img src="/images/sixfourfive.png" alt="육사오" onerror="errorImage(this)">
+                        <img th:src="${movies[1].getPoster()}" alt="육사오" onerror="errorImage(this)">
                     </a>
                     <div class="movie_info_wrap" style="margin-top:10px;">
-                        <strong class="movieName" style="font-weight:bold;">육사오</strong>
+                        <strong class="movieName" style="font-weight:bold;" th:text="${movies[1].getMovie_name()}">
+                        </strong>
                     </div>
                 </div>
-                <div class="swiper-slide swiper-slide-movie swiper-slide-active" style="width: 250; margin-right: 50px;">
+                <div class="swiper-slide" style="width: 250; ">
                     <a href="">
-                        <img src="/images/JohnWick4.png" alt="존윅4" onerror="errorImage(this)">
+                        <img th:src="${movies[4].getPoster()}" alt="존윅4" onerror="errorImage(this)">
                     </a>
                     <div class="movie_info_wrap" style="margin-top:10px;">
-                        <strong class="movieName" style="font-weight:bold;">존윅4</strong>
+                        <strong class="movieName" style="font-weight:bold;" th:text="${movies[4].getMovie_name()}">
+                        </strong>
                     </div>
                 </div>
             </div>
+            <div class="swiper-pagination"></div>
         </div>
     </div>
 </div>
+
+
 </body>
-</html>
 </html>
