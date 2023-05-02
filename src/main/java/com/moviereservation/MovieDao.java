@@ -22,7 +22,7 @@ public class MovieDao {
             Long seq = rs.getLong("seq");
             String movieName = rs.getString("movie_name");
             String poster = rs.getString("poster");
-            return new Movie(movieName, poster);
+            return new Movie(seq, movieName, poster);
         });
     }
 }
