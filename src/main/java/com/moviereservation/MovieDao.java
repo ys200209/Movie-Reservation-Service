@@ -3,10 +3,6 @@ package com.moviereservation;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.sql.*;
-import javax.sql.DataSource;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,9 +16,9 @@ public class MovieDao {
     }
 
     public List<Movie> getAllMovieNames() {
-        String query = "SELECT * FROM movies";
+        String MovieList = "SELECT * FROM movies";
 
-        return jdbcTemplate.query(query, (rs, rowNum) -> {
+        return jdbcTemplate.query(MovieList, (rs, rowNum) -> {
             Long seq = rs.getLong("seq");
             String movieName = rs.getString("movie_name");
             String poster = rs.getString("poster");

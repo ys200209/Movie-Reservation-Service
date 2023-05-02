@@ -48,113 +48,12 @@
   <div class="contents">
     <div class="movieChart_list swiper-container" id="movieChart_list">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" style="width: 250px;">
-          <a th:href="@{'/detail_page/' + ${movies[0].getSeq()}}">
-            <img th:src="${movies[0].getPoster()}" alt="내부자들" onerror="errorImage(this)">
+        <div th:each="movie : ${movies}" class="swiper-slide" style="width: 250px;">
+          <a th:href="@{'/detail_page/' + ${movie.getSeq()}}">
+            <img th:src="${movie.getPoster()}" alt="" onerror="errorImage(this)">
           </a>
           <div class="movie_info_wrap" style="margin-top:10px;">
-            <strong class="movieName" style="font-weight:bold;" th:text="${movies[0].getMovie_name()}">
-            </strong>
-          </div>
-        </div>
-        <div class="swiper-slide  " style="width: 250;">
-          <a href="">
-            <img th:src="${movies[9].getPoster()}" alt="어스" onerror="errorImage(this)">
-          </a>
-          <div class="movie_info_wrap" style="margin-top:10px;">
-            <strong class="movieName" style="font-weight:bold;" th:text="${movies[9].getMovie_name()}">
-            </strong>
-          </div>
-        </div>
-        <div class="swiper-slide " style="width: 250; ">
-          <a href="">
-            <img th:src="${movies[6].getPoster()}" alt="겨울왕국" onerror="errorImage(this)">
-          </a>
-          <div class="movie_info_wrap" style="margin-top:10px;">
-            <strong class="movieName" style="font-weight:bold;" th:text="${movies[6].getMovie_name()}">
-            </strong>
-          </div>
-        </div>
-        <div class="swiper-slide" style="width: 250; ">
-          <a href="">
-            <img th:src="${movies[10].getPoster()}" alt="메이즈러너" onerror="errorImage(this)">
-          </a>
-          <div class="movie_info_wrap" style="margin-top:10px;">
-            <strong class="movieName" style="font-weight:bold;" th:text="${movies[10].getMovie_name()}">
-            </strong>
-          </div>
-        </div>
-        <div class="swiper-slide" style="width: 250; ">
-          <a href="">
-            <img th:src="${movies[5].getPoster()}" alt="분노의-질주" onerror="errorImage(this)">
-          </a>
-          <div class="movie_info_wrap" style="margin-top:10px;">
-            <strong class="movieName" style="font-weight:bold;" th:text="${movies[5].getMovie_name()}">
-            </strong>
-          </div>
-        </div>
-        <div class="swiper-slide" style="width: 250; ">
-          <a href="">
-            <img th:src="${movies[7].getPoster()}" alt="코코" onerror="errorImage(this)">
-          </a>
-          <div class="movie_info_wrap" style="margin-top:10px;">
-            <strong class="movieName" style="font-weight:bold;" th:text="${movies[7].getMovie_name()}">
-            </strong>
-          </div>
-        </div>
-        <div class="swiper-slide" style="width: 250; ">
-          <a href="">
-            <img th:src="${movies[8].getPoster()}" alt="컨저링" onerror="errorImage(this)">
-          </a>
-          <div class="movie_info_wrap" style="margin-top:10px;">
-            <strong class="movieName" style="font-weight:bold;" th:text="${movies[8].getMovie_name()}">
-            </strong>
-          </div>
-        </div>
-
-        <div class="swiper-slide  " style="width: 250; ">
-          <a href="">
-            <img th:src="${movies[11].getPoster()}" alt="유주얼 서스펙트" onerror="errorImage(this)">
-          </a>
-          <div class="movie_info_wrap" style="margin-top:10px;">
-            <strong class="movieName" style="font-weight:bold;" th:text="${movies[11].getMovie_name()}">
-            </strong>
-          </div>
-        </div>
-        <div class="swiper-slide" style="width: 250; ">
-          <a href="">
-            <img th:src="${movies[2].getPoster()}" alt="범죄도시2" onerror="errorImage(this)">
-          </a>
-          <div class="movie_info_wrap" style="margin-top:10px;">
-            <strong class="movieName" style="font-weight:bold;" th:text="${movies[2].getMovie_name()}">
-            </strong>
-          </div>
-        </div>
-        <div class="swiper-slide " style="width: 250; ">
-          <a href="">
-            <img th:src="${movies[3].getPoster()}" alt="극한직업" onerror="errorImage(this)">
-          </a>
-          <div class="movie_info_wrap" style="margin-top:10px;">
-            <strong class="movieName" style="font-weight:bold;" th:text="${movies[3].getMovie_name()}">
-            </strong>
-          </div>
-        </div>
-        <div class="swiper-slide" style="width: 250; ">
-          <a href="">
-            <img th:src="${movies[1].getPoster()}" alt="육사오" onerror="errorImage(this)">
-          </a>
-          <div class="movie_info_wrap" style="margin-top:10px;">
-            <strong class="movieName" style="font-weight:bold;" th:text="${movies[1].getMovie_name()}">
-            </strong>
-          </div>
-        </div>
-        <div class="swiper-slide" style="width: 250; ">
-          <a href="">
-            <img th:src="${movies[4].getPoster()}" alt="존윅4" onerror="errorImage(this)">
-          </a>
-          <div class="movie_info_wrap" style="margin-top:10px;">
-            <strong class="movieName" style="font-weight:bold;" th:text="${movies[4].getMovie_name()}">
-            </strong>
+            <strong class="movieName" style="font-weight:bold;" th:text="${movie.getMovie_name()}"></strong>
           </div>
         </div>
       </div>

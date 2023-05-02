@@ -1,6 +1,6 @@
 package com.moviereservation;
 
-;
+
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import java.util.List;
 
@@ -25,38 +26,25 @@ public class MainController {
 
 
     @GetMapping("/")
-    public String main(Model model, String name, HttpSession session) {
+    public String main(Model model, String name) {
         List<Movie> movies = movieDao.getAllMovieNames();
         model.addAttribute("movies", movies);
         model.addAttribute("name", name);
-        // 세션에 사용자 정보가 있는 경우만 loggedIn 속성을 true로 설정합니다.
-        /*if (session.getAttribute("user") != null) {
-            model.addAttribute("loggedIn", true);
-        }*/
-        System.out.println("aaaaaaa");
         return "main";
     }
     @PostMapping("/login")
-    public String login(@RequestParam String name, @RequestParam String password, Model model) {
-        // 사용자 인증 처리
+    public String login(@ModelAttribute Member member, Model model) {
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(name, password)
+                new UsernamePasswordAuthenticationToken(member.getName(), member.getPassword())
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        // 로그인 후 main 페이지 반환
-        model.addAttribute("name", name);
-        System.out.println("bbbbb");
+        model.addAttribute("name", member.getName());
         return "main";
     }
 
     @PostMapping("/logout")
     public String logout(HttpSession session) {
-        // 로그아웃 처리 로직
-
         session.invalidate();
-
-        System.out.println("ccccccc");
-        //메인페이지로 리다이렉트
         return "redirect:/";
     }
 

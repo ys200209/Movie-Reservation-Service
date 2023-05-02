@@ -11,8 +11,6 @@ public class Movie {
     }
     public Long getSeq(){return seq;}
 
-    public void setSeq(){this.seq = seq;}
-
     public String getMovie_name() {
         return movie_name;
     }
