@@ -16,9 +16,9 @@ public class MovieDao {
     }
 
     public List<Movie> getAllMovieNames() {
-        String MovieList = "SELECT * FROM movies";
+        String SELECT_MOVIES_QUERY = "SELECT * FROM movies";
 
-        return jdbcTemplate.query(MovieList, (rs, rowNum) -> {
+        return jdbcTemplate.query(SELECT_MOVIES_QUERY, (rs, rowNum) -> {
             Long seq = rs.getLong("seq");
             String movieName = rs.getString("movie_name");
             String poster = rs.getString("poster");
