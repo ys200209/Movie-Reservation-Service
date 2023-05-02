@@ -17,21 +17,7 @@
         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">영화</a></li>
         <li class="nav-item"><a class="nav-link" href="#!">예매</a></li>
       </ul>
-      <div sec:authorize="!isAuthenticated()">
-        <form th:action="@{/member/regist}" method="post" style="display: inline-block; margin-right: 10px;">
-          <button type="submit">회원가입</button>
-        </form>
-        <form th:action="@{/member/login}" method="post" style="display: inline-block;">
-          <button type="submit">로그인</button>
-        </form>
-      </div>
 
-      <!-- 메인 페이지 - 로그인 상태 -->
-      <div sec:authorize="isAuthenticated()">
-        <form th:action="@{/logout}" method="post">
-          <button type="submit">로그아웃</button>
-        </form>
-      </div>
     </div>
   </div>
 </nav>
@@ -162,32 +148,5 @@
     </div>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
-  $(document).ready(function () {
-    const mySwiper = new Swiper('.swiper-container', {
-      direction: 'horizontal',
-      spaceBetween: 63,
-      slidesPerView: 4,
-      slidesPerGroup: 4,
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true,
-      },
-    });
-
-    var bullets = document.querySelectorAll('.swiper-pagination-bullet');
-    for (var i = 0; i < bullets.length; i++) {
-      bullets[i].addEventListener('click', function () {
-        var index = Array.prototype.indexOf.call(this.parentElement.children, this);
-        var startIndex = index * 4;
-        mySwiper.slideTo(startIndex);
-      });
-    }
-  });
-</script>
-
 </body>
 </html>
