@@ -162,5 +162,31 @@
     </div>
   </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  $(document).ready(function () {
+    const mySwiper = new Swiper('.swiper-container', {
+      direction: 'horizontal',
+      spaceBetween: 63,
+      slidesPerView: 4,
+      slidesPerGroup: 4,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true,
+      },
+    });
+
+    var bullets = document.querySelectorAll('.swiper-pagination-bullet');
+    for (var i = 0; i < bullets.length; i++) {
+      bullets[i].addEventListener('click', function () {
+        var index = Array.prototype.indexOf.call(this.parentElement.children, this);
+        var startIndex = index * 4;
+        mySwiper.slideTo(startIndex);
+      });
+    }
+  });
+</script>
 </body>
 </html>
