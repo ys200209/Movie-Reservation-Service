@@ -1,28 +1,37 @@
 package com.moviereservation.domain.detail;
 
 import com.moviereservation.domain.detail.comment.AddCommentDto;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/movie")
+@RequestMapping("/movies")
 public class DetailController {
 
     private final DetailService detailService;
 
-    @GetMapping("/detail/{id}")
-    public String detail(@PathVariable Long id, Model model){
-        DetailDto responseDto = detailService.findByMovieId(id);
-        model.addAttribute("detail", responseDto);
+    @GetMapping("/{movieId}")
+    public String detail(@PathVariable Long movieId, Model model){
+            DetailDto responseDto = detailService.findByMovieId(movieId);
+            model.addAttribute("detail", responseDto);
+            model.addAttribute("requestDto", new HashMap<String, String>());
         return "movie/detail_page";
     }
 
-    @PostMapping("detail/{id}")
-    public String writeComment(@PathVariable Long id, @ModelAttribute AddCommentDto requestDto){
-        detailService.addComment(requestDto, id);
-        return "redirect:/movie/detail/"+id;
+    @PostMapping("/{movieId}")
+    @ResponseBody
+    public DetailDto writeComment(@PathVariable Long movieId, @RequestBody @Valid AddCommentDto requestDto, BindingResult bindingResult){
+        if(!bindingResult.hasErrors()) {
+            detailService.addComment(requestDto, movieId);
+        }
+        DetailDto responseDto = detailService.findByMovieId(movieId);
+        return responseDto;
     }
 }
