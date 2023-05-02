@@ -1,10 +1,10 @@
 package com.moviereservation;
 
 import lombok.Getter;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Getter
-@Setter
 public class Member {
     private String name;
     private String password;
