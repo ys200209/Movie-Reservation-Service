@@ -1,11 +1,9 @@
 package com.moviereservation.domain.detail;
 
 import com.moviereservation.domain.detail.comment.AddCommentDto;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -21,7 +19,7 @@ public class DetailController {
             DetailDto responseDto = detailService.findByMovieId(movieId);
             model.addAttribute("detail", responseDto);
             model.addAttribute("requestDto", new HashMap<String, String>());
-        return "movie/detail_page";
+        return "movies/detail_page";
     }
 
     @PostMapping("/movies/{movieId}")
