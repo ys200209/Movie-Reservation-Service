@@ -25,21 +25,23 @@
 
 <div class="container">
     <div class="row">
-        <div class="row p-4">
+        <div class="row">
             <div class="col-md-4">
-                <img th:src="${detail.poster}" alt="첨부이미지" style="width:100%" />
+                <img th:src="${movieDescription.movie.poster}" alt="첨부이미지" style="width:100%" />
             </div>
             <div class="col-md-8">
 
+
                 <p></p>
-                <p><b>영화 제목 : </b><span class="badge badge-info" th:text="${detail.movieName}">영화제목</span>
-                <p><b>장르</b> : <span th:text="${detail.categoryName}">장르</span>
-                <p><b>감독</b> : <span th:text="${detail.director}">감독</span>
-                <p><b>러닝타임</b> : <span th:text="${detail.runningTime}">러닝타임</span>
-                <p><b>관람등급</b> : <span th:text="${detail.ageLimit}">관람등급</span>
-                <p><b>출연진</b> : <span th:text="${detail.actor}">출연진</span>
-                <p><b>줄거리</b> : <span th:text="${detail.story}">줄거리</span>
                 <br>
+                <p><b>영화 제목 : </b><span class="badge badge-info" th:text="${movieDescription.movie.name}">영화제목</span>
+                <p><b>장르</b> : <span th:text="${movieDescription.category.name}">장르</span>
+                <p><b>감독</b> : <span th:text="${movieDescription.movieDescription.director}">감독</span>
+                <p><b>러닝타임</b> : <span th:text="${movieDescription.movieDescription.runningTime}">러닝타임</span>
+                <p><b>관람등급</b> : <span th:text="${movieDescription.movieDescription.ageLimit}">관람등급</span>
+                <p><b>출연진</b> : <span th:text="${movieDescription.movieDescription.actor}">출연진</span>
+                <p><b>줄거리</b> : <span th:text="${movieDescription.movieDescription.story}">줄거리</span>
+                    <br>
             </div>
 
         </div>
@@ -79,8 +81,8 @@
         <footer>
             <p>&copy; MovieDetail </p>
         </footer>
-        </div>
     </div>
+
 </div>
 <script type="text/javascript" src="/js/addCommentSendAjax.js"></script>
 </body>
