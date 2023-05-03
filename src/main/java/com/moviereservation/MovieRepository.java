@@ -1,18 +1,18 @@
 package com.moviereservation;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Repository
-public class MovieDao {
+public class MovieRepository {
     public static final String SELECT_MOVIE_QUERY = "SELECT * FROM movies";
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public MovieDao(JdbcTemplate jdbcTemplate) {
+    public MovieRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
