@@ -40,6 +40,7 @@ public class DetailService {
     public void addComment(AddCommentDto dto, Long moviesSeq){
         String memberId = dto.getMemberId();
         String content = dto.getContent();
+        content = content.replaceAll("\\<", "&lt;").replaceAll("\\>", "&gt;").replaceAll("\\(", "&#40;").replaceAll("\\)", "&#41;");
         commentMemberRepository.addComment(memberId, content, moviesSeq);
     }
 
