@@ -27,8 +27,9 @@
       </div>
 
       <!-- 메인 페이지 - 로그인 상태 -->
-      <div sec:authorize="isAuthenticated()">
-        <form th:action="@{/logout}" method="post">
+      <div sec:authorize="isAuthenticated()" >
+        <p style="display: inline-block; margin-right: 10px;" th:text="${#authentication.getName()+'님'}"></p>
+        <form style="display: inline-block;" th:action="@{/logout}" method="post">
           <button type="submit">로그아웃</button>
         </form>
       </div>
@@ -53,7 +54,7 @@
             <img th:src="${movie.getPoster()}" alt="" onerror="errorImage(this)">
           </a>
           <div class="movie_info_wrap" style="margin-top:10px;">
-            <strong class="movieName" style="font-weight:bold;" th:text="${movie.getMovie_name()}"></strong>
+            <strong class="movieName" style="font-weight:bold;" th:text="${movie.getMovieName()}"></strong>
           </div>
         </div>
       </div>

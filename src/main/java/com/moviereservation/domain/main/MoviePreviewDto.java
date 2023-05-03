@@ -1,4 +1,4 @@
-package com.moviereservation;
+package com.moviereservation.domain.main;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
