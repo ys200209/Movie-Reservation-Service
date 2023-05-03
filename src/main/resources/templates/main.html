@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css" th:href="@{/css/style.css}">
+  <title>Movie</title>
+</head>
+<body>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container px-4 px-lg-5">
+    <a class="navbar-brand" href="#!" style="font-weight:bold;">Movie Cinema</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 ">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">영화</a></li>
+        <li class="nav-item"><a class="nav-link" href="#!">예매</a></li>
+      </ul>
+      <div sec:authorize="!isAuthenticated()">
+        <form th:action="@{/member/regist}" method="post" style="display: inline-block; margin-right: 10px;">
+          <button type="submit">회원가입</button>
+        </form>
+        <form th:action="@{/member/login}" method="post" style="display: inline-block;">
+          <button type="submit">로그인</button>
+        </form>
+      </div>
+
+      <!-- 메인 페이지 - 로그인 상태 -->
+      <div sec:authorize="isAuthenticated()" >
+        <p style="display: inline-block; margin-right: 10px;" th:text="${#authentication.getName()+'님'}"></p>
+        <form style="display: inline-block;" th:action="@{/logout}" method="post">
+          <button type="submit">로그아웃</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- Header-->
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">저희 영화관을 찾아주셔서 감사합니다.</h1>
+      <p class="lead fw-normal text-white-50 mb-0">영화 보고 가세요오오</p>
+    </div>
+  </div>
+</header>
+<div class="movieChartBeScreen_wrap">
+  <div class="contents">
+    <div class="movieChart_list swiper-container" id="movieChart_list">
+      <div class="swiper-wrapper">
+        <div th:each="movie : ${movies}" class="swiper-slide" style="width: 250px;">
+          <a th:href="@{'/movies/' + ${movie.getSeq()}}">
+            <img th:src="${movie.getPoster()}" alt="" onerror="errorImage(this)">
+          </a>
+          <div class="movie_info_wrap" style="margin-top:10px;">
+            <strong class="movieName" style="font-weight:bold;" th:text="${movie.getMovieName()}"></strong>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  $(document).ready(function () {
+    const mySwiper = new Swiper('.swiper-container', {
+      direction: 'horizontal',
+      spaceBetween: 63,
+      slidesPerView: 4,
+      slidesPerGroup: 4,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true,
+      },
+    });
+
+    var bullets = document.querySelectorAll('.swiper-pagination-bullet');
+    for (var i = 0; i < bullets.length; i++) {
+      bullets[i].addEventListener('click', function () {
+        var index = Array.prototype.indexOf.call(this.parentElement.children, this);
+        var startIndex = index * 4;
+        mySwiper.slideTo(startIndex);
+      });
+    }
+  });
+</script>
+</body>
+</html>
