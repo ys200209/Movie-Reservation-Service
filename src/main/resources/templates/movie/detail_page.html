@@ -15,7 +15,7 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="./main.html">Main</a>
         </div>
-    </div>lc
+    </div>
 </nav>
 <div class="jumbotron mb">
     <div class="container">
@@ -45,14 +45,6 @@
         </div>
     <div class="col-md-12">
         <div class="input-group mb-3">
-            <!--<form th:action="@{/movie/detail/1}" method="post">
-                <input type="hidden" th:id="memberId" th:name="memberId" th:value="${#authentication.name}">
-                <span sec:authorize="isAuthenticated()">
-                <input type="text" th:id="content" th:name="content" class="form-control border-dark" id="reply1" name="reply1" placeholder="관람평을 작성해주세요.">
-                <input type='submit' th:value="'관람평 작성'" class='btn btn-outline-dark'>
-                </span>
-                <span sec:authorize="!isAuthenticated()">로그인시 리뷰작성 가능</span>
-            </form>-->
             <input type="hidden" th:id="memberId" th:name="memberId" th:value="${#authentication.name}">
             <span sec:authorize="isAuthenticated()">
                 <input type="text" th:id="content" th:name="content" class="form-control border-dark" id="reply1" name="reply1" placeholder="관람평을 작성해주세요.">

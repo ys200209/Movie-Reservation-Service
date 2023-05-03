@@ -12,12 +12,11 @@ import java.util.HashMap;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/movies")
 public class DetailController {
 
     private final DetailService detailService;
 
-    @GetMapping("/{movieId}")
+    @GetMapping("/movies/{movieId}")
     public String detail(@PathVariable Long movieId, Model model){
             DetailDto responseDto = detailService.findByMovieId(movieId);
             model.addAttribute("detail", responseDto);
@@ -25,7 +24,7 @@ public class DetailController {
         return "movie/detail_page";
     }
 
-    @PostMapping("/{movieId}")
+    @PostMapping("/movies/{movieId}")
     @ResponseBody
     public DetailDto writeComment(@PathVariable Long movieId, @RequestBody @Valid AddCommentDto requestDto, BindingResult bindingResult){
         if(!bindingResult.hasErrors()) {
