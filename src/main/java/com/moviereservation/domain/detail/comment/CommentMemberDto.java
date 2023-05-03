@@ -14,7 +14,6 @@ import java.util.List;
 public class CommentMemberDto {
     private final Long commentSeq;
     private final String memberName;
-    @Pattern(regexp ="^(?!.*<script>).*$", flags=Pattern.Flag.CASE_INSENSITIVE)
     private final String content;
     private final LocalDateTime lastCreateAt;
 
