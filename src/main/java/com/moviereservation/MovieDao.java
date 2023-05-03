@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Repository
 public class MovieDao {
-    public static final String MovieQuery = "SELECT * FROM movies";
+    public static final String SELECT_MOVIE_QUERY = "SELECT * FROM movies";
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
@@ -17,9 +17,8 @@ public class MovieDao {
     }
 
     public List<Movie> getAllMovieNames() {
-        String SELECT_MOVIES_QUERY = MovieQuery;
 
-        return jdbcTemplate.query(SELECT_MOVIES_QUERY, (rs, rowNum) -> {
+        return jdbcTemplate.query(SELECT_MOVIE_QUERY, (rs, rowNum) -> {
             Long seq = rs.getLong("seq");
             String movieName = rs.getString("movie_name");
             String poster = rs.getString("poster");
