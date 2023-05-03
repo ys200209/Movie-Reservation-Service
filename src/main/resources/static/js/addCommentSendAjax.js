@@ -4,7 +4,7 @@ function dataSend() {
     var memberId=$("#memberId").val();
     var content=$("#content").val();
     var requestUrl=window.location.pathname;
-
+    $("#content").val("");
     if(content.length==0){
         alert("댓글 내용을 입력해주세요");
         return;

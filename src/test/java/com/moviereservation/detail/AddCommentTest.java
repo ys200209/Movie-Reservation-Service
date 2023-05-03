@@ -49,4 +49,16 @@ public class AddCommentTest {
                 .andExpect(status().isOk())
                 .andDo(print());
     }
+
+    @Test
+    @WithMockUser(username = "reqw",password = "reqw")
+    public void XSSAddCommentTest()throws Exception{
+        String requestJson = "{\"memberId\":\"reqw\", \"content\": \"<script>alert('hello')</script>\"}";
+        mockMvc.perform(post("/movies/1")
+                        .with(csrf())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(requestJson))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
 }

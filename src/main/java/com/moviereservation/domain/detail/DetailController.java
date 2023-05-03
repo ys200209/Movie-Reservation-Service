@@ -26,10 +26,8 @@ public class DetailController {
 
     @PostMapping("/movies/{movieId}")
     @ResponseBody
-    public DetailDto writeComment(@PathVariable Long movieId, @RequestBody @Valid AddCommentDto requestDto, BindingResult bindingResult){
-        if(!bindingResult.hasErrors()) {
-            detailService.addComment(requestDto, movieId);
-        }
+    public DetailDto writeComment(@PathVariable Long movieId, @RequestBody AddCommentDto requestDto){
+        detailService.addComment(requestDto, movieId);
         DetailDto responseDto = detailService.findByMovieId(movieId);
         return responseDto;
     }

@@ -10,6 +10,5 @@ import lombok.RequiredArgsConstructor;
 @NoArgsConstructor(force = true)
 public class AddCommentDto {
     private final String memberId;
-    @Pattern(regexp ="^(?!.*<script>).*$", flags=Pattern.Flag.CASE_INSENSITIVE)
     private final String content;
 }
