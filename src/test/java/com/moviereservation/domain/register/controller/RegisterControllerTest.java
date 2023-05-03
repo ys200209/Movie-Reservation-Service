@@ -27,6 +27,9 @@ class RegisterControllerTest {
     @Mock
     private RegisterService service;
 
+    @Mock
+    private RegisterValidator validator;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
