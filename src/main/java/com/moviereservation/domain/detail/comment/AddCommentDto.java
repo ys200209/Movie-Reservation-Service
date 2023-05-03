@@ -2,6 +2,7 @@ package com.moviereservation.domain.detail.comment;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
