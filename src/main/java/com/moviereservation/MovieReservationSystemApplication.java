@@ -20,7 +20,5 @@ public class MovieReservationSystemApplication {
         SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
         sessionLocaleResolver.setDefaultLocale(Locale.KOREA);      // <---- 해당 값을 수정하여 언어 결정
         return sessionLocaleResolver;
-
-
     }
 }

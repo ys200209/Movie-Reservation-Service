@@ -70,7 +70,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
     // Spring Security
-    implementation "org.springframework.boot:spring-boot-starter-security"
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.security:spring-security-test'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
@@ -86,12 +87,13 @@ dependencies {
     asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor'
     testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 
-    // Gson Dependency
-    implementation 'com.google.code.gson:gson:2.8.9'
     // Required using for Security in Thymeleaf
     implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity6'
 
 
 
 
+
+    // Gson Dependency
+    implementation 'com.google.code.gson:gson:2.8.9'
 }
