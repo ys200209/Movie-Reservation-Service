@@ -16,13 +16,13 @@ public class MovieRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Movie> getAllMovieNames() {
+    public List<MoviePreviewDto> getAllMovieNames() {
 
         return jdbcTemplate.query(SELECT_MOVIE_QUERY, (rs, rowNum) -> {
             Long seq = rs.getLong("seq");
             String movieName = rs.getString("movie_name");
             String poster = rs.getString("poster");
-            return new Movie(seq, movieName, poster);
+            return new MoviePreviewDto(seq, movieName, poster);
         });
     }
 }

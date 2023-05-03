@@ -5,8 +5,8 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class Movie {
+public class MoviePreviewDto {
     private final Long seq;
-    private final String movie_name;
+    private final String movieName;
     private final String poster;
 }

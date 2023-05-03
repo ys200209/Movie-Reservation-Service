@@ -8,5 +8,4 @@ import lombok.RequiredArgsConstructor;
 public class Member {
     private final String name;
     private final String password;
-
 }

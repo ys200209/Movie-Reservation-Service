@@ -24,8 +24,8 @@ public class MainController {
 
     @GetMapping("/")
     public String main(Model model, String name) {
-        List<Movie> movies = movieRepository.getAllMovieNames();
-        model.addAttribute("movies", movies);
+        List<MoviePreviewDto> moviePreviewDtos = movieRepository.getAllMovieNames();
+        model.addAttribute("movies", moviePreviewDtos);
         model.addAttribute("name", name);
         return "main";
     }
