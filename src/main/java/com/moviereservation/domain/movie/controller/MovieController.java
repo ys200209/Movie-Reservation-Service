@@ -1,5 +1,6 @@
 package com.moviereservation.domain.movie.controller;
 
+import com.fasterxml.jackson.databind.util.NativeImageUtil;
 import com.moviereservation.domain.movie.service.MovieService;
 import com.moviereservation.domain.movie.comment.dto.AddCommentDto;
 import com.moviereservation.domain.movie.dto.DetailDto;
@@ -8,11 +9,13 @@ import com.moviereservation.domain.movie.util.MovieValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ResourceUtils;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 @Controller
@@ -47,14 +50,15 @@ public class MovieController {
     }
 
     @PostMapping("/addMovie")
-    public String SaveMovie(@ModelAttribute("data") MovieRegisterDto data, Errors errors){
+    public String SaveMovie(@ModelAttribute("data") MovieRegisterDto data, Errors errors)throws IOException {
         validator.validate(data, errors);
         if(errors.hasErrors()){
             return "movies/addMovie";
         }
         MultipartFile posterImage = data.getPoster();
         String saveName = posterImage.getOriginalFilename();
-        File saveFile = new File("C:\\Users\\lhg424\\IdeaProjects\\Movie-Reservation-Service\\src\\main\\resources\\static\\images", saveName);
+        String uploadDirectory = ResourceUtils.getFile("file:src/main/resources/static/images/").getAbsolutePath();
+        File saveFile = new File(uploadDirectory, saveName);
         if(!posterImage.isEmpty() && posterImage != null){
             try{
                 posterImage.transferTo(saveFile);
