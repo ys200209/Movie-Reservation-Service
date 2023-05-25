@@ -1,5 +1,7 @@
-package com.moviereservation.domain.main;
+package com.moviereservation.domain.movie.controller;
 
+import com.moviereservation.domain.movie.service.MovieService;
+import com.moviereservation.domain.movie.dto.MoviePreviewDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Controller;
@@ -10,7 +12,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class MainController {
+public class MainPageController {
     private final MovieService movieService;
     private AuthenticationManager authenticationManager;
 
