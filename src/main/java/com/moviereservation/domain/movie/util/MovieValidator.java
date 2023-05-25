@@ -15,9 +15,6 @@ public class MovieValidator implements Validator {
     public static final int RUNTIME_LENGTH_UPPER_BOUND = 5;
     public static final int AGELIMIT_LENGTH_UPPER_BOUND = 2;
 
-
-
-
     @Override
     public boolean supports(Class<?> clazz) {
         return MovieRegisterDto.class.isAssignableFrom(clazz);
