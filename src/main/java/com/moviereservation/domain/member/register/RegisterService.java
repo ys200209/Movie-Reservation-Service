@@ -1,8 +1,8 @@
-package com.moviereservation.domain.register;
+package com.moviereservation.domain.member.register;
 
 import com.moviereservation.domain.member.Member;
-import com.moviereservation.domain.register.controller.dto.MemberRegisterDto;
-import com.moviereservation.domain.register.utils.exception.DuplicateMemberException;
+import com.moviereservation.utils.exception.DuplicateMemberException;
+import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;

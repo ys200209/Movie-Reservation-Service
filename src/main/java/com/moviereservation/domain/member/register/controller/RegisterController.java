@@ -1,8 +1,8 @@
-package com.moviereservation.domain.register.controller;
+package com.moviereservation.domain.member.register.controller;
 
-import com.moviereservation.domain.register.RegisterService;
-import com.moviereservation.domain.register.controller.dto.MemberRegisterDto;
-import com.moviereservation.domain.register.utils.validator.RegisterValidator;
+import com.moviereservation.domain.member.register.utils.validator.RegisterValidator;
+import com.moviereservation.domain.member.register.RegisterService;
+import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

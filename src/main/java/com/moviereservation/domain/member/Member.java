@@ -1,6 +1,6 @@
 package com.moviereservation.domain.member;
 
-import com.moviereservation.domain.register.controller.dto.MemberRegisterDto;
+import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import lombok.Builder;

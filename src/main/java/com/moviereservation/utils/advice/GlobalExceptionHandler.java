@@ -1,7 +1,7 @@
-package com.moviereservation.domain.register.utils.advice;
+package com.moviereservation.utils.advice;
 
-import com.moviereservation.domain.register.controller.dto.MemberRegisterDto;
-import com.moviereservation.domain.register.utils.exception.DuplicateMemberException;
+import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
+import com.moviereservation.utils.exception.DuplicateMemberException;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;

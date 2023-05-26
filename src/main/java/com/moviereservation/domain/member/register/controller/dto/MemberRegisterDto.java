@@ -1,4 +1,4 @@
-package com.moviereservation.domain.register.controller.dto;
+package com.moviereservation.domain.member.register.controller.dto;
 
 import lombok.Builder;
 import lombok.Getter;

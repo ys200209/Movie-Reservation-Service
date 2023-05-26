@@ -1,6 +1,6 @@
 package com.moviereservation.domain.movie.description.dto;
 
-import com.moviereservation.domain.movie.description.domain.MovieDescription;
+import com.moviereservation.domain.movie.description.MovieDescription;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
