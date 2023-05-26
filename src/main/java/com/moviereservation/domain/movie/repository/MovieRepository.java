@@ -1,7 +1,7 @@
 package com.moviereservation.domain.movie.repository;
 
-import com.moviereservation.domain.movie.dto.MovieRegisterDto;
-import com.moviereservation.domain.movie.dto.MoviePreviewDto;
+import com.moviereservation.domain.movie.controller.dto.MovieRegisterDto;
+import com.moviereservation.domain.movie.controller.dto.MoviePreviewDto;
 
 import java.util.List;
 

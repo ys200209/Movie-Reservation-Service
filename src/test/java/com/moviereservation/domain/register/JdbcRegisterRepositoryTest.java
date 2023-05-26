@@ -3,8 +3,10 @@ package com.moviereservation.domain.register;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.moviereservation.domain.member.Member;
-import com.moviereservation.domain.register.controller.dto.MemberRegisterDto;
-import com.moviereservation.domain.register.controller.dto.MemberRegisterDto.MemberRegisterDtoBuilder;
+import com.moviereservation.domain.member.register.JdbcRegisterRepository;
+import com.moviereservation.domain.member.register.RegisterRepository;
+import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
+import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto.MemberRegisterDtoBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

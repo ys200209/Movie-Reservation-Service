@@ -1,7 +1,7 @@
-package com.moviereservation.domain.register.utils.validator;
+package com.moviereservation.domain.member.register.utils.validator;
 
 import com.moviereservation.domain.member.Gender;
-import com.moviereservation.domain.register.controller.dto.MemberRegisterDto;
+import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
 import java.util.regex.Pattern;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;

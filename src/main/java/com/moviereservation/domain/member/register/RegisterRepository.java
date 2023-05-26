@@ -1,4 +1,4 @@
-package com.moviereservation.domain.register;
+package com.moviereservation.domain.member.register;
 
 import com.moviereservation.domain.member.Member;
 

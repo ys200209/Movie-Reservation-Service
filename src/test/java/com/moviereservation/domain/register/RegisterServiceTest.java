@@ -7,9 +7,11 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 import com.moviereservation.domain.member.Member;
-import com.moviereservation.domain.register.controller.dto.MemberRegisterDto;
-import com.moviereservation.domain.register.controller.dto.MemberRegisterDto.MemberRegisterDtoBuilder;
-import com.moviereservation.domain.register.utils.exception.DuplicateMemberException;
+import com.moviereservation.domain.member.register.RegisterRepository;
+import com.moviereservation.domain.member.register.RegisterService;
+import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
+import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto.MemberRegisterDtoBuilder;
+import com.moviereservation.utils.exception.DuplicateMemberException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

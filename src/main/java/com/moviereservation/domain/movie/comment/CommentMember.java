@@ -1,4 +1,4 @@
-package com.moviereservation.domain.movie.comment.domain;
+package com.moviereservation.domain.movie.comment;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

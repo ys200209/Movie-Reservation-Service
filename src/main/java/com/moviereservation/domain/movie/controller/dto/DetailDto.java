@@ -1,4 +1,4 @@
-package com.moviereservation.domain.movie.dto;
+package com.moviereservation.domain.movie.controller.dto;
 
 import com.moviereservation.domain.movie.comment.dto.CommentMemberDto;
 import lombok.Getter;

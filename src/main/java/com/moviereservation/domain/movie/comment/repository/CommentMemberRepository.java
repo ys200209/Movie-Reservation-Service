@@ -1,6 +1,6 @@
 package com.moviereservation.domain.movie.comment.repository;
 
-import com.moviereservation.domain.movie.comment.domain.CommentMember;
+import com.moviereservation.domain.movie.comment.CommentMember;
 
 import java.util.List;
 
