@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+
+        .field-error {
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="py-5 text-center">
+        <h2 th:text="#{page.addMovie}">영화 추가</h2>
+    </div>
+
+    <form th:action="@{/movies/addMovie}" th:object="${data}" method="post"
+            enctype="multipart/form-data"
+    >
+        <div>
+            <label for="movieName" th:text="#{label.movie.name}">영화 제목</label>
+
+            <input type="text" id="movieName" th:field="*{name}"
+                   th:errorclass="field-error" class="form-control" placeholder="영화제목을 입력하세요">
+            <div class="field-error" th:errors="*{name}">
+                영화이름 오류
+            </div>
+        </div>
+        <br/>
+
+        <div>
+            <label for="poster" th:text="#{label.movie.poster}">포스터</label>
+
+            <input type="file" id="poster" th:field="*{poster}"
+                   th:errorclass="field-error" class="form-control" placeholder="포스터를 입력하세요">
+            <div class="field-error" th:errors="*{poster}">
+                포스터 오류
+            </div>
+        </div>
+        <br/>
+
+        <div>
+            <label for="category" th:text="#{label.category.name}">카테고리</label>
+
+            <select id="category" th:field="*{category}" th:errorclass="field-error">
+                <option value ="1">액션</option>
+                <option value ="2">애니메이션</option>
+                <option value ="3">공포</option>
+                <option value ="4">스릴러</option>
+                <option value ="5">코미디</option>
+                <option value ="6">범죄</option>
+            </select>
+        </div>
+        <br/>
+
+        <div>
+            <label for="story" th:text="#{label.description.story}">줄거리</label><br/>
+            <textarea id="story" th:field="*{story}"
+                   th:errorclass="field-error" class="form-control " placeholder="줄거리를 입력하세요"/>
+            <div class="field-error" th:errors="*{story}">
+                줄거리 오류
+            </div>
+        </div>
+        <br/>
+
+        <div>
+            <label for="runningTime" th:text="#{label.description.runningTime}">상영시간</label>
+
+            <input type="text" id="runningTime" th:field="*{runningTime}"
+                   th:errorclass="field-error" class="form-control col-md-4" placeholder="상영시간을 입력하세요">
+            <div class="field-error" th:errors="*{runningTime}">
+                상영시간 오류
+            </div>
+        </div>
+        <br/>
+
+        <div>
+            <label for="director" th:text="#{label.description.director}">감독</label>
+
+            <input type="text" id="director" th:field="*{director}"
+                   th:errorclass="field-error" class="form-control" placeholder="감독을 입력하세요">
+            <div class="field-error" th:errors="*{director}">
+                감독 오류
+            </div>
+        </div>
+        <br/>
+
+        <div>
+            <label for="actor" th:text="#{label.description.actor}">배우</label>
+
+            <input type="text" id="actor" th:field="*{actor}"
+                   th:errorclass="field-error" class="form-control" placeholder="배우를 A,B,C 와 같은 형태로 입력하세요">
+            <div class="field-error" th:errors="*{actor}">
+                배우 오류
+            </div>
+        </div>
+        <br/>
+
+        <div>
+            <label for="ageLimit" th:text="#{label.description.ageLimit}">연령제한</label>
+
+            <select id="ageLimit" th:field="*{ageLimit}" th:errorclass="field-error">
+                <option value ="0">ALL</option>
+                <option value ="12">12</option>
+                <option value ="15">15</option>
+                <option value ="18">18</option>
+                <option value ="19">19</option>
+            </select>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="row">
+            <div class="col">
+                <button class="w-100 btn btn-primary btn-lg" type="submit" th:text="#{movie.button.save}">영화 등록</button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-secondary btn-lg"
+                        onclick="location.href='items.html'"
+                        th:onclick="|location.href='@{/}'|"
+                        type="button" th:text="#{button.cancel}">취소
+                </button>
+            </div>
+        </div>
+
+    </form>
+
+</div> <!-- /container -->
+</body>
+</html>
