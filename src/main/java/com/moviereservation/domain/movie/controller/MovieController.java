@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Objects;
 
 @Controller
 @RequiredArgsConstructor
@@ -29,6 +30,9 @@ public class MovieController {
     @GetMapping("/{movieId}")
     public String detail(@PathVariable Long movieId, Model model){
             DetailDto responseDto = movieService.findByMovieId(movieId);
+            if(responseDto == null){
+                return "redirect:/";
+            }
             model.addAttribute("detail", responseDto);
             model.addAttribute("requestDto", new HashMap<String, String>());
         return "movies/detail_page";

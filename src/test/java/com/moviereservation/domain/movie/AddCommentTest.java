@@ -1,4 +1,4 @@
-package com.moviereservation.detail;
+package com.moviereservation.domain.movie;
 
 import com.google.gson.Gson;
 import org.junit.jupiter.api.BeforeEach;
