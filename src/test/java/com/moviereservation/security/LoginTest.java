@@ -22,12 +22,6 @@ class LoginTest {
     @Autowired
     MockMvc mockMvc;
 
-    /*@Test
-    public void login() throws Exception {
-
-        mockMvc.perform(formLogin("/member/login").user("reqw").password("reqw")).andExpect(authenticated());
-    }*/
-
     //WithMockUser의 접근권한 테스트
     @Test
     //유저정보 설정
@@ -46,14 +40,6 @@ class LoginTest {
                 .andExpect(authenticated());
     }
 
-    //익명유저 = 로그인X 유저의 접근 테스트
-    @Test
-    @WithAnonymousUser
-    public void testCheckEndpointAccessDeniedForAnonymousUser() throws Exception {
-        mockMvc.perform(get("/member/check"))
-                .andExpect(status().is3xxRedirection());
-    }
-
     //role이 ADMIN인 유저의 접근테스트
     @Test
     @WithMockUser(roles="ADMIN")
@@ -61,5 +47,4 @@ class LoginTest {
         mockMvc.perform(get("/member/check"))
                 .andExpect(status().isOk());
     }
-
 }

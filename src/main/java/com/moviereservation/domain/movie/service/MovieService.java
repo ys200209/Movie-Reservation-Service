@@ -1,17 +1,16 @@
 package com.moviereservation.domain.movie.service;
 
 import com.moviereservation.domain.movie.comment.dto.AddCommentDto;
-import com.moviereservation.domain.movie.comment.domain.CommentMember;
+import com.moviereservation.domain.movie.comment.CommentMember;
 import com.moviereservation.domain.movie.comment.dto.CommentMemberDto;
 import com.moviereservation.domain.movie.comment.repository.CommentMemberRepository;
-import com.moviereservation.domain.movie.description.domain.MovieDescription;
 import com.moviereservation.domain.movie.description.dto.MovieDescriptionDto;
 import com.moviereservation.domain.movie.description.repository.MovieDescriptionRepository;
-import com.moviereservation.domain.movie.dto.MoviePreviewDto;
+import com.moviereservation.domain.movie.controller.dto.MoviePreviewDto;
 import com.moviereservation.domain.movie.repository.MovieRepository;
-import com.moviereservation.domain.movie.domain.Detail;
-import com.moviereservation.domain.movie.dto.DetailDto;
-import com.moviereservation.domain.movie.dto.MovieRegisterDto;
+import com.moviereservation.domain.movie.Detail;
+import com.moviereservation.domain.movie.controller.dto.DetailDto;
+import com.moviereservation.domain.movie.controller.dto.MovieRegisterDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

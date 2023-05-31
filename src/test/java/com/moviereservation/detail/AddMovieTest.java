@@ -1,7 +1,7 @@
 package com.moviereservation.detail;
 
 import com.moviereservation.domain.movie.repository.JdbcMovieRepository;
-import com.moviereservation.domain.movie.dto.MovieRegisterDto;
+import com.moviereservation.domain.movie.controller.dto.MovieRegisterDto;
 import com.moviereservation.domain.movie.repository.MovieRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 800px;
+        }
+
+        .jumbotron {
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            background-color: #e9ecef;
+            border-radius: .3rem;
+        }
+    </style>
+</head>
+<body>
+
+<h2 style="text-align : center">내정보</h2><br/>
+
+<div class="container">
+    <div class="col-4"></div>
+    <div class="jumbotron" style="padding-top : 1px;">
+        <br/>
+        <div sec:authorize="isAuthenticated()" >
+        <h3 style="text-align : center" th:text="'아이디 : ' + ${#authentication.getName()}">아이디 : null</h3><br/>
+        </div>
+
+        <h3 style="text-align : center">등급 : Platinum</h3>
+        <br/>
+        <br/>
+
+        <div class="row">
+            <div class="col">
+                <button class="w-100 btn btn-secondary btn-lg col"
+                        onclick="location.href='change_password.html'"
+                        th:onclick="|location.href='@{/member/password}'|"
+                        type="button" th:text="#{member.me.updatePassword}">비밀번호 변경
+                </button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-secondary btn-lg col"
+                        onclick="location.href='reserved.html'"
+                        th:onclick="|location.href='@{/movies/reserved}'|"
+                        type="button" th:text="#{member.me.reserved}">예매내역 확인
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-4"></div>
+</div>
+
+</body>
+</html>
