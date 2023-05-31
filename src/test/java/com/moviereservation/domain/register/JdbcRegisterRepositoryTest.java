@@ -30,32 +30,6 @@ class JdbcRegisterRepositoryTest {
     }
 
     @Test
-    void testFindMemberNull() {
-        // given
-        String memberId = "memberId";
-
-        // when
-        Member findMember = repository.findById(memberId);
-
-        // then
-        assertThat(findMember).isNull();
-    }
-
-    @Test
-    void testFindMemberNotNull() {
-        // given
-        MemberRegisterDto memberRegister = getStandardMemberRegister().build();
-        Member saveMember = Member.toEntity(memberRegister);
-
-        // when
-        repository.save(saveMember);
-        Member findMember = repository.findById(saveMember.getMemberId());
-
-        // then
-        assertThat(findMember).isNotNull();
-    }
-
-    @Test
     void testSaveMember() {
         // given
         MemberRegisterDto memberRegister = getStandardMemberRegister().build();

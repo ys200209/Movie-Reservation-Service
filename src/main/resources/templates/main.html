@@ -30,6 +30,9 @@
       <!-- 메인 페이지 - 로그인 상태 -->
       <div sec:authorize="isAuthenticated()" >
         <p style="display: inline-block; margin-right: 10px;" th:text="${#authentication.getName()+'님'}"></p>
+        <form th:action="@{/member/me}" method="get" style="display: inline-block;">
+          <button type="submit">내 정보</button>
+        </form>
         <form style="display: inline-block;" th:action="@{/logout}" method="post">
           <button type="submit">로그아웃</button>
         </form>

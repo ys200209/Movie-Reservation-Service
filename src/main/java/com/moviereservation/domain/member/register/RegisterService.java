@@ -22,8 +22,4 @@ public class RegisterService {
             throw new DuplicateMemberException(registerDto);
         }
     }
-
-    public Member findById(String id) {
-        return repository.findById(id);
-    }
 }

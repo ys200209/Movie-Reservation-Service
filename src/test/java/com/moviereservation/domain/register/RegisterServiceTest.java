@@ -3,7 +3,6 @@ package com.moviereservation.domain.register;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 import com.moviereservation.domain.member.Member;
@@ -55,33 +54,6 @@ class RegisterServiceTest {
         // then
         assertThatThrownBy(() -> service.save(member))
                 .isInstanceOf(DuplicateMemberException.class);
-    }
-
-    @Test
-    void testFindMemberNull() {
-        // given
-        MemberRegisterDto requestDto = getStandardMemberRegister().build();
-
-        // when
-        when(repository.findById(anyString())).thenReturn(null);
-        Member findMember = service.findById(requestDto.getMemberId());
-
-        // then
-        assertThat(findMember).isNull();
-    }
-
-    @Test
-    void testFindMemberNotNull() {
-        // given
-        MemberRegisterDto requestDto = getStandardMemberRegister().build();
-        Member savedMember = Member.toEntity(requestDto);
-
-        // when
-        when(repository.findById(anyString())).thenReturn(savedMember);
-        Member findMember = service.findById(requestDto.getMemberId());
-
-        // then
-        assertThat(findMember).isNotNull();
     }
 
     private static MemberRegisterDtoBuilder getStandardMemberRegister() {
