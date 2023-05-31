@@ -10,6 +10,8 @@ INSERT INTO members(member_id, member_password, gender, birth, name, phone_numbe
 INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name, enable) VALUES ("seojun04", "jun0985", "남자", "2004-06-09", "김서준", "010-5268-9853", NOW(), NOW(), "ROLE_USER", 1);
 INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name, enable) VALUES ("jiwoo98", "qwerty98", "여자", "1998-05-05", "박지우", "010-5789-5236", NOW(), NOW(), "ROLE_USER", 1);
 INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name, enable) VALUES ("ddoddo11", "zxcv89", "남자", "2001-04-28", "최도윤", "010-4562-7536", NOW(), NOW(), "ROLE_USER", 1);
+INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name, enable) VALUES ("id", "$2a$10$kCgn7yRQy9IJrUu7h2Jr8uBXy71XzPQYZtdV5CBPmYX/37lBSyv8m", "남자", "2001-04-28", "박새로일", "010-1472-5836", NOW(), NOW(), "ROLE_USER", 1);
+INSERT INTO members(member_id, member_password, gender, birth, name, phone_number, create_at, modify_at, role_name, enable) VALUES ("id2", "$2a$10$wBRDy1UOSL/cn7BGsj90XuC5XbF6v47dHZmb8cWArhuvlQBlC2p.C", "남자", "2023-05-25", "박새로이", "010-1472-5836", NOW(), NOW(), "ROLE_USER", 1);
 
 -- Categories
 INSERT INTO categories(name) VALUES ("액션");
