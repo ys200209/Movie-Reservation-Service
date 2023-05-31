@@ -12,7 +12,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
 
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
@@ -26,6 +25,9 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers( "/member/check").authenticated()
                         .requestMatchers("/movies/addMovie").hasRole("ADMIN")
+                        .requestMatchers("/member/check").authenticated()
+                        .requestMatchers("/member/me").authenticated()
+                        .requestMatchers("/member/password").authenticated()
                         .anyRequest().permitAll()
                 )
                 .formLogin((form) -> form
