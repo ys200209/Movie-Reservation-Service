@@ -61,7 +61,7 @@ public class MovieController {
         }
         MultipartFile posterImage = data.getPoster();
         String saveName = posterImage.getOriginalFilename();
-        String uploadDirectory = ResourceUtils.getFile("file:src/main/resources/static/images/").getAbsolutePath();
+        String uploadDirectory = ResourceUtils.getFile("classpath:static/images/").getAbsolutePath();
         File saveFile = new File(uploadDirectory, saveName);
         if(!posterImage.isEmpty() && posterImage != null){
             try{

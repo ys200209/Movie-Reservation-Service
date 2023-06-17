@@ -7,6 +7,7 @@ import com.moviereservation.domain.movie.comment.repository.CommentMemberReposit
 import com.moviereservation.domain.movie.description.domain.MovieDescription;
 import com.moviereservation.domain.movie.description.dto.MovieDescriptionDto;
 import com.moviereservation.domain.movie.description.repository.MovieDescriptionRepository;
+import com.moviereservation.domain.movie.domain.Movie;
 import com.moviereservation.domain.movie.dto.MoviePreviewDto;
 import com.moviereservation.domain.movie.repository.MovieRepository;
 import com.moviereservation.domain.movie.domain.Detail;
@@ -29,7 +30,13 @@ public class MovieService {
     private final MovieRepository movieRepository;
 
     public List<MoviePreviewDto> getAllMovies() {
-        return movieRepository.getAllMovies();
+        List<MoviePreviewDto> movieDtoList = new ArrayList<MoviePreviewDto>();
+        List<Movie> movies = movieRepository.getAllMovies();
+        for (Movie movie : movies) {
+            movieDtoList.add(new MoviePreviewDto(movie.getSeq(), movie.getMovieName(), movie.getPoster()));
+        }
+
+        return movieDtoList;
     }
 
     public DetailDto findByMovieId(Long id) {

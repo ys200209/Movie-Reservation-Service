@@ -24,6 +24,8 @@ public class JdbcMovieRepository implements MovieRepository {
 
     private final String INSERT_MOVIE_SQL = "INSERT INTO MOVIES(MOVIE_NAME, POSTER) VALUES(?,?)";
 
+    private final String SELECT_MOVIE_BY_ID_QUERY = "SELECT * FROM movies WHERE movies_seq = ?";
+
     @Override
     public long save(MovieRegisterDto data) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -40,20 +42,24 @@ public class JdbcMovieRepository implements MovieRepository {
     }
 
     @Override
-    public List<MoviePreviewDto> getAllMovies() {
-        List<MoviePreviewDto> movieDtoList = new ArrayList<MoviePreviewDto>();
-
+    public List<Movie> getAllMovies() {
         List<Movie> movies = jdbcTemplate.query(SELECT_MOVIE_QUERY, (rs, rowNum) -> {
             Long seq = rs.getLong("seq");
             String movieName = rs.getString("movie_name");
             String poster = rs.getString("poster");
             return new Movie(seq, movieName, poster);
         });
+        return movies;
+    }
 
-        for (Movie movie : movies) {
-            movieDtoList.add(new MoviePreviewDto(movie.getSeq(), movie.getMovieName(), movie.getPoster()));
-        }
-
-        return movieDtoList;
+    @Override
+    public Movie findById(long id) {
+        Movie movie = jdbcTemplate.queryForObject(SELECT_MOVIE_BY_ID_QUERY, (rs, rowNum) ->{
+            Long seq = rs.getLong("seq");
+            String movieName = rs.getString("movie_name");
+            String poster = rs.getString("poster");
+            return new Movie(seq, movieName, poster);
+        });
+        return movie;
     }
 }
