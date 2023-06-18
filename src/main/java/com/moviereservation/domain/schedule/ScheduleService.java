@@ -19,7 +19,6 @@ public class ScheduleService {
 
     List<ScheduleDto> findByIdAndDate(SearchDto searchDto){
         long id = Long.parseLong(searchDto.getMovies_seq());
-        System.out.print(searchDto.getDate());
         String date = dateConversion(searchDto.getDate());
         List<Schedule> schedules = scheduleRepository.findByMovieIdAndDate(id, date);
         List<ScheduleDto> dtos = new ArrayList<ScheduleDto>();

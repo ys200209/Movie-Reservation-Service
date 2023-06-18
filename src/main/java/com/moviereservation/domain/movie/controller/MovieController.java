@@ -2,8 +2,8 @@ package com.moviereservation.domain.movie.controller;
 
 import com.moviereservation.domain.movie.service.MovieService;
 import com.moviereservation.domain.movie.comment.dto.AddCommentDto;
-import com.moviereservation.domain.movie.controller.dto.DetailDto;
-import com.moviereservation.domain.movie.controller.dto.MovieRegisterDto;
+import com.moviereservation.domain.movie.dto.DetailDto;
+import com.moviereservation.domain.movie.dto.MovieRegisterDto;
 import com.moviereservation.domain.movie.utils.MovieValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -16,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Objects;
 
 @Controller
 @RequiredArgsConstructor

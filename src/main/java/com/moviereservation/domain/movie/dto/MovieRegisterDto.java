@@ -1,4 +1,4 @@
-package com.moviereservation.domain.movie.controller.dto;
+package com.moviereservation.domain.movie.dto;
 
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
