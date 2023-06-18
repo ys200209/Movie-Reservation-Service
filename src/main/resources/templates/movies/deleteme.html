@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <link th:href="@{/css/bootstrap.min.css}"
+        href="../css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .jumbotron {
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+      background-color: #e9ecef;
+      border-radius: .3rem;
+    }
+
+    .form-update-group {
+      display: flex;
+      align-items: center;
+    }
+    button {
+      width: 33.33%;
+      margin: 0 40.00%;
+    }
+  </style>
+</head>
+<body>
+
+<h2 style="text-align : center">내정보</h2><br/>
+
+<div class="container">
+  <div class="col-4"></div>
+  <h3 style="text-align : center">내가 주문한 상품들</h3><br/>
+  <table class="table table-bordered" style="text-align : center; border : 1px solid #dddddd">
+    <thead>
+    <tr>
+      <th style="background-color : #eeeeee; text-align : center;">주문 번호</th>
+      <th style="background-color : #eeeeee; text-align : center;">상품 이름</th>
+      <th style="background-color : #eeeeee; text-align : center;">상품 가격</th>
+      <th style="background-color : #eeeeee; text-align : center;">주문 날짜</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= list.get(i).getOrderID() %></td>
+      <td><%= list.get(i).getItemName() %></td>
+      <td><%= list.get(i).getItemPrice() %></td>
+      <td><%= list.get(i).getOrderDate() %></td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="col-4"></div>
+</div>
+
+</body>
+</html>
