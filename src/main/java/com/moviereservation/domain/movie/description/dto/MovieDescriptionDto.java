@@ -4,6 +4,9 @@ import com.moviereservation.domain.movie.description.MovieDescription;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @RequiredArgsConstructor
 public class MovieDescriptionDto {
