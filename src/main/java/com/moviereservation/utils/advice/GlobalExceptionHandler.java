@@ -2,6 +2,7 @@ package com.moviereservation.utils.advice;
 
 import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
 import com.moviereservation.utils.exception.DuplicateMemberException;
+import com.moviereservation.utils.exception.ReservationNotAllowedException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
@@ -25,6 +26,13 @@ public class GlobalExceptionHandler {
         mav.addObject(BindingResult.MODEL_KEY_PREFIX + "member", errors);
         mav.setViewName("/member/register");
         return mav;
+    }
+
+    @ExceptionHandler(ReservationNotAllowedException.class)
+    public String handleReservationException(final ReservationNotAllowedException exception) {
+        log.info("ReservationNotAllowedException occur : {}", exception.getMessage());
+
+        return null;
     }
 
     @ExceptionHandler(Exception.class)

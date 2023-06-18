@@ -53,7 +53,7 @@
   <div class="contents">
     <div class="movieChart_list swiper-container" id="movieChart_list">
       <div class="swiper-wrapper">
-        <div th:each="movie : ${movies}" class="swiper-slide" style="width: 250px;">
+        <div th:each="movie : ${movies}" class="swiper-slide" style="width:245px"; height="350px ">
           <a th:href="@{'/movies/' + ${movie.getSeq()}}">
             <img th:src="${movie.getPoster()}" alt="" onerror="errorImage(this)">
           </a>
