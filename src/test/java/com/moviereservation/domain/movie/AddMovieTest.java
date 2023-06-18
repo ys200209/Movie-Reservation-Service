@@ -1,8 +1,9 @@
-package com.moviereservation.detail;
+package com.moviereservation.domain.movie;
 
 import com.moviereservation.domain.movie.repository.JdbcMovieRepository;
 import com.moviereservation.domain.movie.controller.dto.MovieRegisterDto;
 import com.moviereservation.domain.movie.repository.MovieRepository;
+import com.moviereservation.domain.movie.service.MovieService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class AddMovieTest {
 
     private MovieRepository repository;
 
+    @Autowired
+    private MovieService movieService;
+
     @BeforeEach
     void setUp() {
         repository = new JdbcMovieRepository(jdbcTemplate);
@@ -45,4 +49,6 @@ public class AddMovieTest {
         // then
         assertThat(actual).isEqualTo(13);
     }
+
+
 }
