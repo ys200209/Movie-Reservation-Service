@@ -1,10 +1,10 @@
 package com.moviereservation.domain.movie.service;
 
 import com.moviereservation.domain.movie.comment.dto.AddCommentDto;
-import com.moviereservation.domain.movie.comment.domain.CommentMember;
+import com.moviereservation.domain.movie.domain.CommentMember;
 import com.moviereservation.domain.movie.comment.dto.CommentMemberDto;
 import com.moviereservation.domain.movie.comment.repository.CommentMemberRepository;
-import com.moviereservation.domain.movie.description.domain.MovieDescription;
+import com.moviereservation.domain.movie.domain.MovieDescription;
 import com.moviereservation.domain.movie.description.dto.MovieDescriptionDto;
 import com.moviereservation.domain.movie.description.repository.MovieDescriptionRepository;
 import com.moviereservation.domain.movie.domain.Movie;
@@ -16,11 +16,9 @@ import com.moviereservation.domain.movie.dto.MovieRegisterDto;
 import com.moviereservation.util.XssProtector;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.util.ObjectUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor

@@ -1,6 +1,6 @@
 package com.moviereservation.domain.movie.description.repository;
 
-import com.moviereservation.domain.movie.controller.dto.MovieRegisterDto;
+import com.moviereservation.domain.movie.dto.MovieRegisterDto;
 import com.moviereservation.domain.movie.description.dto.MovieDescriptionDto;
 
 public interface MovieDescriptionRepository {

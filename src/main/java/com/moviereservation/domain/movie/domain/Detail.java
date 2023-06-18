@@ -1,6 +1,5 @@
-package com.moviereservation.domain.movie;
+package com.moviereservation.domain.movie.domain;
 
-import com.moviereservation.domain.movie.comment.CommentMember;
 import com.moviereservation.domain.movie.description.dto.MovieDescriptionDto;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
