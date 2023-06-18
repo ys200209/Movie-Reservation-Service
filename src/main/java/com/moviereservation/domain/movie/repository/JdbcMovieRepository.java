@@ -1,8 +1,7 @@
 package com.moviereservation.domain.movie.repository;
 
-import com.moviereservation.domain.movie.controller.dto.MovieRegisterDto;
-import com.moviereservation.domain.movie.Movie;
-import com.moviereservation.domain.movie.controller.dto.MoviePreviewDto;
+import com.moviereservation.domain.movie.dto.MovieRegisterDto;
+import com.moviereservation.domain.movie.domain.Movie;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor

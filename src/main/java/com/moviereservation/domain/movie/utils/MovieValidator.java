@@ -2,7 +2,7 @@ package com.moviereservation.domain.movie.utils;
 
 import java.util.regex.Pattern;
 
-import com.moviereservation.domain.movie.controller.dto.MovieRegisterDto;
+import com.moviereservation.domain.movie.dto.MovieRegisterDto;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;

@@ -1,6 +1,6 @@
 package com.moviereservation;
 
-import com.moviereservation.domain.movie.controller.dto.MoviePreviewDto;
+import com.moviereservation.domain.movie.dto.MoviePreviewDto;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
