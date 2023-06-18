@@ -1,11 +1,10 @@
 package com.moviereservation.domain.movie.controller;
 
-import com.fasterxml.jackson.databind.util.NativeImageUtil;
 import com.moviereservation.domain.movie.service.MovieService;
 import com.moviereservation.domain.movie.comment.dto.AddCommentDto;
-import com.moviereservation.domain.movie.dto.DetailDto;
-import com.moviereservation.domain.movie.dto.MovieRegisterDto;
-import com.moviereservation.domain.movie.util.MovieValidator;
+import com.moviereservation.domain.movie.controller.dto.DetailDto;
+import com.moviereservation.domain.movie.controller.dto.MovieRegisterDto;
+import com.moviereservation.domain.movie.utils.MovieValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

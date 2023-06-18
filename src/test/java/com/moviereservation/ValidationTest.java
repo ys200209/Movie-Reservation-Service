@@ -1,14 +1,5 @@
 package com.moviereservation;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class ValidationTest {
 
     /*private Timestamp now;

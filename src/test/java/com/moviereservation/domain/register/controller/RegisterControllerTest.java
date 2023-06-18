@@ -7,8 +7,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import com.moviereservation.domain.register.RegisterService;
-import com.moviereservation.domain.register.utils.validator.RegisterValidator;
+import com.moviereservation.domain.member.register.RegisterService;
+import com.moviereservation.domain.member.register.controller.RegisterController;
+import com.moviereservation.domain.member.register.utils.validator.RegisterValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

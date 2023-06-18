@@ -1,8 +1,8 @@
 package com.moviereservation.domain.movie.repository;
 
-import com.moviereservation.domain.movie.dto.MovieRegisterDto;
-import com.moviereservation.domain.movie.domain.Movie;
-import com.moviereservation.domain.movie.dto.MoviePreviewDto;
+import com.moviereservation.domain.movie.controller.dto.MovieRegisterDto;
+import com.moviereservation.domain.movie.Movie;
+import com.moviereservation.domain.movie.controller.dto.MoviePreviewDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
