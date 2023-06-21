@@ -23,9 +23,14 @@ var main = {
         var scheduleId = $("#scheduleId").val()
         // alert('movieId : ' + movieId);
 
+        var age = $("input[name=age]:checked").val()
+
         alert('url : ' + '/' + scheduleId + '/reservation')
         var data = {
-            selected: selected
+            selected: selected,
+            memberId : memberId,
+            age : age
+
         };
 
         $.ajax({
@@ -40,6 +45,7 @@ var main = {
             data: JSON.stringify(data)
         }).done(function () {
             alert('예매가 완료되었습니다.');
+            alert(JSON.stringify(data));
             window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));

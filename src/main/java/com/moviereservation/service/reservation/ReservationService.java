@@ -1,6 +1,9 @@
 package com.moviereservation.service.reservation;
 
+import com.moviereservation.domain.member.Member;
+import com.moviereservation.domain.member.MemberRepository;
 import com.moviereservation.domain.reservation.ReservationRepository;
+import com.moviereservation.domain.schedule.ScheduleRepository;
 import com.moviereservation.domain.seat.Seat;
 import com.moviereservation.domain.seat.Seats;
 import com.moviereservation.domain.seat.Theater;
@@ -15,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static com.moviereservation.domain.reservation.JdbcReservationRepository.*;
 
@@ -23,6 +27,8 @@ import static com.moviereservation.domain.reservation.JdbcReservationRepository.
 public class ReservationService {
 
     private final ReservationRepository reservationRepository;
+    private final MemberRepository memberRepository;
+    private final ScheduleRepository scheduleRepository;
 
     @Async
     @Synchronized
@@ -31,13 +37,22 @@ public class ReservationService {
     }
 
 
-    public void reserve(long scheduleId, String selected) {
-
+    public void reserve(long scheduleId, String selected, String age, String member_id) {
         Seats seats = SeatsSeparator.separate(selected);
         for(Seat seat : seats.getSeats()) {
             checkNotAllowedReservation(scheduleId, seat);
         }
         reservationRepository.reserve(scheduleId, seats);
+        long movies_seq = scheduleRepository.findBySeq(scheduleId).get(0).getMovies_seq();
+        Optional<Member> member_check = memberRepository.findById(member_id);
+        if(member_check.get() == null){
+            return;
+        }
+        Member member = member_check.get();
+        Seat seat = seats.getSeats().get(0);
+        long seatSeq = reservationRepository.findSeatSql(seat, scheduleId);
+        long payments_seq = reservationRepository.insertPayment(age, movies_seq, member);
+        reservationRepository.save(seatSeq, payments_seq);
     }
 
     public Theater getAllSeats(long scheduleId){

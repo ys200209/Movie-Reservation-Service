@@ -35,11 +35,11 @@ public class GlobalExceptionHandler {
         return null;
     }
 
-    @ExceptionHandler(Exception.class)
+    /*@ExceptionHandler(Exception.class)
     public ModelAndView handlerException(final Exception exception) {
         log.info("Exception occur : {}", exception.getMessage());
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/main");
         return mav;
-    }
+    }*/
 }

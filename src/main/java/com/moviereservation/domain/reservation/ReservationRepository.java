@@ -1,5 +1,6 @@
 package com.moviereservation.domain.reservation;
 
+import com.moviereservation.domain.member.Member;
 import com.moviereservation.domain.seat.Seat;
 import com.moviereservation.domain.seat.Seats;
 
@@ -12,5 +13,9 @@ public interface ReservationRepository {
 
     List<Seat> findByScheduleIdAndColumn(long id, int col);
 
-    void updatePayment(Seat seat, String grade);
+    long insertPayment(String age, long movies_seq, Member member);
+
+    void save(long seat_seq, long payment_seq);
+
+    long findSeatSql(Seat seat, long scheduleId);
 }

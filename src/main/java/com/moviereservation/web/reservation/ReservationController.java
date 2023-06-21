@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.security.Principal;
+
 @Controller
 @RequiredArgsConstructor
 public class ReservationController {
@@ -59,7 +61,7 @@ public class ReservationController {
                                                      @RequestBody ReservationRequestDto request) {
         System.out.println("(PostMapping) ReservationController.testReservationPost");
         System.out.println("(PostMapping) request = " + request);
-        reservationService.reserve(scheduleId, request.getSelected());
+        reservationService.reserve(scheduleId, request.getSelected(), request.getAge(), request.getMemberId());
 //        model.addAttribute("movieId", movieId);
         return request;
     }
