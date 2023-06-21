@@ -49,7 +49,7 @@ class MemberServiceTest {
     }
 
     public static Stream<Arguments> getInvalidPasswordDto() {
-        Member member = new Member(null, "id", "password", null, null, null, null, null, null, null, null);
+        Member member = new Member(null, "id", "password", null, null, null, null, null, null, null, null, null);
         return Stream.of(
                 Arguments.of(member, new PasswordChangeDto(null, "newPassword1@", "newPassword123!@#")),
                 Arguments.of(member, new PasswordChangeDto("password", "newPassword1@", "newPassword1@")),

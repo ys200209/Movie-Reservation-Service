@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.moviereservation.domain.reservation.JdbcReservationRepository;
 import com.moviereservation.utils.reservation.SeatsSeparator;
+import com.moviereservation.utils.strategy.DiscountPolicy;
 import com.moviereservation.web.reservation.dto.ReservationRequestDto;
 import com.moviereservation.domain.seat.Seat;
 import com.moviereservation.domain.seat.Seats;
@@ -31,9 +32,11 @@ class JdbcReservationRepositoryTest {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    DiscountPolicy discountPolicy;
+
     @BeforeEach
     void setUp() {
-        repository = new JdbcReservationRepository(jdbcTemplate);
+        repository = new JdbcReservationRepository(jdbcTemplate, discountPolicy);
     }
 
     @ParameterizedTest

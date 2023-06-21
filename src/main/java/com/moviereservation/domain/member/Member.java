@@ -23,6 +23,7 @@ public class Member {
     private final LocalDate birth;
     private final String name;
     private final String phoneNumber;
+    private final Grade grade;
     private final LocalDateTime createAt;
     private final LocalDateTime modifyAt;
     private final String roleName;
@@ -36,6 +37,7 @@ public class Member {
                 .birth(LocalDate.parse(memberRegister.getBirth()))
                 .name(memberRegister.getName())
                 .phoneNumber(memberRegister.getPhoneNumber())
+                .grade(Grade.SILVER)
                 .createAt(LocalDateTime.now())
                 .modifyAt(LocalDateTime.now())
                 .roleName("ROLE_USER")
@@ -52,6 +54,7 @@ public class Member {
                 .birth(rs.getObject("birth", LocalDate.class))
                 .name(rs.getString("name"))
                 .phoneNumber(rs.getString("phone_number"))
+                .grade(Grade.of(rs.getString("grade")))
                 .createAt(rs.getObject("create_at", LocalDateTime.class))
                 .modifyAt(rs.getObject("modify_at", LocalDateTime.class))
                 .roleName(rs.getString("role_name"))
