@@ -12,7 +12,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
 
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
@@ -24,7 +23,10 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers( "/member/check").authenticated()
+                        .requestMatchers("/movies/addMovie").hasRole("ADMIN")
+                        .requestMatchers("/member/login").permitAll()
+                        .requestMatchers("/member/register").permitAll()
+                        .requestMatchers("/member/*").authenticated()
                         .anyRequest().permitAll()
                 )
                 .formLogin((form) -> form
@@ -33,7 +35,14 @@ public class WebSecurityConfig {
                         .loginPage("/member/login")
                         .permitAll()
                 )
-                .logout((logout) -> logout.permitAll().logoutSuccessUrl("/"));
+                .logout((logout) -> logout.permitAll().logoutSuccessUrl("/"))
+                .exceptionHandling()
+                //로그인 안되었을 때 리다이렉트 처리
+                .authenticationEntryPoint(((request, response, authException) ->
+                        response.sendRedirect("/member/login")))
+                //로그인은 되었지만 권한이 맞지 않을 때 인증 처리
+                .accessDeniedHandler(((request, response, accessDeniedException) ->
+                        response.sendRedirect("/")));
 
         return http.build();
     }
