@@ -22,11 +22,24 @@
 
 - ### 개발 기간: 2023.03.08 ~ 현재
 - ### 주요 기능:
-    - A:
-    - B:
-    - C:
-    - D:
-    -
+  - ### `정종완`
+    - 영화 상세 정보 표시 기능
+
+  - ### `송지현`
+    - 메인 페이지
+    - 댓글 신고 기능
+
+  - ### `이세영`
+    - 회원가입 기능
+    - 비밀번호 변경 기능
+
+  - ### `이현지`
+    - 로그인 기능
+    - 영화 댓글 작성 기능
+    - 관리자 영화 추가 기능
+    - 영화 스케줄 관리 기능
+
+
 - ### 개발 언어: Java 17
 - ### 개발 환경: SpringBoot 3.0.4, gradle 7.6.1, Spring Data JDBC
 - ### 데이터베이스: MySQL 8.0.21
@@ -55,31 +68,28 @@
 ## 패키지 구조
 - config
 - domain
-  - a
-    - A
-    - ARepository
-  - b
-  - c
+  - comment
+  - member
+  - movie
+  - reservation
+  - schedule
+  - seat
 - service
-  - a
-    - AService
-  - b
-    - BService
+  - member
+  - movie
+  - reservation
+  - schedule
 - web
-  - a
-    - aController
-    - aLoginForm(DTO)
-  - b
-    - bController
-    - bLoginForm(DTO)
-  - validation
-    - form
-  - api
-    - ~
+  - member
+  - movie
+  - reservation
+  - schedule
+- utils
+  - advice
   - exception
-    - UserException.class (extends RuntimeException)
-  - filter
-  - interceptor
+  - reservation
+  - validator
+  - xssprotector
 
 ## 데이터베이스 구조
 
@@ -130,6 +140,41 @@ CREATE TABLE `movie_reservation_system`.`movies`
 ```
 
 <br/>
+
+> ### Movie_Description
+
+| seq(PK) | movies_seq(FK) | categories_seq(FK) | story | running_time | director | actor | age_limit |
+|:-------:|:--------------:|:------------------:|:-----:|:------------:|:--------:|:-----:|:---------:|
+|    -    |       -        |         -          |   -   |      -       |    -     |   -   |     -     |
+
+```mysql
+CREATE TABLE `movie_reservation_system`.`movie_descriptions`
+(
+    `seq`            BIGINT      NOT NULL AUTO_INCREMENT COMMENT 'Primary key',
+    `movies_seq`     BIGINT      NOT NULL COMMENT 'Foreign Key',
+    `categories_seq` BIGINT      NOT NULL COMMENT 'Foreign Key',
+    `story`          TEXT        NOT NULL COMMENT 'Content',
+    `running_time`   INT         NOT NULL COMMENT 'Running TIme',
+    `director`       VARCHAR(30) NOT NULL COMMENT 'Director',
+    `actor`          VARCHAR(45) NOT NULL COMMENT 'Actor list. ex){a, b, c, d}',
+    `age_limit`      INT         NOT NULL COMMENT '0 12 15 19',
+    PRIMARY KEY (`seq`),
+    INDEX `movies_seq_idx` (`movies_seq` ASC) VISIBLE,
+    INDEX `categories_seq_idx` (`categories_seq` ASC) VISIBLE,
+    CONSTRAINT `md_movies_seq`
+        FOREIGN KEY (`movies_seq`)
+            REFERENCES `movie_reservation_system`.`movies` (`seq`)
+            ON DELETE CASCADE
+            ON UPDATE NO ACTION,
+    CONSTRAINT `categories_seq`
+        FOREIGN KEY (`categories_seq`)
+            REFERENCES `movie_reservation_system`.`categories` (`seq`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION
+)
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb4;
+```
 
 > ### Theaters
 
@@ -251,41 +296,6 @@ CREATE TABLE `movie_reservation_system`.`categories`
 ```
 
 <br/>
-
-> ### Movie_Description
-
-| seq(PK) | movies_seq(FK) | categories_seq(FK) | story | running_time | director | actor | age_limit |
-|:-------:|:--------------:|:------------------:|:-----:|:------------:|:--------:|:-----:|:---------:|
-|    -    |       -        |         -          |   -   |      -       |    -     |   -   |     -     |
-
-```mysql
-CREATE TABLE `movie_reservation_system`.`movie_descriptions`
-(
-    `seq`            BIGINT      NOT NULL AUTO_INCREMENT COMMENT 'Primary key',
-    `movies_seq`     BIGINT      NOT NULL COMMENT 'Foreign Key',
-    `categories_seq` BIGINT      NOT NULL COMMENT 'Foreign Key',
-    `story`          TEXT        NOT NULL COMMENT 'Content',
-    `running_time`   INT         NOT NULL COMMENT 'Running TIme',
-    `director`       VARCHAR(30) NOT NULL COMMENT 'Director',
-    `actor`          VARCHAR(45) NOT NULL COMMENT 'Actor list. ex){a, b, c, d}',
-    `age_limit`      INT         NOT NULL COMMENT '0 12 15 19',
-    PRIMARY KEY (`seq`),
-    INDEX `movies_seq_idx` (`movies_seq` ASC) VISIBLE,
-    INDEX `categories_seq_idx` (`categories_seq` ASC) VISIBLE,
-    CONSTRAINT `md_movies_seq`
-        FOREIGN KEY (`movies_seq`)
-            REFERENCES `movie_reservation_system`.`movies` (`seq`)
-            ON DELETE CASCADE
-            ON UPDATE NO ACTION,
-    CONSTRAINT `categories_seq`
-        FOREIGN KEY (`categories_seq`)
-            REFERENCES `movie_reservation_system`.`categories` (`seq`)
-            ON DELETE NO ACTION
-            ON UPDATE NO ACTION
-)
-    ENGINE = InnoDB
-    DEFAULT CHARACTER SET = utf8mb4;
-```
 
 <br/>
 

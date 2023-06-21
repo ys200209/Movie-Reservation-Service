@@ -2,7 +2,7 @@ package com.moviereservation.domain.register.controller.dto;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
+import com.moviereservation.web.member.dto.MemberRegisterDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

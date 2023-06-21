@@ -1,6 +1,6 @@
 package com.moviereservation.utils.exception;
 
-import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
+import com.moviereservation.web.member.dto.MemberRegisterDto;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

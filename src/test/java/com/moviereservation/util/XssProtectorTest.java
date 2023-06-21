@@ -1,14 +1,15 @@
 package com.moviereservation.util;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
+import com.moviereservation.utils.xssprotector.XssProtector;
+import org.junit.jupiter.api.Test;
 
 
 public class XssProtectorTest {
 
     @Test
-    void nonXssInputTest(){
+    void nonXssInputTest() {
         String input = "abcde";
 
         String result = XssProtector.xssProtecting(input);
@@ -17,7 +18,7 @@ public class XssProtectorTest {
     }
 
     @Test
-    void angleInInputTest(){
+    void angleInInputTest() {
         String input = "<abcde>";
         String result = XssProtector.xssProtecting(input);
 
@@ -25,7 +26,7 @@ public class XssProtectorTest {
     }
 
     @Test
-    void parenthesisInInputTest(){
+    void parenthesisInInputTest() {
         String input = "(abcde)";
         String result = XssProtector.xssProtecting(input);
 
@@ -33,7 +34,7 @@ public class XssProtectorTest {
     }
 
     @Test
-    void xssInInputTest(){
+    void xssInInputTest() {
         String input = "<script>alert('hello')</script>";
         String result = XssProtector.xssProtecting(input);
 

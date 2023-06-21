@@ -6,11 +6,11 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import com.moviereservation.domain.member.Member;
-import com.moviereservation.domain.member.register.RegisterRepository;
-import com.moviereservation.domain.member.register.RegisterService;
-import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
-import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto.MemberRegisterDtoBuilder;
+import com.moviereservation.domain.member.MemberRepository;
+import com.moviereservation.service.member.MemberService;
 import com.moviereservation.utils.exception.DuplicateMemberException;
+import com.moviereservation.web.member.dto.MemberRegisterDto;
+import com.moviereservation.web.member.dto.MemberRegisterDto.MemberRegisterDtoBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -20,10 +20,10 @@ import org.springframework.dao.DuplicateKeyException;
 
 class RegisterServiceTest {
     @InjectMocks
-    private RegisterService service;
+    private MemberService service;
 
     @Mock
-    private RegisterRepository repository;
+    private MemberRepository repository;
 
     @BeforeEach
     void setUp() {

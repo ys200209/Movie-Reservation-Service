@@ -2,8 +2,8 @@ package com.moviereservation.domain.member;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
-import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto.MemberRegisterDtoBuilder;
+import com.moviereservation.web.member.dto.MemberRegisterDto;
+import com.moviereservation.web.member.dto.MemberRegisterDto.MemberRegisterDtoBuilder;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;

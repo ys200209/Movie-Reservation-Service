@@ -1,22 +1,18 @@
 package com.moviereservation.domain.movie.reservation;
 
-import static com.moviereservation.study.domain.SeatStatus.NORMAL;
+import static com.moviereservation.domain.seat.SeatStatus.NORMAL;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.moviereservation.domain.movie.reservation.JdbcReservationRepository;
-import com.moviereservation.domain.movie.reservation.utils.SeatsSeparator;
-import com.moviereservation.domain.movie.reservation.controller.dto.ReservationRequestDto;
-import com.moviereservation.study.domain.Seat;
-import com.moviereservation.study.domain.Seats;
-import com.moviereservation.utils.exception.ReservationNotAllowedException;
-import java.util.List;
-import java.util.stream.Stream;
+import com.moviereservation.domain.reservation.JdbcReservationRepository;
+import com.moviereservation.utils.reservation.SeatsSeparator;
+import com.moviereservation.web.reservation.dto.ReservationRequestDto;
+import com.moviereservation.domain.seat.Seat;
+import com.moviereservation.domain.seat.Seats;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

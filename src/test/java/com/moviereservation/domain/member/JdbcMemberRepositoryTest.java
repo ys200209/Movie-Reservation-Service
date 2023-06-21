@@ -12,6 +12,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
@@ -23,9 +24,11 @@ class JdbcMemberRepositoryTest {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    PasswordEncoder passwordEncoder;
+
     @BeforeEach
     void setUp() {
-        repository = new JdbcMemberRepository(jdbcTemplate);
+        repository = new JdbcMemberRepository(jdbcTemplate, new BCryptPasswordEncoder());
     }
 
     @Test
