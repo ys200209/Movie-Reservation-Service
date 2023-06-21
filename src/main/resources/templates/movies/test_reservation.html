@@ -43,7 +43,7 @@
             /*transform: translate(-50%, -50%);*/
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/gh/hiphop5782/js@0.0.13/cinema/hacademy-cinema.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiphop5782/js@0.0.15/cinema/hacademy-cinema.js"></script>
     <script>
         window.addEventListener("load", function () {
             var cinema = new Hacademy.Reservation("#cinema");
@@ -65,25 +65,25 @@
 <div class="float-box">
     <div>
         <input type="hidden" th:id="memberId" th:name="memberId" th:value="${#authentication.name}">
-        <input type="hidden" th:id="movieId" th:name="movieId" th:value="${movieId}">
+        <input type="hidden" th:id="scheduleId" th:name="scheduleId" th:value="${scheduleId}">
 
         <div class="cinema-form">
             <div id="cinema" class="cinema-wrap" data-name="seat">
                 <div class="cinema-screen">스크린 test</div>
 
-                <div class="cinema-seat-area" data-rowsize="6" data-colsize="9" data-fill="manual" data-mode="client">
+                <div class="cinema-seat-area" data-rowsize="6" data-colsize="9" data-mode="client" data-fill="manual" data-choice="single">
 
                     <div th:each="seats: ${theater.theater}">
                         <div th:each="seat: ${seats.seats}">
                             <div class="cinema-seat" th:data-state="${seat.status.status}" th:data-row="${seat.row}"
-                                 th:data-col="${seat.column}" data-mode="client"></div>
+                                 th:data-col="${seat.column}" th:id="${seat.row}-${seat.column}" data-mode="client"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <input type="button" th:id="select-seats" th:value="'Selectt'" class='btn btn-outline-dark'
-               th:attr="data-button-value=${movieId}">
+        <input type="button" th:id="select-seats" th:value="'Select'" class='btn btn-outline-dark'
+               th:attr="data-button-value=${scheduleId}">
     </div>
 
     <h2 align="center">전송되는 데이터 형태</h2>

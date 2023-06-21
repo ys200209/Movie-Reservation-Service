@@ -42,14 +42,14 @@ function searchSchedules() {
             var third = '<h4>3관</h4>';
             $.each(schedules, function(i, schedule) {
                 if(schedule.theaters_seq == 1) {
-                    first += `<a href="/schedule/${schedule.schedules_seq}">${schedule.start_time}</a>`;
+                    first += `<a href="/${schedule.schedules_seq}+/resesrvation">${schedule.start_time}</a>`;
                 }
                 if(schedule.theaters_seq == 2) {
-                    second += `<a href="/schedule/ + ${schedule.schedules_seq}">schedule.start_time</a>`;
+                    second += `<a href="/${schedule.schedules_seq}+/resesrvation">${schedule.start_time}</a>`;
                 }
                 html += '<p> 3관 </p>';
                 if(schedule.theaters_seq == 3) {
-                    third += `<a href="/schedule/ + ${schedule.schedules_seq}">schedule.start_time</a>`;
+                    third += `<a href="/${schedule.schedules_seq}+/reservation">${schedule.start_time}</a>`;
                 }
             });
             html = first + "<br>" + second + "<br>" + third;

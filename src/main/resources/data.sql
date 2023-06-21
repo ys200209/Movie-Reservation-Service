@@ -48,15 +48,15 @@ INSERT INTO schedules VALUES(4, "2023/03/15", "18:00",9,1);
 INSERT INTO schedules VALUES(5, "2023/03/15", "21:00",10,1);
 
 -- Seats
-INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 1, 1, 'active');
-INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 1, 2, 'active');
+INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 1, 1, 'disabled');
+INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 1, 2, 'disabled');
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 1, 3, 'empty');
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 1, 4, 'normal');
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 1, 5, 'normal');
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 1, 6, 'normal');
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 1, 7, 'empty');
-INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 1, 8, 'active');
-INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 1, 9, 'active');
+INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 1, 8, 'disabled');
+INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 1, 9, 'disabled');
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 2, 1, 'normal');
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 2, 2, 'normal');
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 2, 3, 'empty');
@@ -69,9 +69,9 @@ INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 2, 9, 
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 3, 1, 'normal');
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 3, 2, 'normal');
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 3, 3, 'empty');
-INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 3, 4, 'active');
-INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 3, 5, 'active');
-INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 3, 6, 'active');
+INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 3, 4, 'disabled');
+INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 3, 5, 'disabled');
+INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 3, 6, 'disabled');
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 3, 7, 'empty');
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 3, 8, 'normal');
 INSERT INTO seats(schedules_seq, seat_row, seat_column, status) VALUES(1, 3, 9, 'normal');
@@ -103,6 +103,11 @@ INSERT INTO comments VALUES(5, 5, 3, "재미 정말입니다. 강추에요!", NO
 
 -- Payments
 INSERT INTO payments values(1,3,6,"1234123412341234",1,1,1,6000,NOW());
+
+-- Seat_reservations
+INSERT INTO seat_reservations VALUES(1, 3, true);
+INSERT INTO seat_reservations VALUES(2, 2, true);
+INSERT INTO seat_reservations VALUES(3, 1, true);
 
 -- Enrollment_Seats
 INSERT INTO enrollment_seats(payments_seq, seats_seq) VALUES(1, 3);

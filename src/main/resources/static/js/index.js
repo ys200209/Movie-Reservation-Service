@@ -20,10 +20,10 @@ var main = {
         var memberId = $("#memberId").val()
         // alert(memberId);
 
-        var movieId = $("#movieId").val()
+        var scheduleId = $("#scheduleId").val()
         // alert('movieId : ' + movieId);
 
-        alert('url : ' + '/' + movieId + '/reservationt')
+        alert('url : ' + '/' + scheduleId + '/reservation')
         var data = {
             selected: selected
         };
@@ -35,7 +35,7 @@ var main = {
                 jqXHR.setRequestHeader(header, token);
             },
             type: 'POST',
-            url: '/' + movieId + '/reservationt',
+            url: '/' + scheduleId + '/reservation',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function () {
@@ -43,7 +43,7 @@ var main = {
             window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));
-            window.location.href = '/movies/' + movieId
+            window.location.href = '/movies/' + scheduleId
         });
     },
 
