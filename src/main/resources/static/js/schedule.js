@@ -40,19 +40,21 @@ function searchSchedules() {
             var first = '<h4>1관</h4>';
             var second = '<h4>2관</h4>';
             var third = '<h4>3관</h4>';
+            var open = '<div class="">';
+            var close = '</div>';
             $.each(schedules, function(i, schedule) {
                 if(schedule.theaters_seq == 1) {
-                    first += `<a href="/${schedule.schedules_seq}+/resesrvation">${schedule.start_time}</a>`;
+                    first += `<a href="/${schedule.schedules_seq}/resesrvation">${schedule.start_time}</a>`;
                 }
                 if(schedule.theaters_seq == 2) {
-                    second += `<a href="/${schedule.schedules_seq}+/resesrvation">${schedule.start_time}</a>`;
+                    second += `<a href="/${schedule.schedules_seq}/resesrvation">${schedule.start_time}</a>`;
                 }
                 html += '<p> 3관 </p>';
                 if(schedule.theaters_seq == 3) {
-                    third += `<a href="/${schedule.schedules_seq}+/reservation">${schedule.start_time}</a>`;
+                    third += `<a href="/${schedule.schedules_seq}/reservation">${schedule.start_time}</a>`;
                 }
             });
-            html = first + "<br>" + second + "<br>" + third;
+            html = open + first + close + "<br>" + open + second + close+ "<br>" + open + third+ close;
             $("#schedules").html(html);
         },
         error : function (request,status,error){

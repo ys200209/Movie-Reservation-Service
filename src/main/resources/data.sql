@@ -104,11 +104,6 @@ INSERT INTO comments VALUES(5, 5, 3, "재미 정말입니다. 강추에요!", NO
 -- Payments
 INSERT INTO payments values(1,3,6,"1234123412341234",1,1,1,6000,NOW());
 
--- Seat_reservations
-INSERT INTO seat_reservations VALUES(1, 3, true);
-INSERT INTO seat_reservations VALUES(2, 2, true);
-INSERT INTO seat_reservations VALUES(3, 1, true);
-
 -- Enrollment_Seats
 INSERT INTO enrollment_seats(payments_seq, seats_seq) VALUES(1, 3);
 INSERT INTO enrollment_seats(payments_seq, seats_seq) VALUES(1, 2);

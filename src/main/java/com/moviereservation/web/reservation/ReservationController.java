@@ -1,12 +1,8 @@
 package com.moviereservation.web.reservation;
 
 import com.moviereservation.service.reservation.ReservationService;
-import com.moviereservation.domain.seat.Seat;
-import com.moviereservation.domain.seat.SeatStatus;
-import com.moviereservation.domain.seat.Seats;
 import com.moviereservation.web.reservation.dto.ReservationRequestDto;
 import com.moviereservation.domain.seat.Theater;
-import java.util.List;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
