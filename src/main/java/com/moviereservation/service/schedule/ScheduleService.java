@@ -2,6 +2,7 @@ package com.moviereservation.service.schedule;
 
 import com.moviereservation.domain.schedule.Schedule;
 import com.moviereservation.domain.schedule.ScheduleRepository;
+import com.moviereservation.web.schedule.dto.AddScheduleDto;
 import com.moviereservation.web.schedule.dto.ScheduleDto;
 import com.moviereservation.web.schedule.dto.SearchDto;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,11 @@ public class ScheduleService {
             dtos.add(mapToDto(schedule));
         }
         return dtos;
+    }
+
+    public void addSchedule(AddScheduleDto dto){
+       long id = scheduleRepository.save(dto);
+       scheduleRepository.createSeats(id);
     }
 
     private ScheduleDto mapToDto(Schedule schedule){

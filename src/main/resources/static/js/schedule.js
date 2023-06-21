@@ -44,10 +44,10 @@ function searchSchedules() {
             var close = '</div>';
             $.each(schedules, function(i, schedule) {
                 if(schedule.theaters_seq == 1) {
-                    first += `<a href="/${schedule.schedules_seq}/resesrvation">${schedule.start_time}</a>`;
+                    first += `<a href="/${schedule.schedules_seq}/reservation">${schedule.start_time}</a>`;
                 }
                 if(schedule.theaters_seq == 2) {
-                    second += `<a href="/${schedule.schedules_seq}/resesrvation">${schedule.start_time}</a>`;
+                    second += `<a href="/${schedule.schedules_seq}/reservation">${schedule.start_time}</a>`;
                 }
                 html += '<p> 3관 </p>';
                 if(schedule.theaters_seq == 3) {

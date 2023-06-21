@@ -19,21 +19,19 @@
         <option th:value="${movie.seq}" th:text="${movie.movieName}"></option>
       </div>
     </select>
-    <input type="button" id="search" onclick="searchSchedules()" class="btn btn-outline-dark" value="검색">
+    <select id="startTime">
+      <option value="09:00" >09&#58;00</option>
+      <option value="12:00" >12&#58;00</option>
+      <option value="15:00" >15&#58;00</option>
+      <option value="18:00" >18&#58;00</option>
+    </select>
+    <select id="theater">
+      <option value="1" >1관</option>
+      <option value="2" >2관</option>
+      <option value="3" >3관</option>
+    </select>
+    <input type="button" id="add" onclick="addSchedules()" class="btn btn-outline-dark" value="추가">
   </div>
-  <div class="col-md-8">
-    <div class="jumbotron">
-      <div>
-        <h1 class="text-center">스케줄</h1>
-      </div>
-      <hr class="my-4">
-      <div id="schedules" class="">
-        <h1 class="text-center">조건을 설정해주세요</h1>
-      </div>
-    </div>
-  </div>
-</div>
-
 </div>
 </body>
 
@@ -75,5 +73,5 @@
             // e.date를 찍어보면 Thu Jun 27 2019 00:00:00 GMT+0900 (한국 표준시) 위와 같은 형태로 보인다.
           });
 </script>
-<script src="/js/schedule.js"></script>
+<script src="/js/addSchedule.js"></script>
 </html>
