@@ -4,8 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 @RequiredArgsConstructor
@@ -14,17 +15,18 @@ public class PaymentController {
     private final PaymentService paymentService;
 
     //동작 확인후 post로 전환
-    @PostMapping("/Memberid")
-    public String display(@AuthenticationPrincipal UserDetails userDetails,
-                                 @ModelAttribute(name = "payment") PaymentDto paymentDto) {
+    @GetMapping("/Memberid")
+    public String display(@AuthenticationPrincipal UserDetails userDetails, Model model) {
         if(!isNotFoundMemberId(userDetails.getUsername())){
-            return "redirect:/payment";
+            return "/payment/design";
         }
-        paymentService.findByMemberId(userDetails.getUsername());
-        return "/payment";
+        PaymentDto paymentDto = paymentService.findByMemberId(userDetails.getUsername());
+        model.addAttribute("payemnt", paymentDto);
+        return "/payment/design";
     }
 
     private boolean isNotFoundMemberId(String memberId){
-        return paymentService.CheckByMemberId(memberId) > 0;
+        boolean check = paymentService.CheckByMemberId(memberId);
+        return check;
     }
 }
