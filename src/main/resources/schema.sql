@@ -19,6 +19,7 @@ CREATE TABLE `movie_reservation_system`.`members`
     `birth`           DATE         NULL,
     `name`            VARCHAR(20)  NULL,
     `phone_number`    VARCHAR(45)  NULL,
+    `grade`           VARCHAR(20)  NULL,
     `create_at`       DATETIME     NULL,
     `modify_at`       DATETIME     NULL,
     `role_name`       VARCHAR(20)  NULL,

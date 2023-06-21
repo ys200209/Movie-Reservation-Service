@@ -5,6 +5,7 @@ import com.moviereservation.domain.seat.Seat;
 import com.moviereservation.domain.seat.SeatStatus;
 import com.moviereservation.domain.seat.Seats;
 
+import com.moviereservation.utils.strategy.DiscountPolicy;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Timestamp;
@@ -15,7 +16,6 @@ import com.moviereservation.utils.reservation.AdultCalc;
 import com.moviereservation.utils.reservation.AgeCalc;
 import com.moviereservation.utils.reservation.ChildCalc;
 import com.moviereservation.utils.reservation.TeenagerCalc;
-import com.moviereservation.web.movie.dto.MovieRegisterDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -35,7 +35,9 @@ public class JdbcReservationRepository implements ReservationRepository {
     public static final String SEAT_NOT_EXISTS_MESSAGE = "좌석이 존재하지 않습니다.";
     public static final String ALREADY_RESERVED_MESSAGE = "{1}행 {2}열은 이미 예약된 좌석입니다.";
     public  static final List<Integer> unreservableSeatColumns = List.of(3, 7);
+
     private final JdbcTemplate jdbcTemplate;
+    private final DiscountPolicy discountPolicy;
 
     @Override
     public int reserve(long scheduleId, Seats seats) {
@@ -93,12 +95,17 @@ public class JdbcReservationRepository implements ReservationRepository {
                 preparedStatement.setInt(3, updateValues[0]);
                 preparedStatement.setInt(4, updateValues[1]);
                 preparedStatement.setInt(5, updateValues[2]);
-                preparedStatement.setInt(6, updateValues[3]);
+                preparedStatement.setInt(6, getPayAmount(member, updateValues[3]));
                 preparedStatement.setTimestamp(7, Timestamp.valueOf(LocalDateTime.now()));
                 return  preparedStatement;
             }, keyHolder);
             Number keyValue = keyHolder.getKey();
             return keyValue.longValue();
+    }
+
+    private int getPayAmount(Member member, int payAmount) {
+        int discount = discountPolicy.discount(member, payAmount);
+        return payAmount - discount;
     }
 
     @Override
