@@ -1,0 +1,28 @@
+<table class="table table-bordered" style="text-align : center; border : 1px solid #dddddd">
+  <thead>
+  <tr>
+    <th style="background-color : #eeeeee; text-align : center;">영화제목</th>
+    <th style="background-color : #eeeeee; text-align : center;">관객 분류</th>
+    <th style="background-color : #eeeeee; text-align : center;">카드 번호</th>
+    <th style="background-color : #eeeeee; text-align : center;">결제 금액</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><b><span class="badge badge-info" th:text="${payment.movieName}"></span> </b></td>
+    <td> 유아 : </b><span class="badge badge-info" th:text="${payment.countChild}">아이들</span>0</a> 명,
+      청소년 : </b><span class="badge badge-info" th:text="${payment.countTeenager}">청소년</span> 명,
+      일반 : <a payment.countAdult>0</a>명</td>
+    <td><a payment.cardNumber> 카드번호 : 12-123-123</a></td>
+    <td> <a payment.payAmount> 금액 : 0000원</a></td>
+  </tr>
+  </tbody>
+  </table>
+
+<div>
+<p></p>
+<tr>
+  <td></td>
+</tr>
+<!-- 예약하지 않았다면 결제하지 않았습니다-->
+</div>

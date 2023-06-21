@@ -57,5 +57,4 @@ public class ValidationTest {
         Set<ConstraintViolation<CommentMemberDto>> violations = validator.validate(crd1);
         assertEquals(violations.size(), 0);
     }*/
-
 }
