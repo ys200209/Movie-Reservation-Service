@@ -68,11 +68,15 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
+    implementation 'org.springframework.boot:spring-boot-devtools:3.0.4'
+
 
     // Spring Security
     implementation 'org.springframework.boot:spring-boot-starter-security'
     testImplementation 'org.springframework.security:spring-security-test'
 
+    // lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -90,9 +94,8 @@ dependencies {
     // Required using for Security in Thymeleaf
     implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity6'
 
-
-
-
+    // Bean Validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
 
     // Gson Dependency
     implementation 'com.google.code.gson:gson:2.8.9'
