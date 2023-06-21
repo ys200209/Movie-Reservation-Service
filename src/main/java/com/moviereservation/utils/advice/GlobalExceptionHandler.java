@@ -1,6 +1,6 @@
 package com.moviereservation.utils.advice;
 
-import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
+import com.moviereservation.web.member.dto.MemberRegisterDto;
 import com.moviereservation.utils.exception.DuplicateMemberException;
 import com.moviereservation.utils.exception.ReservationNotAllowedException;
 import lombok.extern.slf4j.Slf4j;

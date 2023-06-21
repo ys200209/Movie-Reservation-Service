@@ -1,9 +1,11 @@
 package com.moviereservation.domain.movie;
 
-import com.moviereservation.domain.movie.repository.JdbcMovieRepository;
-import com.moviereservation.domain.movie.dto.MovieRegisterDto;
-import com.moviereservation.domain.movie.repository.MovieRepository;
-import com.moviereservation.domain.movie.service.MovieService;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import com.moviereservation.web.movie.dto.MovieRegisterDto;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +15,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
 @DataJdbcTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class AddMovieTest {
@@ -27,9 +23,6 @@ public class AddMovieTest {
     private JdbcTemplate jdbcTemplate;
 
     private MovieRepository repository;
-
-    @Autowired
-    private MovieService movieService;
 
     @BeforeEach
     void setUp() {

@@ -89,20 +89,6 @@ CREATE TABLE `movie_reservation_system`.`seats`
     DEFAULT CHARACTER SET = utf8mb4
     COMMENT = 'movie_reservation_system.seats';
 
-CREATE TABLE `movie_reservation_system`.`seat_reservations`
-(
-    `seq`         BIGINT  NOT NULL AUTO_INCREMENT,
-    `seats_seq`   BIGINT  NOT NULL,
-    `is_reserved` BOOLEAN NOT NULL,
-    PRIMARY KEY (`seq`),
-    CONSTRAINT `seats_seq`
-        FOREIGN KEY (`seats_seq`)
-            REFERENCES `movie_reservation_system`.`seats` (`seq`)
-            ON DELETE CASCADE
-            ON UPDATE NO ACTION
-)
-    COMMENT = 'movie_reservation_system.seat_reservations';
-
 CREATE TABLE `movie_reservation_system`.`categories`
 (
     `seq`  BIGINT      NOT NULL AUTO_INCREMENT,

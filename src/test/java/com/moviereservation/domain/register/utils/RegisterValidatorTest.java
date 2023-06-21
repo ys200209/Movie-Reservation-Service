@@ -2,9 +2,9 @@ package com.moviereservation.domain.register.utils;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
-import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto.MemberRegisterDtoBuilder;
-import com.moviereservation.domain.member.register.utils.validator.RegisterValidator;
+import com.moviereservation.web.member.dto.MemberRegisterDto;
+import com.moviereservation.web.member.dto.MemberRegisterDto.MemberRegisterDtoBuilder;
+import com.moviereservation.utils.validator.RegisterValidator;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

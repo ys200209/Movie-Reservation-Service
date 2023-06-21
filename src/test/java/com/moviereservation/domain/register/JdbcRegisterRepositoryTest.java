@@ -2,11 +2,11 @@ package com.moviereservation.domain.register;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.moviereservation.domain.member.JdbcMemberRepository;
 import com.moviereservation.domain.member.Member;
-import com.moviereservation.domain.member.register.JdbcRegisterRepository;
-import com.moviereservation.domain.member.register.RegisterRepository;
-import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto;
-import com.moviereservation.domain.member.register.controller.dto.MemberRegisterDto.MemberRegisterDtoBuilder;
+import com.moviereservation.domain.member.MemberRepository;
+import com.moviereservation.web.member.dto.MemberRegisterDto;
+import com.moviereservation.web.member.dto.MemberRegisterDto.MemberRegisterDtoBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +22,11 @@ class JdbcRegisterRepositoryTest {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    private RegisterRepository repository;
+    private MemberRepository repository;
 
     @BeforeEach
     void setUp() {
-        repository = new JdbcRegisterRepository(jdbcTemplate, new BCryptPasswordEncoder());
+        repository = new JdbcMemberRepository(jdbcTemplate, new BCryptPasswordEncoder());
     }
 
     @Test

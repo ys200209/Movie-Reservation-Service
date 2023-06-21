@@ -1,12 +1,9 @@
 package com.moviereservation.domain.schedule;
 
-import com.moviereservation.domain.movie.repository.MovieRepository;
-import com.moviereservation.domain.schedule.domain.Schedule;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
 import java.util.List;
 
 @Repository

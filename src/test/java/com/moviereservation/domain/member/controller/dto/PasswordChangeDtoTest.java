@@ -2,6 +2,7 @@ package com.moviereservation.domain.member.controller.dto;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.moviereservation.web.member.dto.PasswordChangeDto;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;

@@ -2,10 +2,10 @@ package com.moviereservation.domain.movie.reservation.utils;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.moviereservation.domain.movie.reservation.utils.SeatsSeparator;
-import com.moviereservation.study.domain.Seat;
-import com.moviereservation.study.domain.SeatStatus;
-import com.moviereservation.study.domain.Seats;
+import com.moviereservation.domain.seat.Seat;
+import com.moviereservation.domain.seat.SeatStatus;
+import com.moviereservation.domain.seat.Seats;
+import com.moviereservation.utils.reservation.SeatsSeparator;
 import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;

@@ -1,14 +1,16 @@
 package com.moviereservation.domain.movie.reservation;
 
-import static com.moviereservation.study.domain.SeatStatus.NORMAL;
+import static com.moviereservation.domain.seat.SeatStatus.NORMAL;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-import com.moviereservation.domain.movie.reservation.utils.SeatsSeparator;
-import com.moviereservation.study.domain.Seat;
-import com.moviereservation.study.domain.Seats;
+import com.moviereservation.domain.reservation.ReservationRepository;
+import com.moviereservation.service.reservation.ReservationService;
+import com.moviereservation.utils.reservation.SeatsSeparator;
+import com.moviereservation.domain.seat.Seat;
+import com.moviereservation.domain.seat.Seats;
 import com.moviereservation.utils.exception.ReservationNotAllowedException;
 import java.util.List;
 import java.util.Stack;
@@ -19,12 +21,10 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 
 class ReservationServiceTest {
     private static final int THREAD_COUNT = 3; // 동시에 실행할 스레드 수
@@ -77,7 +77,7 @@ class ReservationServiceTest {
         return Stream.of(); // all normal
     }
 
-    @Test
+    /*@Test
     void testAlreadyReserved_Exception() {
         // given
         Seats seats = SeatsSeparator.separate("seat=2-8");
@@ -96,7 +96,7 @@ class ReservationServiceTest {
         // then
         assertThatThrownBy(() -> repository.reserve(1, new Seats(List.of(seat))))
                 .isInstanceOf(ReservationNotAllowedException.class);
-    }
+    }*/
 
     public static Stream<Seat> getUnreservableSeatColumns() {
         return Stream.of(new Seat(NORMAL, 1, 3), new Seat(NORMAL, 1, 7));

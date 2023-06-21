@@ -3,7 +3,8 @@ package com.moviereservation.domain.member;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
-import com.moviereservation.domain.member.controller.dto.PasswordChangeDto;
+import com.moviereservation.service.member.MemberService;
+import com.moviereservation.web.member.dto.PasswordChangeDto;
 import java.util.Optional;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
