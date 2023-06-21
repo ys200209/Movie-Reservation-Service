@@ -3,6 +3,7 @@ package com.moviereservation.domain.reservation;
 import com.moviereservation.domain.seat.Seat;
 import com.moviereservation.domain.seat.SeatStatus;
 import com.moviereservation.domain.seat.Seats;
+
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Repository;
 public class JdbcReservationRepository implements ReservationRepository {
     public static final String SELECT_SEAT_QUERY = "SELECT * FROM Seats WHERE schedules_seq = ? AND seat_row = ? AND seat_column = ?";
     public static final String UPDATE_SEAT_RESERVATION_QUERY = "UPDATE Seats SET status = ? WHERE schedules_seq = ? AND seat_row = ? AND seat_column = ?";
+    private static final String SELECT_SEAT_BY_ROW_QUERY = "SELECT * FROM SEATS WHERE SCHEDULES_SEQ = ? AND SEAT_ROW = ?";
     public static final String NOT_ALLOWED_COLUMN_MESSAGE = "예약 불가능한 좌석 열입니다.";
     public static final String SEAT_NOT_EXISTS_MESSAGE = "좌석이 존재하지 않습니다.";
     public static final String ALREADY_RESERVED_MESSAGE = "{1}행 {2}열은 이미 예약된 좌석입니다.";
@@ -24,7 +26,7 @@ public class JdbcReservationRepository implements ReservationRepository {
         int result = 0;
         for (Seat seat : seats.getSeats()) {
             result += jdbcTemplate.update(UPDATE_SEAT_RESERVATION_QUERY,
-                    SeatStatus.ACTIVE.getStatus(), scheduleId, seat.getRow(), seat.getColumn());
+                    SeatStatus.DISABLED.getStatus(), scheduleId, seat.getRow(), seat.getColumn());
         }
         return result;
     }
@@ -37,5 +39,16 @@ public class JdbcReservationRepository implements ReservationRepository {
         return jdbcTemplate.queryForObject(
                 SELECT_SEAT_QUERY,
                 Seat.seatMapper, scheduleId, seat.getRow(), seat.getColumn());
+    }
+
+    @Override
+    public List<Seat> findByScheduleIdAndColumn(long id, int row) {
+        List<Seat> seats = jdbcTemplate.query(SELECT_SEAT_BY_ROW_QUERY, Seat.seatMapper, id, row);
+        return seats;
+    }
+
+    @Override
+    public void updatePayment(Seat seat, String grade) {
+
     }
 }
