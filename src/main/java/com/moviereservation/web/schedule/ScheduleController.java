@@ -3,6 +3,7 @@ package com.moviereservation.web.schedule;
 import com.moviereservation.web.movie.dto.MoviePreviewDto;
 import com.moviereservation.service.movie.MovieService;
 import com.moviereservation.service.schedule.ScheduleService;
+import com.moviereservation.web.schedule.dto.AddScheduleDto;
 import com.moviereservation.web.schedule.dto.ScheduleDto;
 import com.moviereservation.web.schedule.dto.SearchDto;
 import lombok.RequiredArgsConstructor;
@@ -32,5 +33,19 @@ public class ScheduleController {
     public List<ScheduleDto> getSchedule(@RequestBody SearchDto searchDto){
         List<ScheduleDto> dtos = scheduleService.findByIdAndDate(searchDto);
         return dtos;
+    }
+
+    @GetMapping("/add")
+    public String getForm(Model model){
+        List<MoviePreviewDto> movies = movieService.getAllMovies();
+        model.addAttribute("movies", movies);
+        return "schedule/addScheduleForm";
+    }
+
+    @PostMapping("/add")
+    @ResponseBody
+    public void addSchedule(@RequestBody AddScheduleDto addScheduleDto){
+        System.out.println(addScheduleDto.toString());
+        scheduleService.addSchedule(addScheduleDto);
     }
 }
