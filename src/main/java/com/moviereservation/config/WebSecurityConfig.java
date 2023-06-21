@@ -24,9 +24,9 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/movies/addMovie").hasRole("ADMIN")
-                        .requestMatchers("/member/*").authenticated()
                         .requestMatchers("/member/login").permitAll()
                         .requestMatchers("/member/register").permitAll()
+                        .requestMatchers("/member/*").authenticated()
                         .anyRequest().permitAll()
                 )
                 .formLogin((form) -> form
