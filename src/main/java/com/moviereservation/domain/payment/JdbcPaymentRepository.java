@@ -14,18 +14,11 @@ import java.util.List;
 public class JdbcPaymentRepository implements PaymentRepository {
 
     private final JdbcTemplate jdbcTemplate;
-
-    private final String SELECT_PAYMENT_BY_MEMBER_ID_SQL = "select card_number, count_child, count_teenager, count_adult, pay_amount, payment_at, mb.member_id, m.movie_name, m.poster " +
-            "FROM payments p inner join members mb on p.members_seq = mb.seq inner join movies m on m.seq = p.movies_seq " +
-            "WHERE members_seq = ?";
-
-    private final String SELECT_COUNT_BY_MEMBER_ID_SQL = "SELECT member_id FROM payments inner join members mb on payments.members_seq = mb.seq WHERE mb.member_id = ?";
-
-    private final String SELECT_USERNAME_BY_MEMBER_ID_SQL = "SELECT seq FROM members WHERE member_id = ?";
+    private final PaymentQueryFactory paymentQueryFactory;
 
     @Override
     public Payment findByMemberId(String id) {
-        List<Member> result = jdbcTemplate.query(SELECT_USERNAME_BY_MEMBER_ID_SQL, new RowMapper<>() {
+        List<Member> result = jdbcTemplate.query(paymentQueryFactory.getSelectUsernameByMemberIdQuery(), new RowMapper<>() {
             @Override
             public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Member member = new Member(
@@ -41,7 +34,7 @@ public class JdbcPaymentRepository implements PaymentRepository {
 
         int memberSeq = result.get(0).getSeq();
 
-        Payment payment = jdbcTemplate.queryForObject(SELECT_PAYMENT_BY_MEMBER_ID_SQL, new RowMapper<Payment>() {
+        Payment payment = jdbcTemplate.queryForObject(paymentQueryFactory.getSelectPaymentByMemberIdQuery(), new RowMapper<Payment>() {
             @Override
             public Payment mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Payment payment = new Payment(
@@ -63,7 +56,7 @@ public class JdbcPaymentRepository implements PaymentRepository {
 
     @Override
     public boolean CheckByMemberId(String id) {
-        List<Member> result1 = jdbcTemplate.query(SELECT_USERNAME_BY_MEMBER_ID_SQL, new RowMapper<>() {
+        List<Member> result1 = jdbcTemplate.query(paymentQueryFactory.getSelectUsernameByMemberIdQuery(), new RowMapper<>() {
             @Override
             public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Member member = new Member(
@@ -75,7 +68,7 @@ public class JdbcPaymentRepository implements PaymentRepository {
 
         int memberSeq = result1.get(0).getSeq();
 
-        List<Member> result = jdbcTemplate.query(SELECT_COUNT_BY_MEMBER_ID_SQL, (rs, rowNum) -> {
+        List<Member> result = jdbcTemplate.query(paymentQueryFactory.getSelectCountByMemberIdQuery(), (rs, rowNum) -> {
             Member payment = new Member(
                     rs.getInt(1)
             );

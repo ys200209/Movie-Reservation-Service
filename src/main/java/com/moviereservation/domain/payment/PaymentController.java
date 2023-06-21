@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequiredArgsConstructor
@@ -15,10 +15,11 @@ public class PaymentController {
     private final PaymentService paymentService;
 
     //동작 확인후 post로 전환
-    @GetMapping("/Memberid")
+    @PostMapping("/member/reciept/{memberId}")
     public String display(@AuthenticationPrincipal UserDetails userDetails, Model model) {
         if(!isNotFoundMemberId(userDetails.getUsername())){
-            return "/payment/design";
+
+            return "/payment/NotFoundReserveException";
         }
         PaymentDto paymentDto = paymentService.findByMemberId(userDetails.getUsername());
         model.addAttribute("payemnt", paymentDto);
