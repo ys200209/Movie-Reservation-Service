@@ -1,11 +1,10 @@
 package com.moviereservation.web.reservation;
 
-import com.moviereservation.domain.seat.Seat;
-import com.moviereservation.domain.seat.SeatStatus;
-import com.moviereservation.domain.seat.Seats;
+import com.moviereservation.service.reservation.ReservationService;
 import com.moviereservation.web.reservation.dto.ReservationRequestDto;
 import com.moviereservation.domain.seat.Theater;
-import java.util.List;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,13 +13,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.security.Principal;
+
 @Controller
+@RequiredArgsConstructor
 public class ReservationController {
 
-    @GetMapping("/{movieId}/reservation")
-    public String testReserveSeat(@PathVariable Long movieId, Model model) {
+    private final ReservationService reservationService;
+
+    @GetMapping("/{scheduleId}/reservation")
+    public String testReserveSeat(@PathVariable Long scheduleId, Model model) {
         System.out.println("(GetMapping) ReservationController.testReserveSeat");
-        List<Seat> seats1 = List.of(
+        /*List<Seat> seats1 = List.of(
                 new Seat(SeatStatus.NORMAL, 1, 1), new Seat(SeatStatus.DISABLED, 1, 2), new Seat(SeatStatus.EMPTY, 1, 3),
                 new Seat(SeatStatus.DISABLED, 1, 4), new Seat(SeatStatus.NORMAL, 1, 5), new Seat(SeatStatus.NORMAL, 1, 6),
                 new Seat(SeatStatus.EMPTY, 1, 7), new Seat(SeatStatus.NORMAL, 1, 8), new Seat(SeatStatus.NORMAL, 1, 9));
@@ -43,21 +47,21 @@ public class ReservationController {
         List<Seat> seats6 = List.of(
                 new Seat(SeatStatus.DISABLED, 6, 1), new Seat(SeatStatus.DISABLED, 6, 2), new Seat(SeatStatus.EMPTY, 6, 3),
                 new Seat(SeatStatus.DISABLED, 6, 4), new Seat(SeatStatus.DISABLED, 6, 5), new Seat(SeatStatus.NORMAL, 6, 6),
-                new Seat(SeatStatus.EMPTY, 6, 7), new Seat(SeatStatus.NORMAL, 6, 8), new Seat(SeatStatus.NORMAL, 6, 9));
-        Theater theater = new Theater(
-                List.of(new Seats(seats1), new Seats(seats2), new Seats(seats3), new Seats(seats4), new Seats(seats5), new Seats(seats6)));
+                new Seat(SeatStatus.EMPTY, 6, 7), new Seat(SeatStatus.NORMAL, 6, 8), new Seat(SeatStatus.NORMAL, 6, 9));*/
+        Theater theater = reservationService.getAllSeats(scheduleId);
 
-        model.addAttribute("movieId", movieId);
+        model.addAttribute("scheduleId", scheduleId);
         model.addAttribute("theater", theater);
         return "movies/test_reservation";
     }
 
-    @PostMapping("/{movieId}/reservationt")
+    @PostMapping("/{scheduleId}/reservation")
     @ResponseBody
-    public ReservationRequestDto testReservationPost(@PathVariable Long movieId,
+    public ReservationRequestDto testReservationPost(@PathVariable Long scheduleId,
                                                      @RequestBody ReservationRequestDto request) {
         System.out.println("(PostMapping) ReservationController.testReservationPost");
         System.out.println("(PostMapping) request = " + request);
+        reservationService.reserve(scheduleId, request.getSelected(), request.getAge(), request.getMemberId());
 //        model.addAttribute("movieId", movieId);
         return request;
     }

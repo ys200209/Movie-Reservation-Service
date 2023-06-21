@@ -11,4 +11,6 @@ import lombok.ToString;
 @ToString
 public class ReservationRequestDto {
     private final String selected;
+    private final String memberId;
+    private final String age;
 }

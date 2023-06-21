@@ -20,12 +20,17 @@ var main = {
         var memberId = $("#memberId").val()
         // alert(memberId);
 
-        var movieId = $("#movieId").val()
+        var scheduleId = $("#scheduleId").val()
         // alert('movieId : ' + movieId);
 
-        alert('url : ' + '/' + movieId + '/reservationt')
+        var age = $("input[name=age]:checked").val()
+
+        alert('url : ' + '/' + scheduleId + '/reservation')
         var data = {
-            selected: selected
+            selected: selected,
+            memberId : memberId,
+            age : age
+
         };
 
         $.ajax({
@@ -35,15 +40,16 @@ var main = {
                 jqXHR.setRequestHeader(header, token);
             },
             type: 'POST',
-            url: '/' + movieId + '/reservationt',
+            url: '/' + scheduleId + '/reservation',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function () {
             alert('예매가 완료되었습니다.');
+            alert(JSON.stringify(data));
             window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));
-            window.location.href = '/movies/' + movieId
+            window.location.href = '/movies/' + scheduleId
         });
     },
 

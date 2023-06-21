@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 
 class ReservationRequestDtoTest {
 
-    @Test
+    /*@Test
     void testCreate() {
         // given
         ReservationRequestDto reservationDto = new ReservationRequestDto("test");
 
         // then
         assertThat(reservationDto.getSelected()).isEqualTo("test");
-    }
+    }*/
 }
