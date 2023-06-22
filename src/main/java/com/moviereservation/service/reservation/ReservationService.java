@@ -36,7 +36,7 @@ public class ReservationService {
 
     }
 
-
+    @Synchronized
     public void reserve(long scheduleId, String selected, String age, String member_id) {
         Seats seats = SeatsSeparator.separate(selected);
         for(Seat seat : seats.getSeats()) {
