@@ -26,8 +26,8 @@ public class PaymentService {
         return paymentDto;
     }
 
-    public int CheckByMemberId(String id){
-        int isExists = paymentRepository.CheckByMemberId(id);
-        return isExists;
+    public boolean CheckByMemberId(String id){
+        boolean check = paymentRepository.CheckByMemberId(id);
+        return check;
     }
 }
