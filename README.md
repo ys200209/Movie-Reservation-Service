@@ -6,7 +6,6 @@
 - [일정 관리](#일정-관리)
 - [패키지 구조](#패키지-구조)
 - [데이터베이스 구조](#DB-구조)
-- [API 설계](#api-설계)
 
 ## 프로젝트 개요
 
@@ -20,20 +19,20 @@
 | Github |                [whddhks71](https://github.com/whddhks71)                |             [songjihyunn](https://github.com/songjihyunn)              |                                         [ys200209](https://github.com/ys200209)                                         |                [operationF](https://github.com/operationF)                |
 |   -    | ![whddhks71Image](https://avatars.githubusercontent.com/u/86541832?v=4) | ![songjihyunnImage](https://avatars.githubusercontent.com/u/127361716) | ![ys200209Image](https://avatars.githubusercontent.com/u/78247771?s=400&u=d5fe9c64a08f006b124f01760ee9e92c67a0404c&v=4) | ![operationFImage](https://avatars.githubusercontent.com/u/127175623?v=4) |
 
-- ### 개발 기간: 2023.03.08 ~ 현재
+- ### 개발 기간: 2023.03.08 ~ 2023.06.22
 - ### 주요 기능:
-  - ### `정종완`
+  - #### `정종완`
     - 영화 상세 정보 표시 기능
 
-  - ### `송지현`
+  - #### `송지현`
     - 메인 페이지
     - 댓글 신고 기능
 
-  - ### `이세영`
+  - #### `이세영`
     - 회원가입 기능
     - 비밀번호 변경 기능
 
-  - ### `이현지`
+  - #### `이현지`
     - 로그인 기능
     - 영화 댓글 작성 기능
     - 관리자 영화 추가 기능
@@ -67,7 +66,7 @@
 
 ## 패키지 구조
 - config
-- domain
+- domain (Entity, Repository)
   - comment
   - member
   - movie
@@ -79,7 +78,7 @@
   - movie
   - reservation
   - schedule
-- web
+- web (Controller, Dto)
   - member
   - movie
   - reservation
@@ -402,9 +401,4 @@ CREATE TABLE `movie_reservation_system`.`enrollment_seats`
     DEFAULT CHARACTER SET = utf8mb4;
 ```
 
-<br/>
-
-## API 설계
-
-![img.png](img.png)
 <br/>
